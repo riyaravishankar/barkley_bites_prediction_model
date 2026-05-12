@@ -218,6 +218,6 @@ python3 scripts/train_model.py      # rebuilds artifacts/*.pkl
 
 ## Credits
 
-Built by **Riya Ravishankar** (with Gauri's QR/video workstream).
+Built by **Riya Ravishankar**.
 DCP Phase 2 - Spring 2026 - FIX-IT-FIVE.
 Client: Barkley Bites - Founder & CEO Schuyler Ford.
