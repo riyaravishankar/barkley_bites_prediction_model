@@ -1,0 +1,16 @@
+Model: XGBoost trained on 500,000 samples
+
+                   precision    recall  f1-score   support
+
+         BIRTHDAY      0.949     0.951     0.950     10196
+       FIRST_TIME      0.958     0.904     0.930      5324
+        NEW_PUPPY      0.960     0.935     0.948      8176
+         PET_LOSS      0.855     0.884     0.870      5319
+        RE_ENGAGE      0.957     0.918     0.937     13011
+SENIOR_TRANSITION      0.568     0.930     0.705      7269
+           STABLE      0.960     0.883     0.920     43427
+     TRAVEL_PAUSE      0.964     0.926     0.944      7278
+
+         accuracy                          0.906    100000
+        macro avg      0.897     0.916     0.901    100000
+     weighted avg      0.925     0.906     0.912    100000

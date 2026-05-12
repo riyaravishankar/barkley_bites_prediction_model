@@ -1,0 +1,1003 @@
+pet_id,customer_id,pet_name,breed,size,age_years,life_stage,weight_lbs,allergy,activity_level,birthday_month,birthday_day
+PET0001,C0001,Pepper,French Bulldog,small,1.1,adult,24.1,,low,12,6
+PET0002,C0002,Murphy,Pembroke Welsh Corgi,small,2.6,adult,25.9,grain,high,4,26
+PET0003,C0003,Murphy,French Bulldog,small,2.0,adult,25.6,,medium,5,16
+PET0004,C0004,Lola,Mixed Breed,medium,0.6,puppy,64.4,,high,1,13
+PET0005,C0005,Maggie,Labrador,large,16.0,senior,61.2,,medium,2,13
+PET0006,C0006,Ruby,French Bulldog,small,1.0,adult,20.7,,medium,3,1
+PET0007,C0007,Bear,Labrador,large,15.1,senior,65.0,,high,8,22
+PET0008,C0008,Oliver,Dachshund,small,2.4,adult,22.3,chicken,medium,3,27
+PET0009,C0009,Tucker,Australian Shepherd,medium,9.2,senior,59.8,dairy,medium,10,12
+PET0010,C0009,Sophie,Mixed Breed,medium,5.1,adult,45.6,dairy,medium,7,26
+PET0011,C0010,Olive,Beagle,small,0.3,puppy,29.2,,medium,5,14
+PET0012,C0011,Bailey,Poodle,medium,7.6,senior,57.7,,medium,9,8
+PET0013,C0012,Pickles,Poodle,medium,7.0,senior,67.8,chicken,medium,11,3
+PET0014,C0012,Pepper,Pembroke Welsh Corgi,small,0.2,puppy,24.4,,high,8,3
+PET0015,C0013,Oliver,Mixed Breed,medium,8.6,senior,20.7,,high,1,15
+PET0016,C0014,Stella,Australian Shepherd,medium,6.6,adult,56.5,,high,2,8
+PET0017,C0015,Pickles,Australian Shepherd,medium,8.6,senior,47.7,,medium,2,13
+PET0018,C0016,Pickles,Beagle,small,2.0,adult,20.8,,medium,6,2
+PET0019,C0016,Mochi,French Bulldog,small,1.2,adult,20.8,,high,7,27
+PET0020,C0017,Cooper,Rottweiler,large,2.7,adult,107.4,,low,3,21
+PET0021,C0018,Penny,Australian Shepherd,medium,7.0,senior,51.3,,medium,4,18
+PET0022,C0019,Cooper,Pembroke Welsh Corgi,small,2.5,adult,28.4,,medium,5,9
+PET0023,C0020,Buddy,Poodle,medium,6.8,adult,52.1,chicken,medium,2,22
+PET0024,C0021,Scout,French Bulldog,small,7.9,senior,18.0,,medium,12,11
+PET0025,C0022,Pickles,Labrador,large,9.1,senior,77.7,,medium,6,16
+PET0026,C0022,Lucy,Mixed Breed,medium,5.4,adult,25.8,grain,high,9,24
+PET0027,C0023,Scout,Labrador,large,7.6,senior,62.0,grain,high,9,21
+PET0028,C0024,Charlie,Dachshund,small,3.7,adult,17.7,,medium,9,3
+PET0029,C0025,Banjo,Labrador,large,1.5,adult,74.2,,high,2,16
+PET0030,C0026,Luna,Shih Tzu,small,1.5,adult,13.5,,medium,5,14
+PET0031,C0027,Daisy,German Shorthaired Pointer,large,2.5,adult,54.9,,low,4,21
+PET0032,C0028,Charlie,German Shepherd,large,9.4,senior,58.9,,medium,5,10
+PET0033,C0029,Bella,German Shepherd,large,6.8,adult,69.2,,medium,8,11
+PET0034,C0030,Lola,French Bulldog,small,2.2,adult,25.6,,medium,1,8
+PET0035,C0030,Buddy,Labrador,large,5.6,adult,64.6,,low,7,21
+PET0036,C0031,Tucker,Australian Shepherd,medium,9.3,senior,56.0,,medium,5,4
+PET0037,C0032,Daisy,Shih Tzu,small,0.4,puppy,13.2,,low,11,4
+PET0038,C0033,Ruby,Pembroke Welsh Corgi,small,14.2,senior,26.8,,low,12,26
+PET0039,C0033,Bella,Rottweiler,large,15.5,senior,108.1,,low,10,12
+PET0040,C0034,Lily,Mixed Breed,medium,0.2,puppy,35.8,,high,8,8
+PET0041,C0035,Waffles,Labrador,large,6.8,adult,63.4,,medium,9,14
+PET0042,C0035,Mochi,French Bulldog,small,6.6,adult,18.1,,medium,6,1
+PET0043,C0036,Riley,Beagle,small,4.8,adult,20.8,,high,2,14
+PET0044,C0036,Charlie,Beagle,small,1.2,adult,20.4,,medium,5,16
+PET0045,C0037,Beans,Boxer,large,3.5,adult,55.9,,high,11,26
+PET0046,C0038,Beans,Labrador,large,6.9,adult,78.0,,low,2,26
+PET0047,C0039,Biscuit,Boxer,large,7.6,senior,61.9,,high,8,13
+PET0048,C0040,Pickles,Yorkshire Terrier,small,10.4,senior,4.7,,medium,4,24
+PET0049,C0040,Max,Yorkshire Terrier,small,0.6,puppy,6.4,,medium,11,21
+PET0050,C0041,Bella,German Shepherd,large,9.1,senior,80.5,chicken,low,3,12
+PET0051,C0042,Scout,Labrador,large,2.7,adult,79.8,dairy,medium,4,20
+PET0052,C0043,Pepper,Mixed Breed,medium,1.3,adult,48.9,,medium,4,20
+PET0053,C0044,Lola,Poodle,medium,2.6,adult,44.4,,low,4,5
+PET0054,C0045,Bella,Rottweiler,large,7.6,senior,96.3,,low,7,15
+PET0055,C0046,Max,Boxer,large,6.7,adult,76.7,,low,8,9
+PET0056,C0046,Banjo,Golden Retriever,large,3.2,adult,55.7,,medium,10,15
+PET0057,C0047,Duke,Bulldog,medium,2.9,adult,45.2,,low,4,23
+PET0058,C0047,Scout,Mixed Breed,medium,0.3,puppy,47.3,,medium,12,22
+PET0059,C0048,Maggie,Australian Shepherd,medium,3.1,adult,50.9,,low,4,12
+PET0060,C0049,Max,German Shorthaired Pointer,large,3.1,adult,66.2,,medium,5,25
+PET0061,C0050,Waffles,Golden Retriever,large,3.7,adult,63.1,,medium,6,21
+PET0062,C0051,Finn,Poodle,medium,0.7,puppy,62.6,chicken,medium,1,11
+PET0063,C0052,Lucy,Bulldog,medium,6.5,adult,41.3,,medium,9,19
+PET0064,C0053,Milo,Mixed Breed,medium,4.3,adult,54.9,,medium,1,15
+PET0065,C0054,Milo,Australian Shepherd,medium,3.5,adult,44.9,,medium,5,10
+PET0066,C0055,Banjo,Pembroke Welsh Corgi,small,7.3,senior,26.5,,medium,3,26
+PET0067,C0055,Ruby,Labrador,large,7.4,senior,55.6,,low,10,1
+PET0068,C0056,Bailey,Poodle,medium,0.6,puppy,61.1,,medium,1,8
+PET0069,C0056,Bear,French Bulldog,small,7.0,senior,19.8,,medium,12,16
+PET0070,C0056,Beans,Labrador,large,4.9,adult,58.9,,medium,8,22
+PET0071,C0057,Banjo,Cavalier King Charles,small,7.3,senior,17.2,,low,8,1
+PET0072,C0058,Stella,Golden Retriever,large,1.6,adult,62.1,,medium,9,14
+PET0073,C0059,Penny,Golden Retriever,large,2.9,adult,68.6,chicken,medium,1,13
+PET0074,C0060,Duke,Australian Shepherd,medium,7.4,senior,59.5,,medium,4,24
+PET0075,C0060,Toby,Golden Retriever,large,0.6,puppy,65.4,,high,5,9
+PET0076,C0061,Rocky,Pembroke Welsh Corgi,small,4.6,adult,24.8,,medium,10,2
+PET0077,C0062,Riley,Golden Retriever,large,8.5,senior,67.1,chicken,high,11,9
+PET0078,C0063,Toby,Dachshund,small,7.0,senior,26.4,,low,3,6
+PET0079,C0064,Mochi,German Shorthaired Pointer,large,7.4,senior,51.8,,high,1,19
+PET0080,C0065,Olive,Labrador,large,11.7,senior,73.4,,low,6,4
+PET0081,C0066,Bailey,Pembroke Welsh Corgi,small,4.1,adult,24.0,,high,4,9
+PET0082,C0067,Tucker,Labrador,large,4.6,adult,79.4,chicken,medium,3,20
+PET0083,C0067,Jack,Australian Shepherd,medium,4.4,adult,50.9,,low,8,17
+PET0084,C0068,Rocky,German Shorthaired Pointer,large,8.0,senior,50.1,,high,4,15
+PET0085,C0069,Luna,German Shepherd,large,4.0,adult,62.5,,medium,7,10
+PET0086,C0070,Rocky,Poodle,medium,7.4,senior,48.5,,medium,6,1
+PET0087,C0070,Toby,Golden Retriever,large,3.6,adult,71.0,,high,1,22
+PET0088,C0071,Sophie,French Bulldog,small,0.9,puppy,22.1,,medium,6,26
+PET0089,C0071,Sophie,Bulldog,medium,0.4,puppy,44.2,,medium,10,25
+PET0090,C0072,Pepper,Dachshund,small,5.1,adult,23.5,chicken,medium,3,14
+PET0091,C0073,Biscuit,Poodle,medium,0.9,puppy,62.4,,high,3,3
+PET0092,C0074,Charlie,French Bulldog,small,5.0,adult,22.4,,medium,10,20
+PET0093,C0074,Bella,Shih Tzu,small,7.7,senior,14.5,,medium,10,7
+PET0094,C0075,Cooper,German Shepherd,large,0.9,puppy,57.7,,medium,9,22
+PET0095,C0076,Rocky,Mixed Breed,medium,3.3,adult,20.7,,medium,7,13
+PET0096,C0076,Pickles,Australian Shepherd,medium,0.7,puppy,52.2,,medium,5,2
+PET0097,C0077,Finn,Yorkshire Terrier,small,0.2,puppy,5.2,,high,10,10
+PET0098,C0078,Oliver,Rottweiler,large,7.1,senior,90.6,,low,6,19
+PET0099,C0079,Olive,Australian Shepherd,medium,5.7,adult,58.8,,medium,8,15
+PET0100,C0080,Milo,Labrador,large,4.9,adult,68.7,,low,1,21
+PET0101,C0081,Banjo,German Shepherd,large,6.3,adult,68.7,,low,1,7
+PET0102,C0082,Luna,French Bulldog,small,2.6,adult,18.7,,medium,5,11
+PET0103,C0083,Tucker,Golden Retriever,large,10.0,senior,71.9,,medium,9,7
+PET0104,C0084,Lily,Labrador,large,5.2,adult,77.1,,low,9,8
+PET0105,C0085,Olive,Golden Retriever,large,1.6,adult,72.0,,high,2,2
+PET0106,C0086,Biscuit,Mixed Breed,medium,4.5,adult,67.1,chicken,low,8,27
+PET0107,C0087,Duke,German Shepherd,large,3.4,adult,87.5,,high,1,9
+PET0108,C0088,Luna,Cavalier King Charles,small,4.4,adult,15.7,dairy,medium,5,9
+PET0109,C0089,Daisy,Cavalier King Charles,small,1.9,adult,16.1,,low,5,14
+PET0110,C0090,Duke,Mixed Breed,medium,5.0,adult,49.9,,high,5,21
+PET0111,C0091,Scout,Labrador,large,13.4,senior,60.1,,low,11,2
+PET0112,C0092,Olive,Mixed Breed,medium,4.1,adult,29.4,grain,medium,10,23
+PET0113,C0093,Luna,Cavalier King Charles,small,7.5,senior,17.7,,medium,12,21
+PET0114,C0094,Lucy,Labrador,large,2.0,adult,61.6,,high,4,23
+PET0115,C0095,Sadie,Yorkshire Terrier,small,0.9,puppy,4.7,,medium,5,3
+PET0116,C0095,Max,Boxer,large,7.9,senior,75.7,,medium,5,15
+PET0117,C0095,Lily,German Shepherd,large,5.9,adult,75.2,chicken,high,11,27
+PET0118,C0096,Murphy,Shih Tzu,small,5.9,adult,10.7,chicken,low,5,7
+PET0119,C0096,Ruby,German Shepherd,large,5.9,adult,77.9,,low,8,18
+PET0120,C0097,Toby,Golden Retriever,large,11.1,senior,65.2,beef,medium,10,19
+PET0121,C0098,Daisy,Mixed Breed,medium,3.7,adult,39.5,,medium,8,11
+PET0122,C0099,Jack,German Shepherd,large,11.8,senior,62.4,,high,4,22
+PET0123,C0099,Cooper,Cavalier King Charles,small,7.4,senior,15.3,,medium,2,24
+PET0124,C0100,Olive,Labrador,large,12.0,senior,72.3,,medium,10,22
+PET0125,C0100,Bailey,Labrador,large,0.8,puppy,72.6,,medium,2,20
+PET0126,C0101,Olive,French Bulldog,small,12.6,senior,22.5,,medium,6,3
+PET0127,C0102,Sophie,Mixed Breed,medium,5.5,adult,52.1,grain,low,11,22
+PET0128,C0103,Scout,French Bulldog,small,8.6,senior,27.2,,low,11,7
+PET0129,C0104,Oliver,Mixed Breed,medium,2.2,adult,64.2,chicken,low,1,15
+PET0130,C0105,Sophie,Dachshund,small,11.4,senior,28.4,chicken,medium,12,17
+PET0131,C0106,Buddy,Mixed Breed,medium,6.6,adult,40.8,,medium,5,8
+PET0132,C0107,Rocky,French Bulldog,small,0.9,puppy,23.3,,low,5,12
+PET0133,C0107,Waffles,French Bulldog,small,3.6,adult,20.2,dairy,medium,4,13
+PET0134,C0108,Penny,Labrador,large,3.4,adult,58.7,,high,8,23
+PET0135,C0109,Charlie,Boxer,large,8.1,senior,64.4,,medium,8,3
+PET0136,C0110,Milo,Labrador,large,11.5,senior,66.0,,medium,7,10
+PET0137,C0111,Finn,German Shepherd,large,3.2,adult,89.7,,low,7,7
+PET0138,C0112,Tucker,Yorkshire Terrier,small,2.0,adult,4.0,,medium,9,12
+PET0139,C0113,Daisy,Boxer,large,8.6,senior,59.8,,medium,8,13
+PET0140,C0114,Oliver,Cavalier King Charles,small,3.7,adult,16.7,,high,6,4
+PET0141,C0114,Roxy,Mixed Breed,medium,5.1,adult,26.6,,low,3,3
+PET0142,C0115,Beans,Boxer,large,5.3,adult,77.8,,medium,9,6
+PET0143,C0116,Roxy,Cavalier King Charles,small,7.0,senior,17.2,,low,9,9
+PET0144,C0117,Toby,Beagle,small,4.1,adult,25.9,,medium,10,18
+PET0145,C0118,Sadie,German Shepherd,large,2.7,adult,62.0,,low,11,13
+PET0146,C0119,Max,Dachshund,small,2.5,adult,28.6,,low,12,25
+PET0147,C0119,Duke,Pembroke Welsh Corgi,small,10.7,senior,27.6,,medium,2,13
+PET0148,C0120,Gus,Yorkshire Terrier,small,7.0,senior,5.9,,medium,4,10
+PET0149,C0121,Pickles,Labrador,large,1.5,adult,78.2,,medium,11,2
+PET0150,C0122,Tucker,German Shepherd,large,7.9,senior,82.1,,low,11,12
+PET0151,C0123,Penny,Cavalier King Charles,small,11.1,senior,16.9,,medium,5,8
+PET0152,C0124,Pepper,Poodle,medium,3.0,adult,40.6,,medium,9,17
+PET0153,C0124,Sophie,Golden Retriever,large,4.2,adult,68.4,,medium,1,6
+PET0154,C0125,Finn,German Shepherd,large,4.6,adult,88.2,,medium,10,17
+PET0155,C0126,Lucy,Mixed Breed,medium,8.2,senior,35.6,,low,5,9
+PET0156,C0127,Murphy,Mixed Breed,medium,11.3,senior,69.2,,medium,6,12
+PET0157,C0128,Sophie,Golden Retriever,large,7.2,senior,64.0,,low,8,22
+PET0158,C0129,Rocky,Australian Shepherd,medium,8.5,senior,54.4,,high,10,27
+PET0159,C0130,Beans,French Bulldog,small,0.9,puppy,22.0,,high,7,4
+PET0160,C0131,Maggie,Pembroke Welsh Corgi,small,2.0,adult,23.5,,medium,5,7
+PET0161,C0132,Bailey,Labrador,large,5.5,adult,67.3,,medium,9,21
+PET0162,C0132,Daisy,Rottweiler,large,12.7,senior,97.8,chicken,low,11,18
+PET0163,C0133,Rocky,Shih Tzu,small,13.9,senior,12.9,,low,11,5
+PET0164,C0134,Duke,French Bulldog,small,5.5,adult,18.9,,low,11,16
+PET0165,C0135,Ruby,Pembroke Welsh Corgi,small,0.8,puppy,29.0,,medium,6,26
+PET0166,C0135,Sophie,Cavalier King Charles,small,5.9,adult,16.9,,low,5,10
+PET0167,C0136,Ruby,Bulldog,medium,6.8,adult,45.8,,high,1,22
+PET0168,C0137,Sophie,German Shepherd,large,1.6,adult,83.2,,low,1,6
+PET0169,C0138,Sadie,Bulldog,medium,7.5,senior,48.1,,medium,1,21
+PET0170,C0139,Riley,French Bulldog,small,6.8,adult,18.8,,medium,5,26
+PET0171,C0140,Milo,Labrador,large,5.3,adult,72.9,chicken,low,5,12
+PET0172,C0141,Rocky,Pembroke Welsh Corgi,small,4.9,adult,23.9,,high,12,8
+PET0173,C0142,Bella,Poodle,medium,12.0,senior,56.1,,low,5,7
+PET0174,C0143,Jack,Boxer,large,3.7,adult,62.6,,high,3,22
+PET0175,C0144,Gus,Mixed Breed,medium,2.5,adult,22.5,,medium,9,16
+PET0176,C0145,Riley,Australian Shepherd,medium,0.7,puppy,56.9,,medium,11,13
+PET0177,C0146,Duke,French Bulldog,small,5.6,adult,22.3,,medium,9,5
+PET0178,C0147,Milo,Labrador,large,3.7,adult,69.0,,medium,4,4
+PET0179,C0147,Buddy,Golden Retriever,large,6.4,adult,63.8,chicken,medium,11,10
+PET0180,C0148,Rocky,Dachshund,small,3.7,adult,27.0,beef,low,3,15
+PET0181,C0149,Lucy,Bulldog,medium,7.7,senior,48.0,,medium,7,9
+PET0182,C0150,Finn,Labrador,large,2.1,adult,56.9,,high,6,13
+PET0183,C0151,Gus,Golden Retriever,large,2.3,adult,73.5,,medium,5,5
+PET0184,C0152,Pepper,Australian Shepherd,medium,2.3,adult,59.5,,low,10,12
+PET0185,C0152,Pepper,German Shepherd,large,4.4,adult,73.7,,medium,5,16
+PET0186,C0153,Waffles,French Bulldog,small,4.8,adult,19.6,,medium,4,21
+PET0187,C0154,Lola,French Bulldog,small,1.5,adult,21.3,,high,5,3
+PET0188,C0155,Milo,Pembroke Welsh Corgi,small,0.2,puppy,23.7,,medium,7,20
+PET0189,C0156,Max,Australian Shepherd,medium,2.1,adult,44.3,,medium,5,16
+PET0190,C0157,Rocky,Golden Retriever,large,1.7,adult,57.4,grain,high,9,20
+PET0191,C0157,Penny,German Shorthaired Pointer,large,1.8,adult,54.9,,medium,5,22
+PET0192,C0158,Pepper,Golden Retriever,large,8.3,senior,60.8,,medium,4,10
+PET0193,C0159,Rocky,German Shepherd,large,13.5,senior,84.8,,high,11,24
+PET0194,C0160,Roxy,Rottweiler,large,2.3,adult,92.7,,low,10,11
+PET0195,C0160,Roxy,Mixed Breed,medium,2.9,adult,62.3,,medium,1,22
+PET0196,C0161,Sadie,Pembroke Welsh Corgi,small,1.1,adult,28.1,,medium,8,1
+PET0197,C0162,Sophie,Australian Shepherd,medium,0.6,puppy,41.5,grain,high,11,27
+PET0198,C0163,Bella,German Shepherd,large,7.8,senior,71.3,chicken,medium,4,7
+PET0199,C0164,Maggie,Poodle,medium,4.6,adult,45.2,,medium,2,15
+PET0200,C0165,Lola,Rottweiler,large,7.4,senior,84.5,,medium,10,12
+PET0201,C0165,Sophie,Labrador,large,1.2,adult,70.4,,medium,11,16
+PET0202,C0166,Rocky,German Shorthaired Pointer,large,8.2,senior,59.8,grain,medium,5,15
+PET0203,C0167,Pepper,Labrador,large,4.5,adult,77.4,,medium,11,1
+PET0204,C0168,Bailey,German Shepherd,large,10.5,senior,78.3,,low,8,23
+PET0205,C0169,Olive,Labrador,large,5.5,adult,75.7,,medium,5,7
+PET0206,C0170,Banjo,Mixed Breed,medium,0.8,puppy,35.9,,high,8,16
+PET0207,C0171,Cooper,Dachshund,small,0.5,puppy,25.3,,medium,9,7
+PET0208,C0172,Sophie,Bulldog,medium,7.6,senior,40.3,,medium,5,13
+PET0209,C0172,Cooper,Boxer,large,11.1,senior,53.8,,low,10,23
+PET0210,C0173,Buddy,Beagle,small,5.4,adult,22.3,,high,6,2
+PET0211,C0174,Duke,Pembroke Welsh Corgi,small,2.4,adult,24.5,,high,8,8
+PET0212,C0175,Jack,Australian Shepherd,medium,10.9,senior,44.7,,medium,11,19
+PET0213,C0176,Duke,French Bulldog,small,1.6,adult,18.6,,medium,9,20
+PET0214,C0176,Pickles,German Shorthaired Pointer,large,11.0,senior,55.3,,medium,7,18
+PET0215,C0177,Ruby,Mixed Breed,medium,3.1,adult,23.1,,medium,3,17
+PET0216,C0178,Daisy,Labrador,large,5.8,adult,70.3,,medium,10,6
+PET0217,C0179,Cooper,Poodle,medium,4.7,adult,44.1,,low,9,7
+PET0218,C0180,Finn,Labrador,large,3.6,adult,71.9,grain,medium,4,1
+PET0219,C0181,Duke,German Shepherd,large,0.7,puppy,59.1,,medium,4,27
+PET0220,C0182,Lola,Dachshund,small,3.9,adult,24.9,,medium,5,17
+PET0221,C0183,Jack,German Shepherd,large,3.9,adult,72.6,,medium,2,12
+PET0222,C0184,Biscuit,German Shepherd,large,2.3,adult,66.3,,medium,6,6
+PET0223,C0184,Daisy,Dachshund,small,3.0,adult,23.5,,high,5,7
+PET0224,C0185,Riley,Cavalier King Charles,small,3.1,adult,15.2,,medium,6,18
+PET0225,C0186,Stella,Mixed Breed,medium,8.1,senior,30.8,,low,10,11
+PET0226,C0187,Bailey,Rottweiler,large,9.5,senior,121.3,,medium,9,21
+PET0227,C0187,Pickles,Poodle,medium,3.2,adult,56.2,,low,7,17
+PET0228,C0188,Roxy,Labrador,large,5.3,adult,68.1,,medium,7,27
+PET0229,C0189,Beans,Labrador,large,3.0,adult,64.7,chicken,medium,3,3
+PET0230,C0190,Bear,Boxer,large,4.8,adult,52.1,,medium,9,14
+PET0231,C0191,Mochi,French Bulldog,small,1.9,adult,18.4,,medium,5,11
+PET0232,C0191,Milo,French Bulldog,small,3.4,adult,19.3,grain,low,9,23
+PET0233,C0192,Buddy,Pembroke Welsh Corgi,small,0.9,puppy,23.1,,medium,2,27
+PET0234,C0192,Jack,French Bulldog,small,9.6,senior,22.9,,low,1,4
+PET0235,C0192,Bella,Labrador,large,10.8,senior,78.9,,medium,7,13
+PET0236,C0193,Toby,French Bulldog,small,6.6,adult,23.5,,high,2,15
+PET0237,C0194,Oliver,Yorkshire Terrier,small,0.2,puppy,4.7,,high,12,24
+PET0238,C0195,Beans,Poodle,medium,3.1,adult,52.6,,high,5,15
+PET0239,C0196,Sophie,French Bulldog,small,7.5,senior,19.4,,medium,7,22
+PET0240,C0196,Oliver,French Bulldog,small,7.1,senior,25.3,,medium,5,25
+PET0241,C0197,Gus,German Shepherd,large,0.9,puppy,75.6,,medium,1,21
+PET0242,C0198,Oliver,Rottweiler,large,2.4,adult,90.5,,low,10,7
+PET0243,C0199,Finn,Rottweiler,large,0.4,puppy,119.8,,medium,1,23
+PET0244,C0199,Roxy,German Shepherd,large,0.6,puppy,57.1,,low,10,18
+PET0245,C0200,Buddy,Mixed Breed,medium,3.8,adult,25.2,grain,low,3,18
+PET0246,C0201,Jack,German Shepherd,large,4.2,adult,63.9,,medium,1,11
+PET0247,C0202,Sadie,German Shepherd,large,9.7,senior,65.4,,medium,1,2
+PET0248,C0203,Roxy,Cavalier King Charles,small,6.5,adult,15.2,,medium,6,9
+PET0249,C0204,Bear,French Bulldog,small,5.0,adult,20.8,,high,4,8
+PET0250,C0205,Biscuit,Cavalier King Charles,small,1.7,adult,13.1,,high,7,5
+PET0251,C0206,Sadie,German Shorthaired Pointer,large,6.5,adult,63.0,,high,9,21
+PET0252,C0207,Lucy,Mixed Breed,medium,5.4,adult,30.5,,medium,12,24
+PET0253,C0208,Toby,Beagle,small,6.5,adult,28.0,chicken,medium,5,23
+PET0254,C0209,Sadie,Labrador,large,5.4,adult,56.4,,high,10,7
+PET0255,C0210,Maggie,Australian Shepherd,medium,2.2,adult,47.8,,medium,12,19
+PET0256,C0211,Pickles,Mixed Breed,medium,3.7,adult,61.3,,medium,3,23
+PET0257,C0212,Olive,German Shorthaired Pointer,large,4.2,adult,67.6,,high,5,15
+PET0258,C0213,Bailey,Shih Tzu,small,7.7,senior,15.0,,medium,9,6
+PET0259,C0213,Sadie,Pembroke Welsh Corgi,small,5.3,adult,26.0,,medium,5,17
+PET0260,C0214,Sophie,Labrador,large,6.0,adult,66.1,grain,low,11,8
+PET0261,C0215,Duke,Golden Retriever,large,7.1,senior,67.0,grain,medium,3,22
+PET0262,C0215,Toby,Golden Retriever,large,6.9,adult,74.2,,low,7,9
+PET0263,C0216,Riley,German Shorthaired Pointer,large,1.8,adult,52.7,,medium,3,20
+PET0264,C0216,Zoe,Mixed Breed,medium,12.6,senior,43.4,,high,5,8
+PET0265,C0217,Olive,Dachshund,small,0.2,puppy,21.6,,low,3,15
+PET0266,C0218,Bear,Labrador,large,1.8,adult,69.6,,high,1,2
+PET0267,C0218,Murphy,German Shepherd,large,1.6,adult,70.4,,medium,9,6
+PET0268,C0219,Scout,Poodle,medium,1.8,adult,53.5,,medium,4,21
+PET0269,C0220,Lucy,Cavalier King Charles,small,0.5,puppy,13.2,,medium,6,17
+PET0270,C0221,Pepper,Poodle,medium,6.2,adult,50.4,chicken,medium,9,2
+PET0271,C0221,Max,French Bulldog,small,2.8,adult,18.7,,high,1,1
+PET0272,C0221,Mochi,Labrador,large,6.7,adult,63.7,,medium,12,10
+PET0273,C0222,Lily,French Bulldog,small,4.4,adult,21.4,,medium,5,5
+PET0274,C0223,Gus,Shih Tzu,small,7.0,senior,14.4,,high,8,18
+PET0275,C0223,Maggie,Mixed Breed,medium,2.6,adult,69.6,,low,5,26
+PET0276,C0224,Daisy,French Bulldog,small,0.9,puppy,20.3,,medium,8,27
+PET0277,C0225,Lola,Golden Retriever,large,2.7,adult,58.7,,medium,3,22
+PET0278,C0226,Pickles,Cavalier King Charles,small,2.7,adult,15.7,,medium,2,23
+PET0279,C0226,Buddy,Mixed Breed,medium,9.4,senior,65.8,,medium,5,9
+PET0280,C0226,Jack,French Bulldog,small,1.8,adult,18.4,,low,1,19
+PET0281,C0227,Bailey,Australian Shepherd,medium,4.2,adult,45.3,dairy,medium,1,25
+PET0282,C0228,Stella,Mixed Breed,medium,2.0,adult,45.2,,high,7,19
+PET0283,C0228,Ruby,Pembroke Welsh Corgi,small,4.0,adult,27.2,,medium,5,26
+PET0284,C0229,Finn,German Shepherd,large,1.6,adult,56.4,,high,12,27
+PET0285,C0230,Sophie,French Bulldog,small,3.6,adult,19.4,,low,7,6
+PET0286,C0231,Daisy,Yorkshire Terrier,small,7.1,senior,5.9,,low,9,9
+PET0287,C0232,Gus,Mixed Breed,medium,9.7,senior,36.7,,medium,7,10
+PET0288,C0232,Roxy,Labrador,large,6.5,adult,75.4,,low,10,19
+PET0289,C0233,Biscuit,Golden Retriever,large,6.7,adult,62.3,,low,11,18
+PET0290,C0234,Murphy,German Shepherd,large,12.5,senior,69.5,,medium,10,1
+PET0291,C0235,Toby,Australian Shepherd,medium,2.8,adult,53.6,,medium,8,5
+PET0292,C0235,Scout,Boxer,large,4.0,adult,57.4,,medium,5,7
+PET0293,C0236,Waffles,Rottweiler,large,2.3,adult,94.1,dairy,medium,4,5
+PET0294,C0237,Lola,Labrador,large,7.9,senior,57.9,grain,medium,11,12
+PET0295,C0238,Scout,Golden Retriever,large,1.3,adult,73.4,,medium,12,17
+PET0296,C0239,Luna,Bulldog,medium,4.2,adult,49.1,,medium,1,24
+PET0297,C0240,Riley,Poodle,medium,3.6,adult,68.2,,medium,8,22
+PET0298,C0241,Scout,French Bulldog,small,8.8,senior,24.7,,medium,5,10
+PET0299,C0242,Roxy,Labrador,large,7.7,senior,62.3,,medium,3,20
+PET0300,C0243,Rocky,Poodle,medium,12.2,senior,64.2,,high,1,13
+PET0301,C0244,Milo,Pembroke Welsh Corgi,small,5.2,adult,22.4,chicken,medium,1,16
+PET0302,C0245,Bailey,Labrador,large,15.2,senior,70.0,,medium,4,14
+PET0303,C0246,Penny,German Shepherd,large,3.1,adult,59.2,,high,5,19
+PET0304,C0247,Cooper,Rottweiler,large,6.9,adult,90.3,,low,7,27
+PET0305,C0248,Beans,Golden Retriever,large,6.7,adult,57.4,chicken,medium,8,21
+PET0306,C0249,Luna,Pembroke Welsh Corgi,small,7.6,senior,27.9,,medium,10,12
+PET0307,C0249,Olive,Labrador,large,5.0,adult,57.5,,high,1,12
+PET0308,C0250,Toby,Labrador,large,2.4,adult,72.8,,medium,3,2
+PET0309,C0251,Oliver,Australian Shepherd,medium,3.2,adult,40.6,,medium,5,10
+PET0310,C0252,Finn,Australian Shepherd,medium,7.4,senior,46.4,,medium,6,18
+PET0311,C0253,Milo,Rottweiler,large,6.8,adult,105.1,,medium,6,12
+PET0312,C0254,Bella,Shih Tzu,small,4.2,adult,9.3,,low,3,10
+PET0313,C0255,Milo,German Shepherd,large,3.2,adult,71.6,,medium,4,12
+PET0314,C0256,Stella,Labrador,large,2.5,adult,74.2,grain,low,2,25
+PET0315,C0257,Tucker,Boxer,large,9.7,senior,62.7,chicken,medium,6,18
+PET0316,C0258,Waffles,German Shepherd,large,4.1,adult,67.8,dairy,high,10,26
+PET0317,C0259,Banjo,Dachshund,small,2.1,adult,23.3,,medium,6,16
+PET0318,C0259,Pepper,German Shepherd,large,8.8,senior,57.0,,high,5,26
+PET0319,C0260,Murphy,Golden Retriever,large,8.5,senior,65.3,chicken,high,5,22
+PET0320,C0261,Olive,French Bulldog,small,3.5,adult,26.5,,low,12,9
+PET0321,C0262,Tucker,Shih Tzu,small,7.6,senior,9.9,,low,7,8
+PET0322,C0263,Gus,Golden Retriever,large,5.7,adult,58.1,,low,12,26
+PET0323,C0264,Riley,Mixed Breed,medium,1.2,adult,62.4,,high,4,8
+PET0324,C0264,Toby,Rottweiler,large,3.8,adult,81.7,,high,1,9
+PET0325,C0265,Mochi,Mixed Breed,medium,9.5,senior,66.8,,high,10,14
+PET0326,C0266,Murphy,Poodle,medium,3.6,adult,46.5,,high,3,10
+PET0327,C0267,Waffles,Golden Retriever,large,2.5,adult,59.1,,high,8,4
+PET0328,C0268,Ruby,German Shepherd,large,6.8,adult,70.2,,low,3,25
+PET0329,C0268,Penny,German Shepherd,large,3.1,adult,70.6,,low,12,20
+PET0330,C0268,Max,Golden Retriever,large,11.0,senior,58.4,,medium,11,24
+PET0331,C0269,Biscuit,Mixed Breed,medium,5.8,adult,41.0,,medium,7,23
+PET0332,C0270,Milo,Pembroke Welsh Corgi,small,0.6,puppy,22.3,,high,3,11
+PET0333,C0271,Maggie,Mixed Breed,medium,7.1,senior,63.2,,medium,12,4
+PET0334,C0272,Lola,Pembroke Welsh Corgi,small,12.3,senior,30.0,,low,5,24
+PET0335,C0273,Rocky,Shih Tzu,small,3.2,adult,14.8,,medium,5,13
+PET0336,C0274,Zoe,German Shorthaired Pointer,large,3.5,adult,49.4,,medium,3,13
+PET0337,C0274,Ruby,Labrador,large,9.5,senior,66.4,,low,10,10
+PET0338,C0275,Penny,German Shepherd,large,3.5,adult,73.3,beef,medium,5,17
+PET0339,C0276,Jack,Yorkshire Terrier,small,4.5,adult,5.3,dairy,low,8,1
+PET0340,C0277,Oliver,Cavalier King Charles,small,0.3,puppy,14.3,,high,7,26
+PET0341,C0278,Mochi,Mixed Breed,medium,5.0,adult,33.1,,medium,9,19
+PET0342,C0279,Lily,Mixed Breed,medium,3.0,adult,48.9,chicken,medium,6,13
+PET0343,C0280,Banjo,German Shepherd,large,4.0,adult,88.1,,medium,7,9
+PET0344,C0281,Biscuit,Cavalier King Charles,small,3.2,adult,13.5,,high,4,9
+PET0345,C0282,Penny,Golden Retriever,large,13.7,senior,74.9,,medium,1,7
+PET0346,C0283,Biscuit,Labrador,large,3.4,adult,76.3,,medium,9,4
+PET0347,C0284,Milo,Pembroke Welsh Corgi,small,5.7,adult,25.0,,low,1,1
+PET0348,C0285,Gus,Poodle,medium,4.8,adult,54.5,,medium,5,8
+PET0349,C0286,Gus,Golden Retriever,large,0.2,puppy,55.2,,medium,2,16
+PET0350,C0286,Sadie,Mixed Breed,medium,1.3,adult,63.2,grain,high,6,2
+PET0351,C0287,Daisy,French Bulldog,small,2.4,adult,27.7,,low,12,4
+PET0352,C0288,Jack,German Shepherd,large,3.2,adult,63.1,dairy,low,7,25
+PET0353,C0288,Luna,French Bulldog,small,2.7,adult,25.1,dairy,medium,2,10
+PET0354,C0289,Zoe,German Shorthaired Pointer,large,3.5,adult,66.2,,medium,2,6
+PET0355,C0290,Max,Mixed Breed,medium,10.6,senior,39.8,,high,5,9
+PET0356,C0291,Oliver,Mixed Breed,medium,2.7,adult,44.2,,medium,2,4
+PET0357,C0292,Milo,Pembroke Welsh Corgi,small,6.0,adult,28.1,,low,3,21
+PET0358,C0293,Cooper,Mixed Breed,medium,2.0,adult,58.9,,high,11,6
+PET0359,C0294,Bailey,German Shepherd,large,2.4,adult,79.6,chicken,medium,11,27
+PET0360,C0295,Banjo,Golden Retriever,large,3.1,adult,69.5,,high,9,25
+PET0361,C0296,Lucy,Dachshund,small,8.3,senior,18.5,,medium,3,3
+PET0362,C0297,Pepper,Beagle,small,2.6,adult,27.1,,low,7,13
+PET0363,C0298,Cooper,Labrador,large,6.8,adult,63.1,,medium,7,7
+PET0364,C0299,Oliver,Shih Tzu,small,3.1,adult,14.7,,low,12,17
+PET0365,C0299,Pepper,Boxer,large,5.9,adult,69.4,,medium,7,18
+PET0366,C0300,Finn,French Bulldog,small,1.1,adult,19.3,,medium,1,16
+PET0367,C0301,Mochi,Labrador,large,3.2,adult,68.2,,low,7,21
+PET0368,C0302,Tucker,Australian Shepherd,medium,1.6,adult,45.5,,high,11,6
+PET0369,C0303,Toby,Boxer,large,9.1,senior,63.6,,medium,6,26
+PET0370,C0304,Lucy,Mixed Breed,medium,2.4,adult,21.2,,medium,5,7
+PET0371,C0305,Lucy,Mixed Breed,medium,2.3,adult,61.1,,medium,3,3
+PET0372,C0305,Finn,German Shorthaired Pointer,large,7.4,senior,65.7,,medium,5,9
+PET0373,C0305,Toby,Poodle,medium,4.5,adult,67.9,,medium,6,21
+PET0374,C0306,Max,Mixed Breed,medium,3.7,adult,54.1,,medium,12,26
+PET0375,C0307,Beans,Labrador,large,0.6,puppy,56.0,,high,8,16
+PET0376,C0308,Bear,French Bulldog,small,8.8,senior,22.2,,high,8,1
+PET0377,C0309,Gus,Labrador,large,6.7,adult,77.8,,medium,4,8
+PET0378,C0310,Murphy,Poodle,medium,7.0,senior,62.7,,low,4,13
+PET0379,C0310,Finn,Labrador,large,0.8,puppy,69.7,,low,12,16
+PET0380,C0311,Sophie,Cavalier King Charles,small,1.9,adult,14.4,grain,medium,12,8
+PET0381,C0312,Bella,German Shorthaired Pointer,large,1.6,adult,53.8,chicken,medium,5,27
+PET0382,C0313,Lily,Dachshund,small,7.0,senior,28.5,,high,12,22
+PET0383,C0313,Lily,Australian Shepherd,medium,10.2,senior,47.2,,medium,1,21
+PET0384,C0313,Duke,French Bulldog,small,1.9,adult,19.8,,medium,10,13
+PET0385,C0314,Daisy,Labrador,large,5.8,adult,67.5,,low,1,19
+PET0386,C0315,Olive,Labrador,large,8.1,senior,62.7,,medium,10,11
+PET0387,C0316,Milo,Golden Retriever,large,12.5,senior,66.3,,high,7,17
+PET0388,C0317,Scout,Labrador,large,7.4,senior,79.2,,high,12,13
+PET0389,C0317,Lucy,Golden Retriever,large,5.7,adult,61.1,chicken,low,10,19
+PET0390,C0318,Riley,Labrador,large,6.0,adult,57.4,,high,5,18
+PET0391,C0318,Sadie,German Shepherd,large,2.4,adult,73.8,,medium,7,15
+PET0392,C0319,Bear,French Bulldog,small,8.7,senior,26.3,,low,5,8
+PET0393,C0320,Mochi,Mixed Breed,medium,4.4,adult,54.3,,medium,3,9
+PET0394,C0321,Zoe,Mixed Breed,medium,11.6,senior,41.9,,medium,10,10
+PET0395,C0321,Stella,Mixed Breed,medium,7.5,senior,32.0,,medium,2,9
+PET0396,C0322,Pickles,French Bulldog,small,3.5,adult,25.9,,medium,2,25
+PET0397,C0323,Banjo,Mixed Breed,medium,2.2,adult,69.0,,low,5,8
+PET0398,C0324,Sadie,Mixed Breed,medium,12.9,senior,24.2,,medium,5,13
+PET0399,C0325,Roxy,Labrador,large,2.5,adult,57.5,,high,5,10
+PET0400,C0325,Sophie,German Shepherd,large,4.9,adult,60.8,,high,9,2
+PET0401,C0325,Beans,French Bulldog,small,5.1,adult,19.2,,high,2,13
+PET0402,C0326,Toby,Poodle,medium,8.9,senior,50.8,,low,5,6
+PET0403,C0326,Murphy,Beagle,small,8.4,senior,24.7,,medium,11,26
+PET0404,C0327,Zoe,Cavalier King Charles,small,2.3,adult,13.8,,low,12,22
+PET0405,C0327,Penny,Golden Retriever,large,8.0,senior,61.9,,medium,2,25
+PET0406,C0328,Penny,Labrador,large,7.7,senior,55.5,,high,10,27
+PET0407,C0328,Mochi,Bulldog,medium,10.0,senior,40.1,,medium,3,5
+PET0408,C0329,Beans,Golden Retriever,large,6.0,adult,59.7,,high,5,15
+PET0409,C0330,Lucy,Shih Tzu,small,10.1,senior,12.1,,low,5,12
+PET0410,C0331,Jack,Beagle,small,7.1,senior,28.7,,low,2,27
+PET0411,C0332,Beans,Dachshund,small,4.2,adult,19.5,,high,5,6
+PET0412,C0333,Murphy,Mixed Breed,medium,7.8,senior,27.5,,medium,10,21
+PET0413,C0334,Rocky,French Bulldog,small,5.7,adult,26.5,,high,3,6
+PET0414,C0335,Buddy,French Bulldog,small,3.6,adult,25.1,,medium,12,5
+PET0415,C0336,Sadie,Golden Retriever,large,8.6,senior,74.5,chicken,low,9,2
+PET0416,C0336,Zoe,French Bulldog,small,1.5,adult,28.0,,high,5,17
+PET0417,C0336,Bailey,Poodle,medium,3.4,adult,40.6,,high,3,2
+PET0418,C0337,Jack,Mixed Breed,medium,0.4,puppy,52.5,,low,5,3
+PET0419,C0338,Zoe,Mixed Breed,medium,9.1,senior,26.7,dairy,low,7,12
+PET0420,C0339,Lucy,Mixed Breed,medium,3.1,adult,62.5,,high,3,27
+PET0421,C0340,Riley,Beagle,small,7.0,senior,26.5,beef,low,7,25
+PET0422,C0341,Ruby,Rottweiler,large,5.4,adult,80.7,,medium,6,20
+PET0423,C0342,Waffles,Beagle,small,6.6,adult,24.9,grain,low,3,12
+PET0424,C0343,Sophie,French Bulldog,small,10.1,senior,20.7,chicken,medium,4,5
+PET0425,C0344,Lola,Australian Shepherd,medium,7.4,senior,53.7,,low,12,13
+PET0426,C0345,Roxy,Shih Tzu,small,0.6,puppy,14.0,grain,medium,2,15
+PET0427,C0345,Buddy,Golden Retriever,large,3.7,adult,59.7,,high,5,15
+PET0428,C0346,Olive,Dachshund,small,4.1,adult,27.2,,low,1,1
+PET0429,C0346,Sophie,Cavalier King Charles,small,2.2,adult,15.6,,medium,5,6
+PET0430,C0347,Finn,German Shepherd,large,0.4,puppy,74.4,,high,6,17
+PET0431,C0347,Lucy,Mixed Breed,medium,9.2,senior,50.2,,medium,10,10
+PET0432,C0348,Pickles,Labrador,large,3.1,adult,60.3,,high,8,12
+PET0433,C0349,Scout,German Shorthaired Pointer,large,6.6,adult,52.0,,medium,11,20
+PET0434,C0350,Lucy,French Bulldog,small,7.0,senior,20.9,,high,2,15
+PET0435,C0351,Pepper,Shih Tzu,small,7.6,senior,15.1,,medium,8,27
+PET0436,C0352,Cooper,Labrador,large,4.7,adult,59.9,,high,9,27
+PET0437,C0352,Pickles,Mixed Breed,medium,1.6,adult,33.5,,medium,8,20
+PET0438,C0353,Maggie,Beagle,small,4.1,adult,28.4,,medium,7,19
+PET0439,C0354,Buddy,Golden Retriever,large,4.2,adult,70.1,,low,2,20
+PET0440,C0355,Lucy,Poodle,medium,5.4,adult,54.0,,low,11,5
+PET0441,C0356,Sadie,French Bulldog,small,6.9,adult,22.0,,low,12,12
+PET0442,C0357,Gus,Australian Shepherd,medium,14.8,senior,58.6,,medium,5,20
+PET0443,C0358,Beans,Golden Retriever,large,5.0,adult,60.1,,medium,3,3
+PET0444,C0359,Charlie,Labrador,large,5.3,adult,75.9,,medium,3,12
+PET0445,C0360,Penny,Labrador,large,3.3,adult,69.8,,low,12,14
+PET0446,C0361,Bella,Cavalier King Charles,small,2.9,adult,13.7,,medium,2,8
+PET0447,C0362,Pickles,Pembroke Welsh Corgi,small,7.0,senior,23.9,,low,12,8
+PET0448,C0362,Buddy,Pembroke Welsh Corgi,small,7.6,senior,22.7,,medium,5,10
+PET0449,C0363,Bear,French Bulldog,small,4.2,adult,19.2,,medium,5,1
+PET0450,C0364,Sophie,Labrador,large,0.4,puppy,75.0,,low,7,14
+PET0451,C0364,Pepper,Labrador,large,1.4,adult,56.8,,medium,6,5
+PET0452,C0365,Waffles,Labrador,large,9.1,senior,71.3,,high,7,14
+PET0453,C0366,Pickles,Australian Shepherd,medium,3.7,adult,50.4,,low,9,20
+PET0454,C0367,Lola,Rottweiler,large,3.8,adult,85.8,,low,12,21
+PET0455,C0368,Pickles,Mixed Breed,medium,7.0,senior,43.6,,low,2,11
+PET0456,C0369,Lola,French Bulldog,small,0.2,puppy,27.4,,medium,1,10
+PET0457,C0369,Gus,Dachshund,small,8.2,senior,20.1,,high,12,8
+PET0458,C0370,Pickles,Beagle,small,4.3,adult,21.4,grain,low,9,24
+PET0459,C0370,Cooper,Australian Shepherd,medium,3.1,adult,57.9,,medium,3,23
+PET0460,C0371,Rocky,German Shepherd,large,4.9,adult,74.8,,low,2,15
+PET0461,C0372,Olive,German Shepherd,large,4.2,adult,78.5,,medium,12,17
+PET0462,C0372,Max,Australian Shepherd,medium,13.7,senior,55.5,,medium,9,15
+PET0463,C0373,Tucker,Labrador,large,8.7,senior,65.2,,low,1,25
+PET0464,C0374,Maggie,Beagle,small,1.2,adult,21.7,,medium,12,24
+PET0465,C0375,Luna,German Shorthaired Pointer,large,4.9,adult,65.1,,high,11,24
+PET0466,C0376,Duke,Pembroke Welsh Corgi,small,7.5,senior,26.6,,high,8,9
+PET0467,C0377,Tucker,Mixed Breed,medium,4.0,adult,23.2,,low,2,27
+PET0468,C0378,Scout,Beagle,small,1.8,adult,26.8,,medium,5,16
+PET0469,C0379,Maggie,Labrador,large,6.4,adult,72.3,,high,7,6
+PET0470,C0380,Cooper,Mixed Breed,medium,7.6,senior,52.4,,medium,1,10
+PET0471,C0381,Mochi,Rottweiler,large,3.3,adult,102.2,,medium,11,18
+PET0472,C0382,Olive,French Bulldog,small,3.8,adult,23.1,,low,12,12
+PET0473,C0382,Pickles,Labrador,large,7.0,senior,62.8,,medium,7,18
+PET0474,C0383,Pepper,Golden Retriever,large,8.5,senior,69.6,,medium,10,20
+PET0475,C0383,Waffles,Australian Shepherd,medium,4.9,adult,54.1,,low,11,16
+PET0476,C0384,Zoe,Pembroke Welsh Corgi,small,9.0,senior,27.3,,low,2,11
+PET0477,C0385,Olive,Poodle,medium,7.7,senior,42.8,chicken,medium,6,25
+PET0478,C0386,Zoe,Golden Retriever,large,1.3,adult,74.6,,high,11,10
+PET0479,C0387,Duke,Pembroke Welsh Corgi,small,3.6,adult,29.6,,low,11,6
+PET0480,C0388,Scout,Beagle,small,8.6,senior,27.5,,medium,12,21
+PET0481,C0388,Riley,Australian Shepherd,medium,1.5,adult,64.3,chicken,medium,11,7
+PET0482,C0389,Scout,Golden Retriever,large,10.5,senior,69.1,,medium,5,5
+PET0483,C0390,Luna,Poodle,medium,5.0,adult,58.2,,high,9,12
+PET0484,C0390,Gus,German Shorthaired Pointer,large,7.6,senior,59.0,,medium,5,7
+PET0485,C0391,Scout,Shih Tzu,small,6.1,adult,10.5,,medium,4,11
+PET0486,C0392,Lily,Mixed Breed,medium,8.8,senior,65.4,,medium,7,6
+PET0487,C0393,Finn,Shih Tzu,small,3.5,adult,10.5,,high,11,11
+PET0488,C0394,Milo,Dachshund,small,3.9,adult,28.9,,medium,7,9
+PET0489,C0395,Bailey,Rottweiler,large,0.2,puppy,96.7,,medium,4,3
+PET0490,C0396,Jack,Pembroke Welsh Corgi,small,4.8,adult,22.4,,high,5,17
+PET0491,C0397,Luna,Labrador,large,0.3,puppy,72.4,,medium,9,26
+PET0492,C0398,Gus,French Bulldog,small,5.6,adult,26.8,grain,high,4,8
+PET0493,C0399,Stella,Mixed Breed,medium,5.6,adult,43.5,chicken,medium,8,3
+PET0494,C0400,Penny,Shih Tzu,small,3.0,adult,10.9,chicken,high,1,8
+PET0495,C0401,Rocky,Dachshund,small,9.6,senior,17.9,grain,high,11,23
+PET0496,C0402,Gus,Yorkshire Terrier,small,3.3,adult,4.1,grain,low,10,8
+PET0497,C0402,Zoe,Australian Shepherd,medium,0.3,puppy,53.5,,low,12,6
+PET0498,C0403,Bailey,Rottweiler,large,2.3,adult,100.6,grain,medium,10,24
+PET0499,C0404,Lily,Mixed Breed,medium,2.6,adult,57.8,,medium,5,14
+PET0500,C0405,Murphy,Poodle,medium,5.3,adult,66.9,,high,7,15
+PET0501,C0406,Penny,German Shepherd,large,3.2,adult,63.8,,low,11,1
+PET0502,C0406,Beans,Rottweiler,large,2.9,adult,97.3,,high,8,4
+PET0503,C0407,Finn,Australian Shepherd,medium,9.2,senior,41.6,dairy,medium,8,22
+PET0504,C0408,Cooper,Beagle,small,3.2,adult,22.3,,medium,5,17
+PET0505,C0409,Beans,German Shepherd,large,7.0,senior,82.7,,medium,10,26
+PET0506,C0410,Buddy,German Shepherd,large,0.7,puppy,65.3,,medium,4,27
+PET0507,C0411,Lily,Bulldog,medium,14.7,senior,41.0,,medium,12,10
+PET0508,C0412,Lily,Poodle,medium,6.8,adult,53.1,,medium,1,19
+PET0509,C0412,Charlie,French Bulldog,small,3.9,adult,18.9,,low,1,2
+PET0510,C0413,Olive,Bulldog,medium,10.0,senior,49.3,,low,5,5
+PET0511,C0413,Penny,Mixed Breed,medium,5.4,adult,43.9,,medium,12,15
+PET0512,C0414,Scout,Poodle,medium,2.3,adult,56.7,,low,7,12
+PET0513,C0414,Duke,Poodle,medium,5.6,adult,48.6,,low,6,5
+PET0514,C0414,Roxy,Golden Retriever,large,9.8,senior,73.1,,low,8,26
+PET0515,C0415,Scout,Beagle,small,10.1,senior,20.2,,medium,5,12
+PET0516,C0416,Cooper,Rottweiler,large,6.3,adult,93.7,,medium,2,14
+PET0517,C0417,Sadie,Rottweiler,large,3.2,adult,95.8,,medium,7,16
+PET0518,C0417,Maggie,Labrador,large,8.3,senior,57.5,,medium,3,27
+PET0519,C0418,Maggie,Cavalier King Charles,small,1.7,adult,13.3,,high,2,5
+PET0520,C0418,Olive,French Bulldog,small,5.7,adult,27.4,,high,12,10
+PET0521,C0419,Duke,Yorkshire Terrier,small,2.6,adult,5.6,beef,medium,2,13
+PET0522,C0419,Waffles,Poodle,medium,7.7,senior,68.1,,medium,6,27
+PET0523,C0420,Milo,Golden Retriever,large,7.4,senior,69.9,,medium,10,23
+PET0524,C0421,Buddy,Dachshund,small,12.1,senior,19.6,,high,3,17
+PET0525,C0422,Lola,Beagle,small,1.5,adult,28.7,,low,4,23
+PET0526,C0423,Charlie,German Shepherd,large,11.0,senior,60.3,,medium,5,22
+PET0527,C0424,Duke,Golden Retriever,large,6.7,adult,69.1,chicken,low,4,3
+PET0528,C0425,Buddy,French Bulldog,small,4.5,adult,19.1,,medium,11,9
+PET0529,C0425,Buddy,Mixed Breed,medium,4.2,adult,64.8,,low,2,25
+PET0530,C0426,Bailey,Labrador,large,7.2,senior,71.1,,low,1,4
+PET0531,C0427,Ruby,Shih Tzu,small,3.3,adult,10.5,,low,8,4
+PET0532,C0427,Sadie,Mixed Breed,medium,1.6,adult,22.4,,medium,4,11
+PET0533,C0428,Bailey,Poodle,medium,13.1,senior,60.9,,medium,7,26
+PET0534,C0429,Toby,Mixed Breed,medium,0.8,puppy,44.9,,high,5,7
+PET0535,C0430,Pickles,French Bulldog,small,3.9,adult,25.6,chicken,high,2,17
+PET0536,C0431,Ruby,Poodle,medium,7.1,senior,61.1,,medium,1,27
+PET0537,C0432,Olive,Shih Tzu,small,0.7,puppy,13.8,,high,7,15
+PET0538,C0432,Duke,Labrador,large,0.8,puppy,68.7,,medium,9,20
+PET0539,C0433,Lola,French Bulldog,small,0.2,puppy,23.4,,high,2,25
+PET0540,C0434,Sophie,Poodle,medium,1.8,adult,68.4,,low,6,22
+PET0541,C0435,Gus,Rottweiler,large,4.4,adult,125.6,,medium,11,25
+PET0542,C0435,Daisy,Labrador,large,6.6,adult,64.4,,low,12,20
+PET0543,C0436,Rocky,French Bulldog,small,7.1,senior,24.1,,low,5,6
+PET0544,C0437,Toby,German Shepherd,large,5.9,adult,88.6,,medium,11,12
+PET0545,C0438,Waffles,Poodle,medium,12.2,senior,60.0,,medium,9,13
+PET0546,C0438,Duke,Poodle,medium,3.3,adult,56.1,,medium,9,11
+PET0547,C0438,Riley,German Shorthaired Pointer,large,0.9,puppy,68.3,,medium,1,14
+PET0548,C0439,Mochi,Bulldog,medium,5.0,adult,44.8,,low,1,2
+PET0549,C0440,Pickles,Mixed Breed,medium,6.7,adult,67.2,,medium,8,15
+PET0550,C0441,Sadie,French Bulldog,small,1.8,adult,21.7,,medium,5,10
+PET0551,C0442,Murphy,French Bulldog,small,4.7,adult,26.7,,low,4,15
+PET0552,C0442,Bella,Bulldog,medium,7.2,senior,40.4,,medium,12,1
+PET0553,C0443,Rocky,German Shepherd,large,16.0,senior,84.2,chicken,high,8,12
+PET0554,C0444,Mochi,Mixed Breed,medium,0.8,puppy,21.4,,high,7,5
+PET0555,C0445,Penny,Poodle,medium,7.4,senior,55.5,,high,9,7
+PET0556,C0445,Daisy,Pembroke Welsh Corgi,small,8.1,senior,26.3,,medium,1,16
+PET0557,C0446,Scout,Bulldog,medium,5.3,adult,47.5,,medium,7,23
+PET0558,C0447,Toby,Australian Shepherd,medium,5.9,adult,43.2,,low,4,2
+PET0559,C0448,Lily,Pembroke Welsh Corgi,small,8.6,senior,23.8,,medium,4,19
+PET0560,C0448,Finn,Labrador,large,7.8,senior,66.5,,medium,2,6
+PET0561,C0449,Lily,Dachshund,small,3.2,adult,27.4,dairy,medium,12,26
+PET0562,C0450,Pickles,Bulldog,medium,3.9,adult,41.0,,high,8,18
+PET0563,C0451,Duke,Beagle,small,8.2,senior,24.1,,medium,10,25
+PET0564,C0452,Sadie,Dachshund,small,4.9,adult,25.0,,medium,7,3
+PET0565,C0452,Maggie,Beagle,small,0.5,puppy,27.7,,high,5,10
+PET0566,C0453,Oliver,Beagle,small,3.1,adult,23.8,,medium,9,23
+PET0567,C0454,Pepper,Beagle,small,0.6,puppy,26.1,,medium,4,7
+PET0568,C0455,Olive,Mixed Breed,medium,3.2,adult,64.8,,high,4,17
+PET0569,C0455,Buddy,Mixed Breed,medium,3.6,adult,20.5,,low,9,27
+PET0570,C0456,Olive,Bulldog,medium,8.7,senior,44.3,,high,7,4
+PET0571,C0457,Pickles,Golden Retriever,large,5.8,adult,68.4,,low,8,4
+PET0572,C0458,Oliver,Mixed Breed,medium,6.4,adult,47.6,chicken,medium,9,11
+PET0573,C0458,Charlie,German Shepherd,large,4.0,adult,69.3,,medium,5,15
+PET0574,C0459,Luna,Poodle,medium,8.5,senior,43.7,chicken,low,1,21
+PET0575,C0460,Milo,Australian Shepherd,medium,4.4,adult,54.3,chicken,medium,9,25
+PET0576,C0461,Mochi,Golden Retriever,large,3.6,adult,64.9,,high,1,19
+PET0577,C0462,Max,German Shepherd,large,5.5,adult,59.5,,medium,5,5
+PET0578,C0463,Zoe,Mixed Breed,medium,3.3,adult,21.6,,medium,11,23
+PET0579,C0464,Cooper,German Shorthaired Pointer,large,8.1,senior,60.2,chicken,high,12,17
+PET0580,C0465,Gus,Poodle,medium,6.9,adult,59.8,,low,9,27
+PET0581,C0466,Mochi,Beagle,small,3.2,adult,22.3,chicken,medium,11,16
+PET0582,C0466,Bella,Beagle,small,3.4,adult,21.3,grain,medium,5,5
+PET0583,C0467,Finn,French Bulldog,small,9.0,senior,23.4,,medium,10,17
+PET0584,C0468,Bear,Labrador,large,6.1,adult,68.5,,medium,6,21
+PET0585,C0468,Buddy,Bulldog,medium,7.4,senior,41.9,,medium,12,8
+PET0586,C0469,Jack,Dachshund,small,0.4,puppy,17.4,,low,2,23
+PET0587,C0470,Cooper,Dachshund,small,7.3,senior,30.3,chicken,medium,5,10
+PET0588,C0471,Duke,Labrador,large,5.9,adult,56.6,,medium,6,5
+PET0589,C0472,Rocky,Beagle,small,0.9,puppy,23.3,chicken,medium,12,1
+PET0590,C0473,Riley,Bulldog,medium,0.8,puppy,40.9,,low,5,4
+PET0591,C0473,Stella,Poodle,medium,6.2,adult,54.1,,low,3,10
+PET0592,C0474,Rocky,German Shorthaired Pointer,large,3.8,adult,50.3,dairy,low,9,1
+PET0593,C0475,Riley,Mixed Breed,medium,7.4,senior,42.5,,high,3,23
+PET0594,C0476,Cooper,Golden Retriever,large,0.7,puppy,63.7,,medium,9,15
+PET0595,C0477,Charlie,Mixed Breed,medium,5.9,adult,36.0,,high,1,25
+PET0596,C0478,Toby,Mixed Breed,medium,9.1,senior,61.7,,medium,5,6
+PET0597,C0479,Jack,French Bulldog,small,5.3,adult,25.0,,low,5,8
+PET0598,C0480,Tucker,German Shepherd,large,0.5,puppy,69.1,,medium,5,24
+PET0599,C0481,Finn,Cavalier King Charles,small,6.9,adult,15.0,,medium,2,24
+PET0600,C0482,Rocky,Beagle,small,5.3,adult,22.8,,low,1,4
+PET0601,C0483,Milo,Mixed Breed,medium,7.5,senior,29.3,,medium,8,26
+PET0602,C0484,Bella,Boxer,large,2.3,adult,51.7,,medium,3,16
+PET0603,C0485,Lily,German Shepherd,large,2.6,adult,75.5,,medium,7,16
+PET0604,C0486,Biscuit,Labrador,large,4.8,adult,72.5,,medium,10,5
+PET0605,C0487,Daisy,Labrador,large,0.5,puppy,69.8,,low,6,17
+PET0606,C0488,Buddy,Golden Retriever,large,6.7,adult,63.2,,medium,5,13
+PET0607,C0489,Murphy,Beagle,small,8.1,senior,25.7,,low,5,7
+PET0608,C0490,Tucker,Beagle,small,4.4,adult,21.5,,low,5,6
+PET0609,C0491,Banjo,Bulldog,medium,3.6,adult,47.3,,medium,9,9
+PET0610,C0491,Gus,Pembroke Welsh Corgi,small,0.5,puppy,28.6,,medium,5,17
+PET0611,C0492,Bella,Shih Tzu,small,4.1,adult,15.2,,medium,10,25
+PET0612,C0493,Bella,Golden Retriever,large,6.6,adult,73.3,,high,6,9
+PET0613,C0494,Oliver,German Shepherd,large,3.1,adult,86.6,,low,4,16
+PET0614,C0495,Zoe,Mixed Breed,medium,3.0,adult,37.4,,medium,9,9
+PET0615,C0496,Finn,Labrador,large,6.8,adult,56.0,,high,5,14
+PET0616,C0497,Buddy,Mixed Breed,medium,8.5,senior,22.3,,low,6,17
+PET0617,C0497,Biscuit,Beagle,small,5.2,adult,23.2,,low,5,27
+PET0618,C0498,Daisy,Cavalier King Charles,small,7.9,senior,16.3,,medium,7,23
+PET0619,C0499,Tucker,Yorkshire Terrier,small,7.9,senior,5.1,,medium,5,9
+PET0620,C0500,Sophie,German Shepherd,large,6.0,adult,73.5,,medium,1,5
+PET0621,C0500,Rocky,French Bulldog,small,11.5,senior,27.4,,medium,8,3
+PET0622,C0501,Milo,Yorkshire Terrier,small,6.7,adult,6.5,dairy,medium,4,11
+PET0623,C0502,Milo,German Shorthaired Pointer,large,9.3,senior,62.2,,medium,1,5
+PET0624,C0502,Sadie,Australian Shepherd,medium,1.6,adult,40.8,,medium,3,9
+PET0625,C0503,Riley,German Shepherd,large,10.5,senior,70.7,beef,low,10,2
+PET0626,C0504,Jack,Mixed Breed,medium,7.6,senior,57.4,,low,7,11
+PET0627,C0505,Buddy,Bulldog,medium,5.1,adult,41.8,,medium,2,16
+PET0628,C0506,Sophie,Rottweiler,large,13.1,senior,88.1,,low,8,19
+PET0629,C0506,Buddy,Bulldog,medium,5.2,adult,41.7,,medium,5,5
+PET0630,C0507,Ruby,Pembroke Welsh Corgi,small,4.1,adult,28.0,,high,6,18
+PET0631,C0508,Daisy,Dachshund,small,2.1,adult,22.3,,medium,1,18
+PET0632,C0509,Banjo,German Shepherd,large,5.8,adult,79.8,,medium,5,7
+PET0633,C0510,Olive,German Shepherd,large,7.7,senior,86.4,,medium,8,4
+PET0634,C0511,Bella,French Bulldog,small,4.7,adult,27.2,grain,medium,5,7
+PET0635,C0511,Beans,Poodle,medium,6.9,adult,61.8,beef,low,12,23
+PET0636,C0512,Cooper,French Bulldog,small,2.8,adult,25.2,,medium,3,26
+PET0637,C0513,Gus,French Bulldog,small,3.7,adult,22.3,,medium,12,2
+PET0638,C0514,Penny,Mixed Breed,medium,0.8,puppy,40.6,,medium,12,3
+PET0639,C0514,Lily,Labrador,large,8.3,senior,64.8,,low,4,22
+PET0640,C0515,Ruby,Labrador,large,16.0,senior,64.6,,medium,10,13
+PET0641,C0515,Lola,French Bulldog,small,2.3,adult,26.2,,high,2,7
+PET0642,C0516,Beans,Labrador,large,1.7,adult,67.8,grain,medium,8,9
+PET0643,C0516,Gus,Mixed Breed,medium,7.6,senior,34.5,grain,medium,12,12
+PET0644,C0517,Lily,German Shepherd,large,16.0,senior,68.5,,low,5,8
+PET0645,C0518,Rocky,Beagle,small,13.7,senior,21.0,,low,11,18
+PET0646,C0519,Milo,Poodle,medium,4.8,adult,53.2,,high,6,9
+PET0647,C0520,Buddy,Poodle,medium,1.8,adult,49.7,,medium,12,1
+PET0648,C0521,Zoe,Labrador,large,3.4,adult,77.0,,medium,1,7
+PET0649,C0521,Murphy,French Bulldog,small,10.3,senior,24.8,chicken,medium,1,7
+PET0650,C0521,Sophie,Pembroke Welsh Corgi,small,3.1,adult,28.2,,medium,6,1
+PET0651,C0522,Penny,Beagle,small,6.6,adult,23.6,,medium,10,22
+PET0652,C0523,Finn,Labrador,large,2.2,adult,73.2,,medium,4,19
+PET0653,C0523,Sadie,French Bulldog,small,3.8,adult,18.6,,medium,2,7
+PET0654,C0524,Buddy,French Bulldog,small,3.7,adult,22.7,,low,10,19
+PET0655,C0525,Bailey,Mixed Breed,medium,7.3,senior,28.1,,medium,1,25
+PET0656,C0525,Duke,Poodle,medium,6.4,adult,53.4,,medium,3,22
+PET0657,C0526,Rocky,Labrador,large,9.9,senior,77.8,,medium,2,2
+PET0658,C0527,Bailey,Golden Retriever,large,8.9,senior,61.1,,high,8,25
+PET0659,C0528,Pepper,French Bulldog,small,2.1,adult,18.9,,low,4,17
+PET0660,C0529,Roxy,Golden Retriever,large,9.3,senior,67.4,,high,10,23
+PET0661,C0530,Roxy,Cavalier King Charles,small,7.5,senior,14.2,,high,8,7
+PET0662,C0530,Roxy,Cavalier King Charles,small,10.4,senior,13.5,,low,2,24
+PET0663,C0531,Maggie,German Shepherd,large,1.6,adult,89.3,,low,5,11
+PET0664,C0531,Max,Labrador,large,4.3,adult,72.3,,medium,5,10
+PET0665,C0532,Jack,Bulldog,medium,4.3,adult,46.3,,high,11,21
+PET0666,C0533,Lily,French Bulldog,small,0.7,puppy,23.7,,medium,10,2
+PET0667,C0533,Banjo,Pembroke Welsh Corgi,small,4.0,adult,24.0,,medium,10,25
+PET0668,C0533,Roxy,German Shepherd,large,0.2,puppy,78.9,,high,6,10
+PET0669,C0534,Waffles,Golden Retriever,large,3.4,adult,59.6,,low,8,3
+PET0670,C0535,Bear,Labrador,large,15.0,senior,79.7,,low,4,7
+PET0671,C0536,Toby,Poodle,medium,1.5,adult,58.8,,low,6,11
+PET0672,C0536,Maggie,French Bulldog,small,6.5,adult,21.1,,medium,2,23
+PET0673,C0536,Charlie,Dachshund,small,4.1,adult,26.5,,low,11,26
+PET0674,C0537,Bailey,French Bulldog,small,16.0,senior,22.8,,low,11,4
+PET0675,C0537,Pickles,Dachshund,small,7.9,senior,22.5,,medium,3,10
+PET0676,C0538,Sophie,Mixed Breed,medium,4.1,adult,46.7,,low,8,19
+PET0677,C0539,Zoe,Pembroke Welsh Corgi,small,6.8,adult,25.2,,high,2,25
+PET0678,C0540,Bailey,Bulldog,medium,1.4,adult,46.9,,low,4,18
+PET0679,C0541,Pickles,Golden Retriever,large,1.6,adult,73.2,,low,11,21
+PET0680,C0542,Roxy,Shih Tzu,small,2.9,adult,12.7,,medium,12,10
+PET0681,C0543,Daisy,Labrador,large,1.9,adult,58.0,,medium,8,24
+PET0682,C0544,Banjo,Pembroke Welsh Corgi,small,13.4,senior,29.4,chicken,medium,1,1
+PET0683,C0545,Bella,Golden Retriever,large,7.3,senior,58.5,,low,12,12
+PET0684,C0546,Riley,Beagle,small,1.0,adult,27.3,,low,7,13
+PET0685,C0547,Sadie,German Shepherd,large,7.1,senior,67.6,grain,medium,5,12
+PET0686,C0547,Buddy,Beagle,small,2.8,adult,22.5,,low,6,18
+PET0687,C0548,Sophie,German Shepherd,large,0.4,puppy,80.6,,medium,3,5
+PET0688,C0549,Olive,French Bulldog,small,10.3,senior,25.2,,low,10,16
+PET0689,C0550,Lola,Mixed Breed,medium,3.4,adult,59.7,chicken,medium,5,15
+PET0690,C0551,Riley,German Shorthaired Pointer,large,6.8,adult,53.6,chicken,medium,9,4
+PET0691,C0552,Scout,Beagle,small,1.3,adult,24.0,chicken,high,3,7
+PET0692,C0553,Lucy,Cavalier King Charles,small,7.4,senior,15.2,,low,5,12
+PET0693,C0553,Biscuit,Boxer,large,7.7,senior,70.9,,low,10,9
+PET0694,C0554,Daisy,Golden Retriever,large,5.5,adult,74.9,,medium,7,10
+PET0695,C0555,Max,Dachshund,small,2.2,adult,31.1,,medium,9,27
+PET0696,C0555,Murphy,Labrador,large,3.2,adult,72.8,,medium,8,12
+PET0697,C0555,Daisy,Rottweiler,large,2.1,adult,85.5,,medium,5,13
+PET0698,C0556,Bella,Poodle,medium,2.6,adult,58.2,,low,11,16
+PET0699,C0557,Stella,Mixed Breed,medium,3.2,adult,60.6,chicken,medium,11,20
+PET0700,C0558,Lily,Beagle,small,0.9,puppy,25.3,chicken,high,9,16
+PET0701,C0558,Luna,Golden Retriever,large,2.2,adult,65.3,,medium,12,17
+PET0702,C0559,Charlie,Labrador,large,4.1,adult,73.6,,medium,10,11
+PET0703,C0560,Toby,Rottweiler,large,1.9,adult,105.7,,medium,12,17
+PET0704,C0561,Waffles,Bulldog,medium,2.6,adult,40.9,,medium,9,16
+PET0705,C0562,Maggie,Rottweiler,large,5.4,adult,122.9,,medium,10,23
+PET0706,C0563,Waffles,Beagle,small,0.5,puppy,22.4,,medium,1,4
+PET0707,C0564,Lola,German Shepherd,large,4.1,adult,59.7,dairy,medium,9,3
+PET0708,C0564,Finn,German Shepherd,large,16.0,senior,69.7,,medium,11,5
+PET0709,C0564,Toby,French Bulldog,small,3.4,adult,18.3,,low,9,8
+PET0710,C0565,Rocky,Poodle,medium,0.4,puppy,60.1,grain,low,12,25
+PET0711,C0566,Scout,Rottweiler,large,2.1,adult,129.2,,low,2,7
+PET0712,C0567,Scout,Dachshund,small,6.1,adult,27.8,,high,8,23
+PET0713,C0567,Beans,Pembroke Welsh Corgi,small,5.5,adult,26.3,,high,5,7
+PET0714,C0568,Ruby,Dachshund,small,8.5,senior,28.5,,medium,12,9
+PET0715,C0569,Duke,German Shepherd,large,9.7,senior,59.8,,low,10,12
+PET0716,C0570,Rocky,Cavalier King Charles,small,3.6,adult,15.1,chicken,high,3,15
+PET0717,C0571,Jack,Mixed Breed,medium,7.4,senior,54.5,,low,12,22
+PET0718,C0572,Rocky,Mixed Breed,medium,4.4,adult,22.4,chicken,medium,3,20
+PET0719,C0572,Waffles,German Shepherd,large,8.8,senior,72.1,,medium,5,17
+PET0720,C0572,Lily,Bulldog,medium,5.8,adult,46.2,,low,3,17
+PET0721,C0573,Ruby,Rottweiler,large,13.9,senior,88.8,,high,2,12
+PET0722,C0574,Scout,Cavalier King Charles,small,1.1,adult,17.0,,low,5,10
+PET0723,C0575,Sadie,Poodle,medium,8.7,senior,42.0,,medium,9,21
+PET0724,C0576,Toby,Mixed Breed,medium,8.9,senior,24.0,,medium,9,16
+PET0725,C0577,Murphy,Labrador,large,7.2,senior,62.0,,medium,5,18
+PET0726,C0578,Daisy,Golden Retriever,large,3.3,adult,57.1,dairy,low,2,9
+PET0727,C0579,Jack,Beagle,small,0.6,puppy,21.5,,medium,11,13
+PET0728,C0579,Finn,Beagle,small,0.7,puppy,26.6,,medium,7,10
+PET0729,C0580,Bailey,Bulldog,medium,6.2,adult,40.8,,low,9,15
+PET0730,C0580,Charlie,German Shepherd,large,12.7,senior,68.8,,medium,5,1
+PET0731,C0581,Bailey,Rottweiler,large,9.1,senior,97.3,,medium,6,15
+PET0732,C0581,Rocky,Golden Retriever,large,6.3,adult,65.9,,high,3,19
+PET0733,C0582,Finn,Dachshund,small,9.6,senior,20.4,,medium,2,24
+PET0734,C0583,Zoe,French Bulldog,small,6.1,adult,20.1,,medium,12,12
+PET0735,C0584,Mochi,German Shepherd,large,12.6,senior,60.5,,medium,6,19
+PET0736,C0585,Beans,Bulldog,medium,0.5,puppy,45.6,,low,7,18
+PET0737,C0586,Roxy,Mixed Breed,medium,4.7,adult,23.0,,low,12,17
+PET0738,C0586,Charlie,Beagle,small,2.0,adult,20.1,,low,1,22
+PET0739,C0587,Jack,Poodle,medium,1.6,adult,55.7,dairy,low,12,10
+PET0740,C0588,Lucy,German Shepherd,large,9.0,senior,87.0,,medium,9,10
+PET0741,C0589,Zoe,Yorkshire Terrier,small,10.2,senior,6.6,,low,5,2
+PET0742,C0590,Bella,Pembroke Welsh Corgi,small,7.7,senior,27.9,,low,5,12
+PET0743,C0591,Buddy,Boxer,large,9.6,senior,78.3,,medium,1,20
+PET0744,C0591,Bella,Labrador,large,9.0,senior,65.6,,high,8,20
+PET0745,C0592,Cooper,Mixed Breed,medium,2.8,adult,49.5,,medium,2,19
+PET0746,C0593,Pickles,Dachshund,small,4.2,adult,23.7,,medium,12,5
+PET0747,C0594,Penny,Yorkshire Terrier,small,3.5,adult,5.2,,medium,7,15
+PET0748,C0595,Banjo,Cavalier King Charles,small,7.2,senior,14.2,,low,5,13
+PET0749,C0596,Banjo,Beagle,small,0.2,puppy,27.0,,low,8,14
+PET0750,C0597,Stella,Labrador,large,4.7,adult,62.7,,medium,8,23
+PET0751,C0598,Cooper,Australian Shepherd,medium,5.6,adult,41.4,grain,medium,8,2
+PET0752,C0599,Riley,Bulldog,medium,3.0,adult,47.6,,medium,7,18
+PET0753,C0600,Buddy,Australian Shepherd,medium,0.4,puppy,43.9,,medium,7,27
+PET0754,C0601,Duke,Dachshund,small,2.8,adult,17.4,,medium,3,7
+PET0755,C0602,Zoe,Mixed Breed,medium,3.7,adult,36.5,,medium,3,12
+PET0756,C0603,Max,French Bulldog,small,7.4,senior,24.7,,medium,8,21
+PET0757,C0604,Oliver,Rottweiler,large,3.5,adult,81.0,,high,2,25
+PET0758,C0605,Finn,French Bulldog,small,6.9,adult,23.0,beef,medium,8,23
+PET0759,C0606,Duke,Dachshund,small,4.4,adult,29.4,,high,11,14
+PET0760,C0607,Banjo,Labrador,large,2.3,adult,72.3,,medium,12,15
+PET0761,C0607,Daisy,French Bulldog,small,5.2,adult,25.9,,low,1,13
+PET0762,C0608,Stella,French Bulldog,small,7.9,senior,26.1,,medium,12,25
+PET0763,C0609,Olive,French Bulldog,small,7.7,senior,22.9,chicken,medium,1,23
+PET0764,C0610,Daisy,German Shepherd,large,3.3,adult,66.8,chicken,medium,8,12
+PET0765,C0611,Pickles,Mixed Breed,medium,8.2,senior,30.8,chicken,medium,12,17
+PET0766,C0612,Mochi,Labrador,large,0.4,puppy,76.0,,medium,11,17
+PET0767,C0613,Waffles,Dachshund,small,3.6,adult,22.7,,low,6,18
+PET0768,C0614,Riley,French Bulldog,small,8.7,senior,21.9,,medium,5,12
+PET0769,C0615,Charlie,Mixed Breed,medium,7.7,senior,66.5,,medium,5,13
+PET0770,C0615,Pickles,Yorkshire Terrier,small,0.8,puppy,6.6,grain,low,10,23
+PET0771,C0616,Olive,Labrador,large,7.3,senior,74.4,,medium,6,22
+PET0772,C0616,Cooper,French Bulldog,small,10.1,senior,24.0,,low,4,1
+PET0773,C0617,Riley,German Shepherd,large,0.8,puppy,81.4,,medium,11,12
+PET0774,C0618,Cooper,German Shepherd,large,10.6,senior,83.6,,medium,3,4
+PET0775,C0619,Stella,Golden Retriever,large,1.7,adult,57.2,,high,12,17
+PET0776,C0620,Milo,Dachshund,small,5.0,adult,20.8,,medium,7,1
+PET0777,C0621,Olive,German Shepherd,large,4.1,adult,83.5,grain,medium,3,23
+PET0778,C0622,Zoe,Labrador,large,6.8,adult,67.7,,medium,7,18
+PET0779,C0623,Tucker,Golden Retriever,large,3.6,adult,62.8,,medium,12,10
+PET0780,C0624,Waffles,Labrador,large,4.9,adult,65.6,,medium,6,26
+PET0781,C0624,Bella,Beagle,small,5.3,adult,23.1,dairy,high,1,21
+PET0782,C0624,Luna,Shih Tzu,small,4.7,adult,10.5,,high,5,24
+PET0783,C0625,Bella,Poodle,medium,0.2,puppy,55.2,chicken,high,11,5
+PET0784,C0626,Bailey,German Shorthaired Pointer,large,6.2,adult,63.0,,low,1,25
+PET0785,C0627,Luna,Australian Shepherd,medium,7.2,senior,58.3,,high,12,19
+PET0786,C0628,Biscuit,Poodle,medium,7.8,senior,54.6,,medium,9,20
+PET0787,C0629,Riley,French Bulldog,small,4.2,adult,25.9,,medium,6,16
+PET0788,C0630,Sophie,Labrador,large,7.0,senior,60.6,,high,5,6
+PET0789,C0631,Ruby,French Bulldog,small,8.9,senior,24.4,,medium,1,7
+PET0790,C0632,Lucy,Poodle,medium,13.1,senior,68.5,,medium,7,14
+PET0791,C0632,Luna,Golden Retriever,large,1.4,adult,66.0,,medium,11,18
+PET0792,C0633,Pepper,Beagle,small,3.6,adult,26.3,,medium,5,2
+PET0793,C0633,Lola,Beagle,small,5.0,adult,25.0,chicken,low,11,10
+PET0794,C0634,Tucker,German Shepherd,large,6.0,adult,87.7,,low,3,10
+PET0795,C0635,Sadie,Labrador,large,1.3,adult,62.1,,high,12,11
+PET0796,C0635,Bailey,Dachshund,small,8.9,senior,31.0,chicken,low,9,22
+PET0797,C0636,Lola,German Shorthaired Pointer,large,16.0,senior,69.8,,medium,1,25
+PET0798,C0637,Sadie,Bulldog,medium,9.8,senior,42.1,,medium,3,14
+PET0799,C0637,Duke,Rottweiler,large,5.4,adult,102.1,,medium,3,17
+PET0800,C0638,Daisy,Beagle,small,8.9,senior,29.1,,low,5,7
+PET0801,C0639,Olive,German Shepherd,large,7.2,senior,86.9,,low,10,3
+PET0802,C0640,Riley,Golden Retriever,large,7.4,senior,65.4,,medium,9,10
+PET0803,C0641,Zoe,Australian Shepherd,medium,10.3,senior,41.4,,low,4,11
+PET0804,C0642,Waffles,Labrador,large,4.0,adult,67.8,chicken,medium,5,17
+PET0805,C0643,Charlie,Boxer,large,4.6,adult,71.5,,low,3,26
+PET0806,C0644,Lucy,Labrador,large,3.4,adult,67.7,,medium,1,19
+PET0807,C0645,Tucker,Golden Retriever,large,6.0,adult,60.8,,medium,7,14
+PET0808,C0646,Banjo,German Shepherd,large,6.0,adult,57.8,,high,9,16
+PET0809,C0647,Luna,Australian Shepherd,medium,1.0,adult,60.5,,low,2,1
+PET0810,C0647,Toby,Rottweiler,large,5.6,adult,84.9,,medium,11,27
+PET0811,C0648,Daisy,Australian Shepherd,medium,5.8,adult,46.3,,low,11,4
+PET0812,C0649,Mochi,German Shepherd,large,2.4,adult,58.5,,medium,5,5
+PET0813,C0650,Maggie,Labrador,large,11.0,senior,70.4,,low,1,16
+PET0814,C0651,Jack,Labrador,large,7.2,senior,74.1,,medium,9,5
+PET0815,C0652,Sadie,Dachshund,small,3.2,adult,21.0,,medium,11,25
+PET0816,C0653,Rocky,Poodle,medium,7.0,senior,49.7,,medium,11,26
+PET0817,C0654,Pepper,Boxer,large,1.4,adult,71.2,,medium,5,10
+PET0818,C0655,Mochi,Labrador,large,5.2,adult,56.3,dairy,high,5,10
+PET0819,C0656,Bella,Yorkshire Terrier,small,2.2,adult,4.2,,low,10,12
+PET0820,C0657,Riley,Poodle,medium,3.7,adult,49.0,,medium,10,7
+PET0821,C0658,Bear,Mixed Breed,medium,7.4,senior,43.1,,high,5,23
+PET0822,C0658,Maggie,French Bulldog,small,7.4,senior,23.4,grain,medium,3,27
+PET0823,C0659,Olive,French Bulldog,small,8.2,senior,18.1,chicken,low,7,6
+PET0824,C0659,Jack,French Bulldog,small,4.0,adult,21.1,,medium,2,16
+PET0825,C0660,Beans,Boxer,large,7.6,senior,56.4,,medium,9,21
+PET0826,C0661,Bailey,Dachshund,small,2.9,adult,30.8,,medium,6,17
+PET0827,C0661,Mochi,Golden Retriever,large,5.1,adult,68.9,,low,6,2
+PET0828,C0661,Riley,Pembroke Welsh Corgi,small,4.9,adult,23.1,,medium,8,8
+PET0829,C0662,Murphy,Poodle,medium,7.6,senior,42.2,,high,11,17
+PET0830,C0663,Pickles,French Bulldog,small,3.0,adult,22.6,,medium,5,16
+PET0831,C0663,Bear,Beagle,small,14.5,senior,24.7,,high,7,6
+PET0832,C0663,Scout,Dachshund,small,1.9,adult,22.0,,medium,12,10
+PET0833,C0664,Bailey,Australian Shepherd,medium,12.4,senior,42.1,chicken,medium,4,20
+PET0834,C0665,Ruby,German Shepherd,large,6.5,adult,72.3,,high,5,8
+PET0835,C0666,Bella,Australian Shepherd,medium,2.1,adult,63.2,,medium,5,11
+PET0836,C0667,Lola,Golden Retriever,large,5.3,adult,56.5,,medium,5,10
+PET0837,C0668,Max,Australian Shepherd,medium,6.5,adult,49.9,,medium,7,27
+PET0838,C0669,Tucker,German Shepherd,large,6.2,adult,67.5,,high,5,13
+PET0839,C0670,Scout,Golden Retriever,large,4.7,adult,67.1,,medium,3,19
+PET0840,C0671,Penny,Golden Retriever,large,3.3,adult,62.9,,medium,5,6
+PET0841,C0672,Bella,Pembroke Welsh Corgi,small,6.3,adult,24.5,,low,1,10
+PET0842,C0673,Oliver,Beagle,small,6.0,adult,25.8,,medium,11,12
+PET0843,C0674,Bella,Poodle,medium,5.7,adult,54.7,,high,7,2
+PET0844,C0675,Sophie,Pembroke Welsh Corgi,small,10.5,senior,24.0,,high,6,3
+PET0845,C0676,Jack,Labrador,large,2.4,adult,75.1,,medium,6,24
+PET0846,C0677,Milo,Beagle,small,6.1,adult,22.6,,medium,10,24
+PET0847,C0677,Lily,Labrador,large,3.1,adult,68.0,,low,7,9
+PET0848,C0678,Banjo,Cavalier King Charles,small,1.4,adult,16.5,,high,11,27
+PET0849,C0679,Bailey,Shih Tzu,small,4.7,adult,15.6,,low,5,15
+PET0850,C0679,Lola,Bulldog,medium,4.2,adult,48.0,,low,4,13
+PET0851,C0679,Pickles,Mixed Breed,medium,7.6,senior,54.4,,high,10,3
+PET0852,C0680,Charlie,Mixed Breed,medium,10.1,senior,29.7,,low,5,17
+PET0853,C0680,Ruby,Labrador,large,6.3,adult,75.8,,medium,5,23
+PET0854,C0681,Duke,Mixed Breed,medium,0.8,puppy,38.7,,high,3,2
+PET0855,C0682,Rocky,Poodle,medium,4.1,adult,50.8,,low,10,13
+PET0856,C0683,Luna,Rottweiler,large,10.6,senior,114.3,,medium,4,24
+PET0857,C0684,Tucker,Beagle,small,0.9,puppy,24.8,,medium,4,25
+PET0858,C0685,Banjo,French Bulldog,small,4.6,adult,20.6,chicken,low,3,13
+PET0859,C0685,Lola,German Shepherd,large,6.8,adult,62.2,,medium,5,15
+PET0860,C0686,Riley,Labrador,large,4.9,adult,77.8,,high,12,17
+PET0861,C0687,Mochi,Bulldog,medium,1.5,adult,42.2,,medium,10,13
+PET0862,C0687,Rocky,Bulldog,medium,5.4,adult,41.3,,medium,8,14
+PET0863,C0688,Murphy,German Shepherd,large,3.0,adult,75.1,chicken,medium,12,5
+PET0864,C0689,Milo,Dachshund,small,8.9,senior,16.5,,medium,10,22
+PET0865,C0690,Waffles,German Shorthaired Pointer,large,0.2,puppy,66.0,,medium,10,12
+PET0866,C0691,Buddy,Mixed Breed,medium,4.0,adult,52.0,,low,9,12
+PET0867,C0692,Toby,Australian Shepherd,medium,4.3,adult,60.5,dairy,medium,8,18
+PET0868,C0693,Daisy,Golden Retriever,large,6.8,adult,65.3,,low,12,27
+PET0869,C0693,Murphy,Labrador,large,2.2,adult,56.0,,low,2,20
+PET0870,C0694,Olive,German Shorthaired Pointer,large,5.1,adult,46.0,,medium,12,1
+PET0871,C0695,Charlie,German Shepherd,large,7.4,senior,63.3,,high,2,14
+PET0872,C0695,Finn,Golden Retriever,large,1.0,adult,66.9,chicken,medium,2,8
+PET0873,C0696,Buddy,Golden Retriever,large,3.0,adult,70.3,grain,medium,10,21
+PET0874,C0697,Bailey,Labrador,large,11.3,senior,68.4,,medium,8,15
+PET0875,C0698,Maggie,Labrador,large,0.5,puppy,58.0,dairy,low,6,16
+PET0876,C0698,Stella,Shih Tzu,small,0.8,puppy,14.9,,medium,2,7
+PET0877,C0699,Sadie,Beagle,small,6.0,adult,28.4,,high,5,9
+PET0878,C0699,Toby,German Shepherd,large,3.8,adult,74.6,,high,7,9
+PET0879,C0700,Sadie,German Shepherd,large,2.0,adult,65.1,,low,9,19
+PET0880,C0701,Sadie,Labrador,large,4.7,adult,74.5,,medium,8,2
+PET0881,C0702,Gus,Mixed Breed,medium,7.3,senior,55.7,,medium,7,16
+PET0882,C0703,Duke,Pembroke Welsh Corgi,small,8.7,senior,27.7,,high,4,9
+PET0883,C0704,Tucker,Labrador,large,7.7,senior,77.9,,high,6,20
+PET0884,C0705,Daisy,French Bulldog,small,7.2,senior,24.1,,high,6,12
+PET0885,C0706,Bear,French Bulldog,small,7.8,senior,20.8,,medium,9,26
+PET0886,C0707,Buddy,Rottweiler,large,10.6,senior,95.6,,high,2,23
+PET0887,C0708,Murphy,Poodle,medium,9.1,senior,58.6,dairy,medium,12,24
+PET0888,C0708,Milo,Boxer,large,2.1,adult,64.1,,high,3,15
+PET0889,C0709,Ruby,Cavalier King Charles,small,4.1,adult,14.6,,high,9,20
+PET0890,C0710,Milo,Yorkshire Terrier,small,6.7,adult,5.1,,medium,2,14
+PET0891,C0710,Cooper,Labrador,large,6.2,adult,79.4,,low,5,7
+PET0892,C0710,Gus,Labrador,large,10.3,senior,70.9,,medium,12,22
+PET0893,C0711,Mochi,Shih Tzu,small,6.5,adult,11.3,,low,7,25
+PET0894,C0711,Sadie,Rottweiler,large,4.7,adult,121.8,grain,medium,8,7
+PET0895,C0712,Lola,German Shepherd,large,7.2,senior,76.3,,high,9,6
+PET0896,C0713,Zoe,Yorkshire Terrier,small,6.4,adult,6.8,,medium,11,24
+PET0897,C0714,Scout,Golden Retriever,large,0.6,puppy,60.2,,low,8,8
+PET0898,C0715,Penny,French Bulldog,small,2.1,adult,20.0,,medium,11,2
+PET0899,C0716,Lily,German Shorthaired Pointer,large,8.6,senior,67.3,,medium,8,6
+PET0900,C0716,Gus,Mixed Breed,medium,3.6,adult,58.2,,low,3,7
+PET0901,C0717,Jack,Mixed Breed,medium,3.3,adult,43.0,,medium,8,4
+PET0902,C0718,Mochi,Poodle,medium,5.3,adult,47.7,grain,low,6,20
+PET0903,C0719,Stella,Beagle,small,11.6,senior,29.4,,medium,4,22
+PET0904,C0720,Zoe,Beagle,small,9.3,senior,29.1,chicken,medium,6,14
+PET0905,C0721,Rocky,Dachshund,small,13.7,senior,17.7,,medium,12,12
+PET0906,C0722,Cooper,Boxer,large,10.5,senior,57.2,,high,2,8
+PET0907,C0722,Jack,Mixed Breed,medium,1.0,adult,55.2,,medium,9,3
+PET0908,C0723,Roxy,Labrador,large,4.5,adult,59.3,grain,low,8,27
+PET0909,C0724,Luna,Pembroke Welsh Corgi,small,13.9,senior,22.1,,low,2,14
+PET0910,C0724,Lily,French Bulldog,small,7.6,senior,19.1,,low,12,4
+PET0911,C0724,Sadie,Dachshund,small,14.3,senior,26.9,chicken,medium,8,23
+PET0912,C0725,Ruby,German Shepherd,large,4.5,adult,71.7,,medium,12,21
+PET0913,C0725,Rocky,Golden Retriever,large,9.9,senior,63.7,chicken,high,2,12
+PET0914,C0726,Bailey,Beagle,small,4.9,adult,24.5,,medium,5,11
+PET0915,C0727,Penny,Golden Retriever,large,4.4,adult,56.3,,medium,8,6
+PET0916,C0728,Toby,German Shorthaired Pointer,large,0.5,puppy,61.0,,high,4,25
+PET0917,C0729,Waffles,Dachshund,small,3.0,adult,16.3,,low,11,20
+PET0918,C0730,Charlie,Yorkshire Terrier,small,0.8,puppy,4.5,,medium,5,20
+PET0919,C0731,Jack,Yorkshire Terrier,small,2.8,adult,4.1,,high,6,15
+PET0920,C0732,Stella,Rottweiler,large,0.9,puppy,95.8,,low,7,10
+PET0921,C0733,Lucy,Mixed Breed,medium,5.3,adult,20.9,,medium,11,18
+PET0922,C0734,Max,Golden Retriever,large,7.8,senior,64.5,,medium,3,18
+PET0923,C0735,Toby,French Bulldog,small,5.3,adult,20.7,,medium,3,6
+PET0924,C0736,Gus,Labrador,large,3.6,adult,78.3,,high,12,10
+PET0925,C0737,Pepper,German Shorthaired Pointer,large,5.6,adult,67.4,,low,1,4
+PET0926,C0737,Pepper,Golden Retriever,large,13.5,senior,56.8,,high,10,26
+PET0927,C0738,Bailey,Cavalier King Charles,small,5.2,adult,16.9,,medium,12,26
+PET0928,C0739,Milo,French Bulldog,small,6.6,adult,28.0,,medium,9,13
+PET0929,C0740,Mochi,Pembroke Welsh Corgi,small,6.3,adult,29.6,,low,6,11
+PET0930,C0740,Milo,German Shepherd,large,4.2,adult,85.6,,low,5,12
+PET0931,C0740,Buddy,Mixed Breed,medium,14.8,senior,26.4,,medium,9,18
+PET0932,C0741,Zoe,French Bulldog,small,2.1,adult,27.1,,medium,8,11
+PET0933,C0742,Bella,Rottweiler,large,13.4,senior,119.5,,high,1,6
+PET0934,C0743,Charlie,Golden Retriever,large,1.4,adult,72.4,,medium,8,2
+PET0935,C0744,Tucker,Labrador,large,3.4,adult,80.0,,medium,6,26
+PET0936,C0745,Buddy,Labrador,large,6.8,adult,67.2,,medium,2,16
+PET0937,C0746,Bear,Pembroke Welsh Corgi,small,5.7,adult,28.6,,low,6,22
+PET0938,C0747,Toby,Labrador,large,7.1,senior,78.9,,low,6,10
+PET0939,C0748,Riley,German Shepherd,large,5.8,adult,76.2,,high,9,15
+PET0940,C0748,Rocky,Labrador,large,13.0,senior,61.1,,low,3,10
+PET0941,C0749,Murphy,Shih Tzu,small,9.8,senior,10.4,beef,high,7,5
+PET0942,C0750,Murphy,Cavalier King Charles,small,7.2,senior,14.7,,medium,8,24
+PET0943,C0751,Stella,Golden Retriever,large,4.6,adult,58.9,,low,7,22
+PET0944,C0752,Daisy,Labrador,large,5.4,adult,56.8,,low,2,26
+PET0945,C0753,Max,German Shorthaired Pointer,large,9.2,senior,51.9,,medium,5,9
+PET0946,C0754,Daisy,German Shepherd,large,7.2,senior,65.4,,high,11,2
+PET0947,C0755,Bear,Australian Shepherd,medium,6.4,adult,50.8,dairy,high,11,6
+PET0948,C0756,Gus,Golden Retriever,large,2.7,adult,64.5,,medium,5,10
+PET0949,C0756,Buddy,Boxer,large,11.7,senior,74.4,,medium,6,9
+PET0950,C0756,Rocky,Labrador,large,1.8,adult,55.4,,medium,8,15
+PET0951,C0757,Oliver,Labrador,large,0.5,puppy,65.9,,high,9,19
+PET0952,C0758,Zoe,Bulldog,medium,4.0,adult,49.6,,medium,7,23
+PET0953,C0759,Luna,French Bulldog,small,7.1,senior,18.1,,medium,10,18
+PET0954,C0760,Mochi,French Bulldog,small,3.2,adult,19.7,,medium,8,23
+PET0955,C0761,Charlie,French Bulldog,small,3.6,adult,25.4,,medium,8,21
+PET0956,C0762,Cooper,Beagle,small,6.9,adult,25.6,,medium,7,1
+PET0957,C0763,Olive,Dachshund,small,8.5,senior,27.8,,medium,6,27
+PET0958,C0764,Finn,Poodle,medium,11.2,senior,42.1,,low,5,6
+PET0959,C0764,Toby,Shih Tzu,small,0.2,puppy,11.1,,medium,9,19
+PET0960,C0765,Pickles,Dachshund,small,6.3,adult,18.7,,medium,5,23
+PET0961,C0765,Max,Bulldog,medium,6.3,adult,43.8,,medium,5,7
+PET0962,C0766,Sophie,French Bulldog,small,11.3,senior,23.7,,low,10,6
+PET0963,C0767,Finn,Mixed Breed,medium,7.1,senior,47.2,,medium,2,26
+PET0964,C0768,Lucy,Golden Retriever,large,7.5,senior,74.5,,low,4,1
+PET0965,C0768,Penny,German Shepherd,large,4.0,adult,55.3,,medium,12,17
+PET0966,C0769,Lily,Golden Retriever,large,4.6,adult,66.9,,medium,11,22
+PET0967,C0770,Lucy,Dachshund,small,9.1,senior,23.6,,low,1,13
+PET0968,C0771,Duke,Mixed Breed,medium,6.5,adult,35.3,,high,3,27
+PET0969,C0772,Duke,Dachshund,small,7.6,senior,22.4,,high,2,25
+PET0970,C0772,Gus,Bulldog,medium,3.6,adult,43.0,,low,12,18
+PET0971,C0773,Ruby,Dachshund,small,5.0,adult,20.9,,high,9,9
+PET0972,C0774,Luna,Pembroke Welsh Corgi,small,3.0,adult,25.9,,medium,6,18
+PET0973,C0774,Beans,Pembroke Welsh Corgi,small,6.6,adult,25.7,,medium,7,27
+PET0974,C0775,Beans,Mixed Breed,medium,16.0,senior,47.0,,medium,10,26
+PET0975,C0776,Beans,Mixed Breed,medium,4.5,adult,49.4,chicken,low,9,22
+PET0976,C0777,Bailey,Mixed Breed,medium,3.0,adult,20.7,,high,4,12
+PET0977,C0778,Maggie,Golden Retriever,large,3.0,adult,74.1,,medium,1,16
+PET0978,C0779,Pickles,Bulldog,medium,7.9,senior,49.6,,high,5,24
+PET0979,C0780,Lola,Bulldog,medium,2.3,adult,43.7,,medium,1,17
+PET0980,C0780,Pepper,Mixed Breed,medium,5.4,adult,46.9,,low,7,27
+PET0981,C0780,Biscuit,Australian Shepherd,medium,2.5,adult,62.4,,medium,9,4
+PET0982,C0781,Charlie,German Shepherd,large,4.3,adult,89.9,,high,5,17
+PET0983,C0782,Rocky,Labrador,large,6.1,adult,64.1,,medium,11,18
+PET0984,C0783,Duke,Labrador,large,4.5,adult,59.9,,medium,10,8
+PET0985,C0784,Sophie,German Shorthaired Pointer,large,11.7,senior,65.8,,medium,6,10
+PET0986,C0785,Buddy,Rottweiler,large,2.3,adult,89.1,,medium,1,14
+PET0987,C0786,Lola,Poodle,medium,6.3,adult,46.8,,medium,1,5
+PET0988,C0787,Bear,Bulldog,medium,2.9,adult,44.3,,low,5,16
+PET0989,C0788,Banjo,Australian Shepherd,medium,16.0,senior,45.1,,medium,3,9
+PET0990,C0789,Bailey,Australian Shepherd,medium,7.2,senior,60.5,chicken,medium,6,7
+PET0991,C0790,Scout,Pembroke Welsh Corgi,small,3.0,adult,25.3,,high,7,23
+PET0992,C0791,Max,Golden Retriever,large,10.2,senior,67.9,,low,6,5
+PET0993,C0792,Sophie,Rottweiler,large,3.1,adult,115.0,,medium,2,4
+PET0994,C0793,Penny,Mixed Breed,medium,6.1,adult,21.3,,high,5,19
+PET0995,C0794,Biscuit,Labrador,large,2.8,adult,61.4,,high,7,14
+PET0996,C0795,Scout,Yorkshire Terrier,small,4.4,adult,5.6,,low,7,7
+PET0997,C0796,Pickles,Mixed Breed,medium,3.4,adult,45.0,,medium,8,5
+PET0998,C0796,Penny,Golden Retriever,large,13.1,senior,71.3,,high,1,12
+PET0999,C0797,Olive,Beagle,small,6.5,adult,29.7,dairy,medium,5,14
+PET1000,C0798,Waffles,Mixed Breed,medium,2.5,adult,40.3,,low,2,3
+PET1001,C0799,Sadie,Dachshund,small,8.0,senior,27.1,chicken,high,10,13
+PET1002,C0800,Sophie,Boxer,large,10.2,senior,52.0,,low,9,19

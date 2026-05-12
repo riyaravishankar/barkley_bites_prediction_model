@@ -1,0 +1,98 @@
+{
+  "champion_model": "XGBoost (500K samples)",
+  "n_train": 400000,
+  "n_test": 100000,
+  "n_features": 23,
+  "n_classes": 8,
+  "class_names": [
+    "BIRTHDAY",
+    "FIRST_TIME",
+    "NEW_PUPPY",
+    "PET_LOSS",
+    "RE_ENGAGE",
+    "SENIOR_TRANSITION",
+    "STABLE",
+    "TRAVEL_PAUSE"
+  ],
+  "test_accuracy": 0.9064,
+  "test_weighted_f1": 0.9116,
+  "train_time_seconds": 51.9,
+  "all_models_compared": {
+    "XGBoost (500K)": {
+      "acc": 0.9064,
+      "f1": 0.9116
+    }
+  },
+  "baselines": {
+    "always_predict_majority_acc": 0.4343,
+    "random_stratified_acc": 0.2385
+  },
+  "per_class_accuracy": {
+    "BIRTHDAY": 0.9509,
+    "FIRST_TIME": 0.904,
+    "NEW_PUPPY": 0.9353,
+    "PET_LOSS": 0.8844,
+    "RE_ENGAGE": 0.9176,
+    "SENIOR_TRANSITION": 0.93,
+    "STABLE": 0.883,
+    "TRAVEL_PAUSE": 0.9257
+  },
+  "per_class_f1": {
+    "BIRTHDAY": 0.9502,
+    "FIRST_TIME": 0.9303,
+    "NEW_PUPPY": 0.9476,
+    "PET_LOSS": 0.8697,
+    "RE_ENGAGE": 0.937,
+    "SENIOR_TRANSITION": 0.7053,
+    "STABLE": 0.92,
+    "TRAVEL_PAUSE": 0.9444
+  },
+  "top_features": [
+    {
+      "feature": "avg_rating",
+      "importance": 0.0012409953633323312
+    },
+    {
+      "feature": "orders_last_30d",
+      "importance": 0.001289720181375742
+    },
+    {
+      "feature": "interval_stddev",
+      "importance": 0.002114850329235196
+    },
+    {
+      "feature": "max_interval_days",
+      "importance": 0.003195767989382148
+    },
+    {
+      "feature": "days_to_birthday",
+      "importance": 0.010601175017654896
+    },
+    {
+      "feature": "pet_age_years",
+      "importance": 0.016255445778369904
+    },
+    {
+      "feature": "orders_last_90d",
+      "importance": 0.01659480296075344
+    },
+    {
+      "feature": "days_since_last_order",
+      "importance": 0.026741834357380867
+    },
+    {
+      "feature": "n_orders",
+      "importance": 0.02803758531808853
+    },
+    {
+      "feature": "had_resumption",
+      "importance": 0.8899425268173218
+    }
+  ],
+  "label_noise_pct": 4.0,
+  "cv_weighted_f1_mean": 0.9116,
+  "cv_weighted_f1_std": 0.0,
+  "rf_baseline_accuracy": 0.0,
+  "gb_default_accuracy": 0.0,
+  "pet_loss_threshold": 0.5
+}

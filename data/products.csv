@@ -1,0 +1,5 @@
+product_id,name,size_oz,price_usd,price_per_oz,category,description
+P01,Original - Salmon Mix,8,8.00,1.00,Main meal,Wild-caught salmon mix - fresh-cooked weekly
+P02,Original - Salmon Veggie Mix,8,10.00,1.25,Main meal,Salmon with fresh vegetables - balanced nutrition
+P03,Jerky Treats,3,10.00,3.33,Treats,Air-dried treats - high protein training reward
+P04,Waggin Tails,8,12.00,1.50,Main meal,Premium recipe - blended for sensitive stomachs

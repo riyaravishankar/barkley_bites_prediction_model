@@ -1,0 +1,801 @@
+customer_id,first_name,last_name,email,city,zip_code,signup_date,signup_source,has_used_free_trial
+C0001,Michael,Jackson,customer1@example.com,Plano,75024,2026-02-09,TikTok,1
+C0002,Rachel,Rodriguez,customer2@example.com,Richardson,75080,2025-11-21,Instagram,1
+C0003,Madison,Garcia,customer3@example.com,Plano,75024,2026-04-24,Pop-up Event,1
+C0004,Carlos,Williams,customer4@example.com,Coppell,75019,2025-09-25,Instagram,0
+C0005,James,Anderson,customer5@example.com,Dallas,75201,2025-06-17,Instagram,1
+C0006,Hannah,Johnson,customer6@example.com,Richardson,75080,2026-03-29,Friend Referral,1
+C0007,Lauren,Khan,customer7@example.com,Allen,75013,2026-01-23,Instagram,1
+C0008,Maria,Jackson,customer8@example.com,Richardson,75080,2026-04-07,Instagram,1
+C0009,Megan,Nguyen,customer9@example.com,Dallas,75201,2026-01-15,Vet Referral,1
+C0010,Jason,Martinez,customer10@example.com,Irving,75063,2025-12-26,Google Search,1
+C0011,Andrew,Miller,customer11@example.com,Frisco,75034,2025-11-17,Instagram,1
+C0012,Priya,Miller,customer12@example.com,Dallas,75214,2024-11-15,TikTok,1
+C0013,Brittany,Moore,customer13@example.com,Addison,75001,2026-02-28,Instagram,1
+C0014,Diego,Davis,customer14@example.com,Dallas,75205,2026-01-20,Instagram,1
+C0015,James,Martin,customer15@example.com,Fort Worth,76102,2026-04-28,Pop-up Event,1
+C0016,Eric,Wilson,customer16@example.com,Carrollton,75007,2025-10-21,Friend Referral,1
+C0017,Emma,Thomas,customer17@example.com,Dallas,75214,2025-12-13,Instagram,0
+C0018,James,Thomas,customer18@example.com,Irving,75038,2025-08-09,TikTok,1
+C0019,Priya,Jackson,customer19@example.com,Plano,75024,2025-11-22,TikTok,1
+C0020,Eric,Hernandez,customer20@example.com,Arlington,76012,2026-03-26,Instagram,1
+C0021,Brittany,Anderson,customer21@example.com,Addison,75001,2026-02-05,Instagram,1
+C0022,Jessica,Hernandez,customer22@example.com,Richardson,75082,2026-02-14,Instagram,1
+C0023,Tyler,Hernandez,customer23@example.com,Allen,75013,2026-04-07,Vet Referral,1
+C0024,Priya,Jackson,customer24@example.com,Arlington,76012,2024-11-10,Vet Referral,1
+C0025,Rachel,Perez,customer25@example.com,Allen,75013,2026-05-04,Vet Referral,1
+C0026,Rachel,Williams,customer26@example.com,Dallas,75205,2025-09-11,Vet Referral,1
+C0027,Rohit,Jackson,customer27@example.com,Irving,75063,2026-02-14,Instagram,1
+C0028,Brandon,Perez,customer28@example.com,Dallas,75214,2025-11-10,Friend Referral,1
+C0029,Wei,Shah,customer29@example.com,Frisco,75034,2026-02-26,Friend Referral,1
+C0030,Chris,Moore,customer30@example.com,Arlington,76012,2025-11-03,Pop-up Event,1
+C0031,Tyler,Moore,customer31@example.com,Plano,75093,2026-04-12,Vet Referral,1
+C0032,Carlos,Shah,customer32@example.com,Coppell,75019,2025-12-07,Vet Referral,1
+C0033,Rachel,Rodriguez,customer33@example.com,Addison,75001,2025-12-22,Friend Referral,1
+C0034,Wei,Garcia,customer34@example.com,McKinney,75070,2026-04-14,Instagram,1
+C0035,Daniel,Martinez,customer35@example.com,Dallas,75205,2026-02-26,Friend Referral,1
+C0036,Carlos,Jones,customer36@example.com,Frisco,75033,2026-03-14,Friend Referral,1
+C0037,Priya,Kim,customer37@example.com,Fort Worth,76102,2026-03-19,Instagram,1
+C0038,Amanda,Smith,customer38@example.com,McKinney,75070,2026-04-03,TikTok,1
+C0039,Madison,Jackson,customer39@example.com,Plano,75024,2025-11-05,Pop-up Event,1
+C0040,Daniel,Martin,customer40@example.com,Irving,75063,2026-03-28,Pop-up Event,1
+C0041,Megan,Kim,customer41@example.com,Fort Worth,76109,2025-07-12,Pop-up Event,1
+C0042,Amanda,Wang,customer42@example.com,Dallas,75201,2026-04-14,Instagram,1
+C0043,Hannah,Miller,customer43@example.com,Frisco,75033,2025-07-02,Pop-up Event,1
+C0044,Hannah,Wilson,customer44@example.com,Irving,75038,2025-12-27,Friend Referral,1
+C0045,Eric,Hernandez,customer45@example.com,Plano,75093,2026-04-12,Friend Referral,0
+C0046,Connor,Smith,customer46@example.com,Allen,75013,2026-02-23,Friend Referral,1
+C0047,Nicole,Chen,customer47@example.com,Carrollton,75007,2026-02-12,TikTok,0
+C0048,Daniel,Patel,customer48@example.com,Dallas,75201,2026-03-13,Friend Referral,1
+C0049,Tyler,Brown,customer49@example.com,Irving,75038,2026-03-05,Instagram,1
+C0050,Sophia,Garcia,customer50@example.com,Richardson,75080,2025-12-30,Instagram,1
+C0051,Wei,Jones,customer51@example.com,Dallas,75214,2025-03-01,Instagram,1
+C0052,Ashley,Rodriguez,customer52@example.com,Allen,75013,2026-01-03,TikTok,1
+C0053,Ethan,Hernandez,customer53@example.com,Arlington,76016,2025-10-16,Vet Referral,1
+C0054,Connor,Nguyen,customer54@example.com,Richardson,75082,2025-09-12,Friend Referral,1
+C0055,Madison,Wilson,customer55@example.com,Frisco,75034,2025-11-05,Friend Referral,1
+C0056,Rohit,Patel,customer56@example.com,Irving,75038,2025-06-14,Friend Referral,1
+C0057,Connor,Tran,customer57@example.com,Arlington,76012,2026-04-27,Google Search,1
+C0058,Tyler,Thomas,customer58@example.com,Plano,75024,2026-05-01,Friend Referral,1
+C0059,Andrew,Johnson,customer59@example.com,Dallas,75214,2025-10-30,Instagram,1
+C0060,Ethan,Thomas,customer60@example.com,Coppell,75019,2026-02-05,TikTok,1
+C0061,Rachel,Smith,customer61@example.com,Coppell,75019,2026-02-18,Instagram,0
+C0062,David,Thomas,customer62@example.com,Dallas,75214,2025-04-22,Instagram,1
+C0063,Emma,Thompson,customer63@example.com,Dallas,75214,2025-07-03,Google Search,1
+C0064,Hannah,Taylor,customer64@example.com,Dallas,75214,2026-03-16,Instagram,1
+C0065,Wei,Anderson,customer65@example.com,Richardson,75082,2025-03-15,Google Search,1
+C0066,Ashley,Park,customer66@example.com,Allen,75013,2026-02-16,Vet Referral,1
+C0067,Yuki,Khan,customer67@example.com,Richardson,75080,2025-04-07,Vet Referral,1
+C0068,Olivia,Miller,customer68@example.com,Frisco,75034,2026-04-19,Instagram,1
+C0069,Brittany,Nguyen,customer69@example.com,Fort Worth,76109,2025-11-18,Instagram,1
+C0070,Diego,Brown,customer70@example.com,Fort Worth,76109,2025-10-20,Instagram,1
+C0071,David,Shah,customer71@example.com,Plano,75024,2025-12-12,Google Search,1
+C0072,Olivia,Taylor,customer72@example.com,Irving,75063,2026-03-20,Vet Referral,1
+C0073,Lauren,Tran,customer73@example.com,Frisco,75034,2026-02-23,Vet Referral,1
+C0074,Carlos,Lopez,customer74@example.com,Plano,75093,2025-05-29,Google Search,1
+C0075,Diego,Taylor,customer75@example.com,Richardson,75082,2026-04-17,Friend Referral,1
+C0076,Maria,Miller,customer76@example.com,Dallas,75214,2026-03-15,TikTok,1
+C0077,Madison,Smith,customer77@example.com,Dallas,75205,2025-03-30,Google Search,1
+C0078,Tyler,Hernandez,customer78@example.com,Dallas,75214,2025-12-30,Google Search,1
+C0079,Wei,Park,customer79@example.com,Fort Worth,76109,2026-03-26,Vet Referral,1
+C0080,Rohit,Brown,customer80@example.com,Frisco,75034,2026-04-30,Google Search,1
+C0081,Priya,Smith,customer81@example.com,Frisco,75033,2024-12-13,TikTok,1
+C0082,Amanda,Kim,customer82@example.com,Fort Worth,76102,2026-02-10,Instagram,0
+C0083,Carlos,Chen,customer83@example.com,Irving,75038,2026-01-24,TikTok,0
+C0084,Lauren,Martin,customer84@example.com,Plano,75093,2025-05-24,Instagram,1
+C0085,David,Brown,customer85@example.com,Frisco,75034,2025-05-27,Friend Referral,1
+C0086,David,Brown,customer86@example.com,Irving,75063,2025-12-09,TikTok,1
+C0087,Yuki,Wang,customer87@example.com,Coppell,75019,2025-12-04,Instagram,1
+C0088,Megan,Brown,customer88@example.com,McKinney,75070,2024-11-10,Instagram,1
+C0089,James,Lopez,customer89@example.com,McKinney,75070,2025-04-22,Vet Referral,1
+C0090,Ava,Jones,customer90@example.com,Dallas,75214,2025-09-28,Friend Referral,1
+C0091,Rohit,Davis,customer91@example.com,Richardson,75080,2025-07-10,Vet Referral,1
+C0092,Tyler,Williams,customer92@example.com,Coppell,75019,2025-02-18,Friend Referral,1
+C0093,James,Khan,customer93@example.com,Carrollton,75007,2025-07-20,Google Search,1
+C0094,Sophia,Perez,customer94@example.com,Coppell,75019,2025-07-23,Pop-up Event,1
+C0095,Brandon,Perez,customer95@example.com,Richardson,75082,2026-02-09,Instagram,1
+C0096,Amanda,Shah,customer96@example.com,Richardson,75080,2026-04-28,Friend Referral,1
+C0097,Justin,Kim,customer97@example.com,Plano,75093,2026-03-05,Google Search,1
+C0098,Jessica,Smith,customer98@example.com,Irving,75063,2026-04-28,Pop-up Event,1
+C0099,Noah,Miller,customer99@example.com,Arlington,76012,2026-04-10,Friend Referral,1
+C0100,Madison,Anderson,customer100@example.com,Dallas,75214,2026-03-22,Google Search,1
+C0101,Amanda,Rodriguez,customer101@example.com,McKinney,75070,2026-04-25,Friend Referral,1
+C0102,Jessica,Taylor,customer102@example.com,Addison,75001,2025-11-03,Vet Referral,0
+C0103,Stephanie,Hernandez,customer103@example.com,Addison,75001,2025-12-25,Friend Referral,1
+C0104,Madison,Lee,customer104@example.com,Arlington,76012,2026-03-09,Friend Referral,1
+C0105,Connor,Smith,customer105@example.com,Carrollton,75007,2026-04-30,TikTok,1
+C0106,Justin,Miller,customer106@example.com,Allen,75013,2025-10-02,Friend Referral,1
+C0107,Amanda,Davis,customer107@example.com,Plano,75093,2026-04-04,Instagram,1
+C0108,Ethan,Martinez,customer108@example.com,Plano,75024,2025-09-21,Google Search,1
+C0109,Stephanie,Anderson,customer109@example.com,Richardson,75082,2024-11-10,Vet Referral,1
+C0110,Brandon,Moore,customer110@example.com,Irving,75063,2025-11-15,Friend Referral,1
+C0111,Wei,Moore,customer111@example.com,McKinney,75070,2026-02-14,Vet Referral,1
+C0112,James,Nguyen,customer112@example.com,Dallas,75205,2026-04-12,Instagram,1
+C0113,Emma,Smith,customer113@example.com,Richardson,75082,2025-05-21,Vet Referral,1
+C0114,Ashley,Moore,customer114@example.com,Irving,75063,2026-04-16,Friend Referral,1
+C0115,Maria,Nguyen,customer115@example.com,Frisco,75033,2026-03-31,Friend Referral,1
+C0116,Sarah,Davis,customer116@example.com,Allen,75013,2025-11-13,Google Search,1
+C0117,Chris,Williams,customer117@example.com,Dallas,75214,2026-02-09,Google Search,1
+C0118,Logan,Martinez,customer118@example.com,Addison,75001,2025-05-20,Google Search,1
+C0119,Ashley,Williams,customer119@example.com,Fort Worth,76109,2026-04-21,Google Search,1
+C0120,Eric,Williams,customer120@example.com,Irving,75038,2025-11-27,TikTok,1
+C0121,Brandon,Taylor,customer121@example.com,Addison,75001,2026-02-05,Google Search,1
+C0122,Brittany,Khan,customer122@example.com,Plano,75024,2025-12-14,TikTok,1
+C0123,Chris,Taylor,customer123@example.com,Carrollton,75007,2024-11-10,Pop-up Event,1
+C0124,Ryan,Khan,customer124@example.com,Frisco,75033,2026-04-22,Instagram,1
+C0125,Ryan,Thompson,customer125@example.com,Dallas,75201,2026-04-17,Google Search,1
+C0126,Tyler,Jackson,customer126@example.com,Fort Worth,76109,2026-02-24,Pop-up Event,1
+C0127,Olivia,Kumar,customer127@example.com,Frisco,75033,2025-07-05,Instagram,1
+C0128,Yuki,Thomas,customer128@example.com,Dallas,75205,2025-10-02,Google Search,1
+C0129,Diego,White,customer129@example.com,Frisco,75034,2025-09-07,Vet Referral,1
+C0130,Rachel,Thomas,customer130@example.com,Irving,75038,2026-03-30,Vet Referral,1
+C0131,Lauren,Shah,customer131@example.com,Dallas,75201,2024-11-10,Friend Referral,1
+C0132,Jason,Jones,customer132@example.com,Irving,75063,2025-08-08,Friend Referral,0
+C0133,Brittany,Wang,customer133@example.com,Richardson,75082,2025-05-18,Friend Referral,1
+C0134,Madison,Thompson,customer134@example.com,Fort Worth,76102,2025-08-25,Instagram,1
+C0135,Daniel,Moore,customer135@example.com,Dallas,75201,2025-12-29,Pop-up Event,1
+C0136,Logan,Moore,customer136@example.com,Frisco,75033,2025-03-24,Friend Referral,1
+C0137,Olivia,Nguyen,customer137@example.com,Dallas,75205,2025-03-06,Instagram,1
+C0138,Nicole,Nguyen,customer138@example.com,Addison,75001,2024-11-11,TikTok,1
+C0139,Hannah,Davis,customer139@example.com,Carrollton,75007,2025-11-06,Friend Referral,1
+C0140,Sophia,Wilson,customer140@example.com,Fort Worth,76102,2026-02-22,Google Search,1
+C0141,Emma,Nguyen,customer141@example.com,Richardson,75082,2025-07-26,Vet Referral,1
+C0142,Connor,Wilson,customer142@example.com,Dallas,75201,2026-01-02,Instagram,1
+C0143,Carlos,Jones,customer143@example.com,Addison,75001,2026-01-20,Pop-up Event,1
+C0144,Noah,Perez,customer144@example.com,Irving,75063,2026-04-12,Instagram,1
+C0145,Justin,Wang,customer145@example.com,Plano,75024,2025-11-12,Instagram,1
+C0146,Aisha,Perez,customer146@example.com,Irving,75038,2025-09-29,Instagram,1
+C0147,Stephanie,Rodriguez,customer147@example.com,Fort Worth,76102,2025-09-26,Instagram,1
+C0148,Aisha,Kumar,customer148@example.com,Frisco,75034,2024-11-10,Friend Referral,1
+C0149,Noah,Lee,customer149@example.com,Frisco,75033,2025-07-07,TikTok,0
+C0150,Ethan,Smith,customer150@example.com,Fort Worth,76102,2025-08-26,Friend Referral,1
+C0151,Stephanie,Anderson,customer151@example.com,Irving,75038,2025-08-07,Google Search,1
+C0152,Logan,Perez,customer152@example.com,Fort Worth,76109,2025-03-04,Instagram,1
+C0153,Maria,Tran,customer153@example.com,Arlington,76012,2026-05-02,Friend Referral,1
+C0154,Hannah,Park,customer154@example.com,Frisco,75034,2026-04-12,Instagram,1
+C0155,James,Martin,customer155@example.com,Frisco,75033,2025-08-31,Google Search,0
+C0156,Noah,Thompson,customer156@example.com,McKinney,75070,2026-02-09,Instagram,1
+C0157,Tyler,Lee,customer157@example.com,Dallas,75214,2026-03-20,TikTok,1
+C0158,Lauren,Martinez,customer158@example.com,Richardson,75080,2024-11-10,Instagram,1
+C0159,Emma,Taylor,customer159@example.com,Dallas,75201,2025-12-20,TikTok,1
+C0160,Noah,Jones,customer160@example.com,Arlington,76016,2025-12-10,TikTok,1
+C0161,Aisha,Wilson,customer161@example.com,Arlington,76012,2025-11-07,Google Search,1
+C0162,Wei,Shah,customer162@example.com,Fort Worth,76102,2025-11-08,Google Search,1
+C0163,Chris,Smith,customer163@example.com,Richardson,75080,2026-04-26,Instagram,0
+C0164,Carlos,Thomas,customer164@example.com,Plano,75024,2025-04-02,Friend Referral,1
+C0165,Connor,Kim,customer165@example.com,Frisco,75033,2026-03-07,Instagram,1
+C0166,Ethan,Taylor,customer166@example.com,Dallas,75205,2026-02-15,Google Search,1
+C0167,Diego,Rodriguez,customer167@example.com,Plano,75024,2024-11-10,TikTok,1
+C0168,Connor,Perez,customer168@example.com,Arlington,76012,2025-12-17,Friend Referral,1
+C0169,Noah,Wang,customer169@example.com,Arlington,76012,2025-10-09,Instagram,1
+C0170,Ethan,Tran,customer170@example.com,Fort Worth,76109,2025-06-27,TikTok,1
+C0171,Yuki,Tran,customer171@example.com,Frisco,75033,2025-11-14,Friend Referral,0
+C0172,Tyler,Jackson,customer172@example.com,Richardson,75082,2025-05-08,Instagram,1
+C0173,Wei,Taylor,customer173@example.com,McKinney,75070,2026-02-08,Vet Referral,0
+C0174,Maria,Jones,customer174@example.com,Richardson,75082,2026-04-05,Google Search,1
+C0175,Tyler,Jackson,customer175@example.com,Irving,75038,2024-11-10,Pop-up Event,1
+C0176,Nicole,Garcia,customer176@example.com,Irving,75063,2026-01-11,Friend Referral,1
+C0177,Chris,Thomas,customer177@example.com,Plano,75093,2026-04-24,Pop-up Event,1
+C0178,Chris,Anderson,customer178@example.com,Fort Worth,76102,2024-11-10,TikTok,1
+C0179,Aisha,Khan,customer179@example.com,Dallas,75214,2025-08-14,TikTok,1
+C0180,Madison,Kim,customer180@example.com,Irving,75063,2026-03-14,Friend Referral,1
+C0181,David,Anderson,customer181@example.com,Fort Worth,76109,2024-11-10,Google Search,1
+C0182,Priya,Johnson,customer182@example.com,Fort Worth,76109,2025-10-16,Google Search,1
+C0183,Priya,Park,customer183@example.com,Coppell,75019,2026-04-13,Google Search,1
+C0184,Brittany,Lee,customer184@example.com,Dallas,75201,2025-08-11,Friend Referral,1
+C0185,Aisha,Thomas,customer185@example.com,Fort Worth,76102,2025-12-11,Google Search,1
+C0186,Rachel,Jackson,customer186@example.com,Arlington,76016,2026-02-01,Instagram,1
+C0187,Wei,Johnson,customer187@example.com,Fort Worth,76109,2025-08-24,Google Search,1
+C0188,Andrew,Shah,customer188@example.com,Fort Worth,76102,2026-03-22,Instagram,1
+C0189,Diego,Rodriguez,customer189@example.com,Frisco,75033,2026-02-16,Google Search,1
+C0190,Madison,Johnson,customer190@example.com,Carrollton,75007,2026-01-21,Pop-up Event,1
+C0191,Logan,Johnson,customer191@example.com,Fort Worth,76102,2025-12-26,Vet Referral,1
+C0192,Carlos,Rodriguez,customer192@example.com,Dallas,75214,2025-11-10,Pop-up Event,0
+C0193,Ryan,Brown,customer193@example.com,Arlington,76012,2026-04-06,TikTok,1
+C0194,Priya,Perez,customer194@example.com,Richardson,75082,2026-03-12,Friend Referral,0
+C0195,Diego,Perez,customer195@example.com,Frisco,75034,2026-01-02,Friend Referral,1
+C0196,Priya,Jackson,customer196@example.com,Irving,75063,2026-03-16,Instagram,1
+C0197,Amanda,Garcia,customer197@example.com,Fort Worth,76109,2026-04-10,Instagram,1
+C0198,Michael,Brown,customer198@example.com,Arlington,76016,2025-11-01,Instagram,1
+C0199,Rachel,Jones,customer199@example.com,Addison,75001,2025-03-22,Friend Referral,1
+C0200,Michael,Taylor,customer200@example.com,Dallas,75205,2026-03-31,Instagram,1
+C0201,Michael,Martinez,customer201@example.com,Frisco,75034,2026-04-01,Instagram,1
+C0202,Ashley,Park,customer202@example.com,Richardson,75080,2026-04-18,Instagram,1
+C0203,Sophia,Anderson,customer203@example.com,Plano,75024,2026-03-24,Friend Referral,1
+C0204,Amanda,Patel,customer204@example.com,Arlington,76012,2025-10-05,Instagram,1
+C0205,Ava,Davis,customer205@example.com,Frisco,75033,2025-11-08,Instagram,1
+C0206,Justin,Miller,customer206@example.com,Frisco,75033,2025-02-02,Instagram,1
+C0207,Michael,Lee,customer207@example.com,Coppell,75019,2025-07-13,Vet Referral,1
+C0208,Priya,Shah,customer208@example.com,Coppell,75019,2026-03-23,Friend Referral,1
+C0209,Jessica,Taylor,customer209@example.com,Frisco,75034,2025-11-12,Friend Referral,1
+C0210,Justin,Davis,customer210@example.com,Plano,75024,2025-08-30,Instagram,1
+C0211,Emma,White,customer211@example.com,Coppell,75019,2025-09-22,Pop-up Event,1
+C0212,Carlos,Patel,customer212@example.com,Allen,75013,2025-12-19,Instagram,1
+C0213,Hannah,Thompson,customer213@example.com,Dallas,75214,2025-12-19,Instagram,1
+C0214,Aisha,Chen,customer214@example.com,Dallas,75201,2026-02-08,Instagram,1
+C0215,Carlos,Patel,customer215@example.com,Plano,75024,2026-03-23,Friend Referral,1
+C0216,Chris,Nguyen,customer216@example.com,Arlington,76012,2025-04-01,Google Search,1
+C0217,Connor,Jackson,customer217@example.com,Frisco,75033,2025-07-28,Friend Referral,1
+C0218,Madison,Park,customer218@example.com,Carrollton,75007,2025-12-17,Google Search,1
+C0219,Carlos,Jackson,customer219@example.com,Arlington,76012,2026-01-23,Instagram,1
+C0220,Tyler,Garcia,customer220@example.com,Irving,75063,2026-02-12,Google Search,1
+C0221,Maria,Taylor,customer221@example.com,Richardson,75082,2026-02-14,TikTok,1
+C0222,Sophia,Kumar,customer222@example.com,Arlington,76012,2026-03-17,Instagram,1
+C0223,Michael,Chen,customer223@example.com,Irving,75063,2026-03-15,Instagram,1
+C0224,Ryan,Chen,customer224@example.com,Irving,75063,2026-03-05,Instagram,1
+C0225,Brittany,Moore,customer225@example.com,Frisco,75034,2026-04-19,Friend Referral,1
+C0226,Jason,Jackson,customer226@example.com,Irving,75063,2024-11-10,Instagram,1
+C0227,Sarah,Wilson,customer227@example.com,Allen,75013,2024-11-10,Pop-up Event,1
+C0228,Tyler,Khan,customer228@example.com,Dallas,75214,2026-03-12,Instagram,1
+C0229,Ethan,Taylor,customer229@example.com,Arlington,76016,2025-01-12,Google Search,1
+C0230,Wei,Tran,customer230@example.com,Arlington,76016,2026-03-06,Vet Referral,1
+C0231,James,Martin,customer231@example.com,Dallas,75201,2026-02-23,Friend Referral,1
+C0232,Rohit,Taylor,customer232@example.com,Richardson,75080,2026-03-16,Instagram,1
+C0233,Logan,Patel,customer233@example.com,Irving,75038,2026-03-04,Google Search,1
+C0234,Ethan,White,customer234@example.com,Arlington,76016,2026-01-06,Friend Referral,1
+C0235,Ethan,Thompson,customer235@example.com,Fort Worth,76109,2026-02-20,Instagram,1
+C0236,Diego,Jackson,customer236@example.com,Addison,75001,2024-11-10,Friend Referral,1
+C0237,Amanda,Thomas,customer237@example.com,Irving,75038,2026-03-13,Google Search,1
+C0238,Lauren,Perez,customer238@example.com,Plano,75024,2025-11-23,Friend Referral,1
+C0239,Madison,Lopez,customer239@example.com,Plano,75024,2026-02-16,TikTok,1
+C0240,Brandon,Park,customer240@example.com,Frisco,75034,2024-11-10,Instagram,1
+C0241,Logan,Martin,customer241@example.com,Richardson,75082,2024-12-19,Instagram,1
+C0242,Lauren,Martin,customer242@example.com,Plano,75024,2025-09-03,Google Search,1
+C0243,Eric,Lopez,customer243@example.com,Richardson,75080,2026-04-07,Vet Referral,1
+C0244,Sarah,Rodriguez,customer244@example.com,Irving,75038,2026-04-02,Instagram,1
+C0245,Emma,Brown,customer245@example.com,Richardson,75082,2025-10-20,Friend Referral,1
+C0246,Stephanie,Rodriguez,customer246@example.com,Allen,75013,2025-04-22,Friend Referral,1
+C0247,Olivia,Smith,customer247@example.com,Arlington,76016,2026-01-20,Friend Referral,1
+C0248,Stephanie,Park,customer248@example.com,Coppell,75019,2026-03-01,Vet Referral,1
+C0249,Maria,Thompson,customer249@example.com,Arlington,76016,2026-03-18,Pop-up Event,1
+C0250,David,Moore,customer250@example.com,Frisco,75033,2025-12-14,Pop-up Event,1
+C0251,Daniel,Jones,customer251@example.com,Arlington,76016,2026-04-12,TikTok,1
+C0252,Wei,Jones,customer252@example.com,Fort Worth,76102,2026-02-20,Instagram,1
+C0253,David,Martinez,customer253@example.com,Coppell,75019,2025-11-11,Friend Referral,1
+C0254,Sophia,Lee,customer254@example.com,Plano,75093,2025-07-29,Instagram,1
+C0255,Tyler,Davis,customer255@example.com,Dallas,75214,2026-03-14,Vet Referral,1
+C0256,Aisha,Thomas,customer256@example.com,Allen,75013,2025-12-04,Vet Referral,1
+C0257,Priya,Tran,customer257@example.com,McKinney,75070,2026-02-18,Pop-up Event,1
+C0258,Justin,Nguyen,customer258@example.com,Arlington,76012,2025-06-01,Instagram,1
+C0259,Sophia,Brown,customer259@example.com,Irving,75038,2025-07-21,Instagram,1
+C0260,Olivia,Anderson,customer260@example.com,Carrollton,75007,2025-09-16,Vet Referral,1
+C0261,Amanda,Garcia,customer261@example.com,Frisco,75034,2025-10-03,Friend Referral,1
+C0262,Tyler,Lopez,customer262@example.com,Frisco,75033,2026-02-17,Instagram,1
+C0263,Jessica,Hernandez,customer263@example.com,Allen,75013,2025-11-28,Friend Referral,1
+C0264,Aisha,Tran,customer264@example.com,Dallas,75201,2024-11-21,Instagram,1
+C0265,Yuki,Martin,customer265@example.com,Carrollton,75007,2025-12-29,Google Search,1
+C0266,Rachel,Martin,customer266@example.com,Dallas,75205,2025-04-29,TikTok,1
+C0267,Diego,Jones,customer267@example.com,Irving,75038,2025-10-02,TikTok,1
+C0268,Amanda,Wilson,customer268@example.com,Richardson,75080,2026-04-05,Google Search,1
+C0269,Daniel,Thomas,customer269@example.com,Fort Worth,76109,2026-01-25,Vet Referral,0
+C0270,Jason,Martinez,customer270@example.com,Plano,75093,2025-01-22,Friend Referral,1
+C0271,David,Hernandez,customer271@example.com,Dallas,75214,2024-11-10,Pop-up Event,1
+C0272,Ava,Martin,customer272@example.com,Irving,75038,2025-02-02,Pop-up Event,1
+C0273,Daniel,Kim,customer273@example.com,Arlington,76012,2025-11-24,Friend Referral,1
+C0274,Rohit,Jackson,customer274@example.com,Irving,75038,2026-02-20,Vet Referral,1
+C0275,Madison,Chen,customer275@example.com,McKinney,75070,2026-02-20,Friend Referral,1
+C0276,James,Williams,customer276@example.com,Arlington,76012,2025-02-04,Friend Referral,1
+C0277,Nicole,Moore,customer277@example.com,Fort Worth,76109,2025-09-06,Friend Referral,1
+C0278,James,Thomas,customer278@example.com,Dallas,75201,2026-01-16,Instagram,1
+C0279,Logan,Johnson,customer279@example.com,Coppell,75019,2025-12-31,Friend Referral,1
+C0280,Sophia,Williams,customer280@example.com,Richardson,75082,2026-02-12,Google Search,1
+C0281,Yuki,Tran,customer281@example.com,Frisco,75033,2026-05-02,Google Search,1
+C0282,Ryan,Nguyen,customer282@example.com,Richardson,75082,2024-11-10,Instagram,1
+C0283,James,Park,customer283@example.com,Arlington,76016,2026-04-18,TikTok,1
+C0284,Aisha,Thompson,customer284@example.com,Addison,75001,2025-11-23,Instagram,1
+C0285,Olivia,Hernandez,customer285@example.com,Irving,75063,2026-03-23,Pop-up Event,1
+C0286,Aisha,Chen,customer286@example.com,Irving,75063,2026-03-27,Instagram,1
+C0287,Rohit,Williams,customer287@example.com,Irving,75038,2025-12-06,Instagram,1
+C0288,James,Perez,customer288@example.com,Arlington,76012,2026-01-16,Friend Referral,1
+C0289,Nicole,Davis,customer289@example.com,Richardson,75082,2026-02-01,Google Search,1
+C0290,Hannah,Smith,customer290@example.com,Fort Worth,76102,2026-03-29,Pop-up Event,0
+C0291,Diego,Khan,customer291@example.com,Allen,75013,2026-02-09,Instagram,1
+C0292,Lauren,Patel,customer292@example.com,Dallas,75205,2026-01-30,Instagram,1
+C0293,Wei,Tran,customer293@example.com,Carrollton,75007,2025-09-20,Google Search,1
+C0294,Brandon,Jackson,customer294@example.com,Dallas,75205,2026-03-20,Instagram,1
+C0295,Ashley,Martin,customer295@example.com,Allen,75013,2026-05-01,Instagram,1
+C0296,Wei,Davis,customer296@example.com,Arlington,76012,2026-03-30,Google Search,1
+C0297,Ava,Taylor,customer297@example.com,Dallas,75201,2026-04-16,Instagram,1
+C0298,Justin,Smith,customer298@example.com,Frisco,75033,2025-05-21,Pop-up Event,1
+C0299,Aisha,Garcia,customer299@example.com,Allen,75013,2025-10-18,Instagram,1
+C0300,Daniel,Kim,customer300@example.com,Richardson,75080,2025-03-23,Instagram,1
+C0301,Chris,Chen,customer301@example.com,Plano,75024,2026-03-24,Instagram,1
+C0302,Hannah,Jackson,customer302@example.com,Irving,75038,2025-11-28,Friend Referral,1
+C0303,Yuki,Park,customer303@example.com,Fort Worth,76109,2025-07-02,Friend Referral,1
+C0304,Diego,Martinez,customer304@example.com,Richardson,75080,2026-02-08,Google Search,1
+C0305,Lauren,Wang,customer305@example.com,Fort Worth,76102,2025-11-09,Friend Referral,1
+C0306,Jessica,Jackson,customer306@example.com,Plano,75093,2026-01-21,Instagram,0
+C0307,Andrew,Wang,customer307@example.com,Fort Worth,76109,2025-08-18,Instagram,1
+C0308,Sarah,Martin,customer308@example.com,Richardson,75082,2026-01-04,Pop-up Event,1
+C0309,Logan,Chen,customer309@example.com,Irving,75038,2026-01-25,Instagram,1
+C0310,Maria,Park,customer310@example.com,Plano,75093,2025-12-15,Google Search,1
+C0311,Andrew,Kumar,customer311@example.com,Addison,75001,2026-04-07,Pop-up Event,0
+C0312,Nicole,Wilson,customer312@example.com,Arlington,76012,2025-12-21,Instagram,1
+C0313,Sophia,Kumar,customer313@example.com,Richardson,75080,2026-05-01,Pop-up Event,1
+C0314,Aisha,Williams,customer314@example.com,Richardson,75080,2025-12-01,Instagram,1
+C0315,Yuki,Kumar,customer315@example.com,Irving,75063,2025-10-27,Pop-up Event,1
+C0316,Chris,Chen,customer316@example.com,Fort Worth,76102,2026-05-03,Instagram,1
+C0317,Ashley,Wang,customer317@example.com,Dallas,75205,2025-04-27,Google Search,1
+C0318,Andrew,Miller,customer318@example.com,Coppell,75019,2025-10-20,Instagram,1
+C0319,Olivia,Kim,customer319@example.com,Arlington,76012,2026-01-27,Friend Referral,1
+C0320,Chris,Khan,customer320@example.com,Dallas,75201,2026-04-26,Instagram,1
+C0321,Jessica,Park,customer321@example.com,Plano,75093,2026-04-19,Google Search,1
+C0322,Andrew,Shah,customer322@example.com,Richardson,75082,2026-02-05,Instagram,1
+C0323,Andrew,Kumar,customer323@example.com,Dallas,75214,2025-09-18,Instagram,1
+C0324,Wei,Williams,customer324@example.com,Irving,75063,2026-01-08,Google Search,0
+C0325,Jessica,Taylor,customer325@example.com,Carrollton,75007,2025-09-09,Instagram,1
+C0326,Rachel,Garcia,customer326@example.com,Irving,75038,2026-03-11,Google Search,1
+C0327,Olivia,Miller,customer327@example.com,Fort Worth,76109,2026-01-01,Google Search,1
+C0328,Megan,Lee,customer328@example.com,Arlington,76012,2025-08-12,Instagram,1
+C0329,Emma,Perez,customer329@example.com,Dallas,75201,2025-09-12,Friend Referral,1
+C0330,Stephanie,White,customer330@example.com,Dallas,75205,2026-01-22,Instagram,1
+C0331,Carlos,Martinez,customer331@example.com,Addison,75001,2025-07-19,Google Search,1
+C0332,Connor,Khan,customer332@example.com,Richardson,75080,2025-11-25,Friend Referral,1
+C0333,Ryan,Hernandez,customer333@example.com,Coppell,75019,2025-02-10,Instagram,0
+C0334,James,Kumar,customer334@example.com,Frisco,75033,2026-01-18,Instagram,1
+C0335,Tyler,Chen,customer335@example.com,Carrollton,75007,2025-04-28,Vet Referral,1
+C0336,Chris,Thomas,customer336@example.com,Coppell,75019,2025-10-23,Google Search,1
+C0337,Amanda,Kim,customer337@example.com,Arlington,76012,2026-03-14,Friend Referral,1
+C0338,Sarah,Kim,customer338@example.com,Richardson,75082,2024-11-10,TikTok,1
+C0339,Madison,Hernandez,customer339@example.com,Irving,75038,2025-09-26,TikTok,1
+C0340,Maria,White,customer340@example.com,Dallas,75214,2025-12-04,Pop-up Event,1
+C0341,Justin,Nguyen,customer341@example.com,Coppell,75019,2025-10-01,Instagram,0
+C0342,Diego,Lee,customer342@example.com,Richardson,75082,2024-11-10,TikTok,1
+C0343,Priya,Park,customer343@example.com,Frisco,75034,2025-05-13,Pop-up Event,1
+C0344,Tyler,Kumar,customer344@example.com,Plano,75024,2025-06-21,Instagram,1
+C0345,Brittany,Martin,customer345@example.com,Coppell,75019,2026-03-18,Instagram,1
+C0346,Michael,Shah,customer346@example.com,Irving,75038,2025-10-02,Friend Referral,1
+C0347,Sarah,Brown,customer347@example.com,Richardson,75082,2026-04-22,Friend Referral,1
+C0348,Wei,Martin,customer348@example.com,Carrollton,75007,2025-07-27,Friend Referral,1
+C0349,Ava,White,customer349@example.com,Richardson,75080,2025-04-09,Google Search,1
+C0350,Lauren,Moore,customer350@example.com,Richardson,75080,2026-04-30,Pop-up Event,1
+C0351,Olivia,Williams,customer351@example.com,Plano,75093,2025-04-26,Friend Referral,0
+C0352,Maria,Williams,customer352@example.com,Irving,75038,2025-07-20,TikTok,1
+C0353,Eric,Rodriguez,customer353@example.com,Coppell,75019,2025-08-15,Friend Referral,1
+C0354,Stephanie,Perez,customer354@example.com,Dallas,75214,2025-11-08,Pop-up Event,0
+C0355,Ryan,Wilson,customer355@example.com,Fort Worth,76109,2025-08-14,Friend Referral,1
+C0356,Madison,Patel,customer356@example.com,Plano,75093,2025-09-06,Instagram,1
+C0357,Hannah,Jackson,customer357@example.com,McKinney,75070,2026-02-15,Instagram,1
+C0358,Amanda,Park,customer358@example.com,Frisco,75033,2026-03-18,Instagram,1
+C0359,Andrew,Davis,customer359@example.com,Irving,75038,2024-11-10,Friend Referral,1
+C0360,Jessica,Martinez,customer360@example.com,Arlington,76012,2025-10-12,Instagram,0
+C0361,Rohit,Patel,customer361@example.com,Richardson,75080,2025-07-31,Instagram,1
+C0362,Rohit,Smith,customer362@example.com,Dallas,75214,2025-04-19,TikTok,1
+C0363,Madison,Davis,customer363@example.com,Richardson,75082,2025-11-14,Instagram,0
+C0364,Eric,Moore,customer364@example.com,Arlington,76012,2026-03-18,TikTok,1
+C0365,Priya,Patel,customer365@example.com,Coppell,75019,2025-11-17,Friend Referral,1
+C0366,Rachel,Park,customer366@example.com,Plano,75024,2026-03-31,Instagram,1
+C0367,Noah,Perez,customer367@example.com,Dallas,75201,2025-08-05,Friend Referral,1
+C0368,Rachel,Jones,customer368@example.com,Carrollton,75007,2024-11-10,Pop-up Event,0
+C0369,Justin,Khan,customer369@example.com,Arlington,76012,2024-11-10,Instagram,1
+C0370,Ashley,Williams,customer370@example.com,Plano,75024,2025-08-22,Google Search,1
+C0371,Justin,Chen,customer371@example.com,Dallas,75205,2025-07-04,Instagram,1
+C0372,Olivia,Taylor,customer372@example.com,Plano,75024,2025-12-17,Google Search,1
+C0373,Ashley,Kumar,customer373@example.com,Allen,75013,2026-04-17,Pop-up Event,1
+C0374,Eric,Khan,customer374@example.com,Arlington,76012,2026-04-10,Pop-up Event,0
+C0375,Chris,Khan,customer375@example.com,Coppell,75019,2025-05-13,Vet Referral,1
+C0376,Wei,Khan,customer376@example.com,Plano,75024,2025-12-11,Instagram,1
+C0377,Emma,Patel,customer377@example.com,Richardson,75082,2026-02-10,Instagram,1
+C0378,Maria,Tran,customer378@example.com,Frisco,75034,2026-01-01,Instagram,1
+C0379,Eric,Miller,customer379@example.com,Richardson,75080,2025-10-10,Instagram,1
+C0380,Madison,White,customer380@example.com,Addison,75001,2026-01-01,Friend Referral,1
+C0381,Rohit,Jackson,customer381@example.com,Dallas,75205,2025-06-25,Friend Referral,1
+C0382,Daniel,Kim,customer382@example.com,Frisco,75034,2025-12-05,Instagram,1
+C0383,Brandon,Johnson,customer383@example.com,Dallas,75214,2025-07-21,Google Search,1
+C0384,Andrew,Taylor,customer384@example.com,Dallas,75205,2025-05-06,Vet Referral,1
+C0385,Sophia,Anderson,customer385@example.com,Plano,75093,2025-10-01,Google Search,1
+C0386,Ethan,Anderson,customer386@example.com,Dallas,75214,2025-08-26,Instagram,1
+C0387,Brandon,Thomas,customer387@example.com,Coppell,75019,2025-04-30,Instagram,1
+C0388,Chris,Smith,customer388@example.com,Irving,75063,2026-04-10,Friend Referral,1
+C0389,Chris,Rodriguez,customer389@example.com,Richardson,75082,2026-04-03,Vet Referral,1
+C0390,Amanda,Lopez,customer390@example.com,Allen,75013,2025-12-28,Instagram,1
+C0391,Michael,Rodriguez,customer391@example.com,Plano,75024,2025-11-13,TikTok,1
+C0392,Brittany,Taylor,customer392@example.com,Dallas,75201,2026-03-11,Google Search,1
+C0393,Nicole,Johnson,customer393@example.com,Coppell,75019,2025-08-05,Instagram,1
+C0394,Amanda,Brown,customer394@example.com,Frisco,75033,2025-12-15,TikTok,1
+C0395,Aisha,Davis,customer395@example.com,Plano,75093,2025-11-05,TikTok,1
+C0396,Yuki,Tran,customer396@example.com,Dallas,75214,2024-12-22,Google Search,1
+C0397,Hannah,Miller,customer397@example.com,Addison,75001,2026-03-01,Vet Referral,1
+C0398,Hannah,Thomas,customer398@example.com,Arlington,76012,2025-11-28,Friend Referral,1
+C0399,Emma,Lee,customer399@example.com,Carrollton,75007,2026-04-26,Pop-up Event,0
+C0400,Michael,Brown,customer400@example.com,Arlington,76012,2024-11-10,Vet Referral,1
+C0401,Rohit,Nguyen,customer401@example.com,Arlington,76016,2025-08-22,Instagram,1
+C0402,Wei,Tran,customer402@example.com,Plano,75024,2026-02-23,Friend Referral,1
+C0403,James,Perez,customer403@example.com,Dallas,75214,2025-10-10,Friend Referral,1
+C0404,Chris,Jones,customer404@example.com,Carrollton,75007,2024-11-10,Friend Referral,1
+C0405,Jason,Perez,customer405@example.com,Plano,75093,2026-04-02,Vet Referral,1
+C0406,Ava,Martin,customer406@example.com,Fort Worth,76102,2026-03-21,Instagram,1
+C0407,Hannah,Nguyen,customer407@example.com,Arlington,76012,2025-10-25,Instagram,0
+C0408,Daniel,Anderson,customer408@example.com,Plano,75024,2026-04-05,Friend Referral,0
+C0409,Maria,Thomas,customer409@example.com,Fort Worth,76109,2026-01-27,Google Search,1
+C0410,Andrew,Kim,customer410@example.com,Fort Worth,76109,2026-03-08,TikTok,1
+C0411,Aisha,Miller,customer411@example.com,Fort Worth,76102,2025-03-26,Instagram,1
+C0412,Carlos,Perez,customer412@example.com,Irving,75063,2026-04-29,Google Search,1
+C0413,Eric,Martinez,customer413@example.com,Richardson,75082,2025-05-10,Friend Referral,0
+C0414,Jessica,Garcia,customer414@example.com,Arlington,76016,2026-03-29,Pop-up Event,1
+C0415,James,Nguyen,customer415@example.com,Dallas,75214,2025-08-12,Pop-up Event,1
+C0416,Eric,Rodriguez,customer416@example.com,Plano,75024,2025-11-08,Instagram,1
+C0417,David,Thompson,customer417@example.com,Allen,75013,2025-02-02,Google Search,1
+C0418,Aisha,White,customer418@example.com,Plano,75024,2026-01-06,Instagram,1
+C0419,David,Martin,customer419@example.com,Fort Worth,76109,2025-10-08,Friend Referral,1
+C0420,Justin,White,customer420@example.com,Carrollton,75007,2026-01-03,Instagram,1
+C0421,Sophia,Wang,customer421@example.com,Plano,75024,2026-03-09,Vet Referral,1
+C0422,Chris,Park,customer422@example.com,Frisco,75034,2026-01-15,Instagram,1
+C0423,Olivia,White,customer423@example.com,Richardson,75080,2026-02-04,Friend Referral,1
+C0424,Eric,Davis,customer424@example.com,Allen,75013,2026-03-03,Google Search,1
+C0425,Sophia,Thomas,customer425@example.com,Richardson,75082,2025-08-05,Instagram,1
+C0426,Ethan,Johnson,customer426@example.com,Fort Worth,76109,2026-04-15,Instagram,0
+C0427,Jason,Johnson,customer427@example.com,Carrollton,75007,2026-04-07,Friend Referral,1
+C0428,Jason,Lee,customer428@example.com,Frisco,75033,2025-09-28,Google Search,1
+C0429,Brittany,Smith,customer429@example.com,Irving,75063,2026-02-22,Friend Referral,1
+C0430,Chris,Shah,customer430@example.com,Frisco,75033,2026-02-16,Instagram,1
+C0431,Chris,Johnson,customer431@example.com,Dallas,75214,2026-02-02,Instagram,1
+C0432,Connor,Anderson,customer432@example.com,Dallas,75214,2025-10-06,Vet Referral,1
+C0433,Aisha,Kim,customer433@example.com,Fort Worth,76102,2026-04-02,Instagram,1
+C0434,Megan,Patel,customer434@example.com,Irving,75063,2025-09-26,Instagram,0
+C0435,Nicole,Garcia,customer435@example.com,Irving,75038,2026-04-25,Friend Referral,1
+C0436,Chris,Hernandez,customer436@example.com,Dallas,75205,2025-05-01,Vet Referral,1
+C0437,David,Garcia,customer437@example.com,Carrollton,75007,2026-02-19,Vet Referral,1
+C0438,Maria,Nguyen,customer438@example.com,Richardson,75082,2025-03-25,Friend Referral,1
+C0439,Ava,Tran,customer439@example.com,Arlington,76016,2026-01-16,Google Search,1
+C0440,Jason,Anderson,customer440@example.com,Fort Worth,76109,2025-09-10,Instagram,1
+C0441,Daniel,White,customer441@example.com,McKinney,75070,2026-03-14,Instagram,1
+C0442,Daniel,Martin,customer442@example.com,Fort Worth,76109,2026-03-21,TikTok,1
+C0443,Wei,Lee,customer443@example.com,Coppell,75019,2026-03-29,Vet Referral,1
+C0444,Rachel,Shah,customer444@example.com,Dallas,75205,2025-12-31,Google Search,1
+C0445,David,Smith,customer445@example.com,Carrollton,75007,2026-03-19,TikTok,0
+C0446,Justin,Anderson,customer446@example.com,Frisco,75034,2025-10-27,Instagram,1
+C0447,Amanda,Martin,customer447@example.com,Plano,75093,2026-04-21,Instagram,1
+C0448,Daniel,Smith,customer448@example.com,Irving,75063,2026-01-13,Pop-up Event,1
+C0449,Carlos,Lopez,customer449@example.com,Arlington,76016,2025-09-02,Friend Referral,1
+C0450,Priya,Thomas,customer450@example.com,Plano,75093,2026-02-10,TikTok,1
+C0451,Ethan,White,customer451@example.com,McKinney,75070,2025-05-06,Google Search,1
+C0452,Rohit,Williams,customer452@example.com,Dallas,75214,2025-09-14,Friend Referral,1
+C0453,Michael,Kim,customer453@example.com,Fort Worth,76109,2025-03-15,Friend Referral,1
+C0454,Nicole,Nguyen,customer454@example.com,Dallas,75214,2025-11-24,Pop-up Event,1
+C0455,Rohit,Khan,customer455@example.com,Coppell,75019,2025-11-10,Google Search,1
+C0456,Daniel,Shah,customer456@example.com,Irving,75038,2026-04-09,Vet Referral,1
+C0457,Nicole,Hernandez,customer457@example.com,Dallas,75201,2026-03-30,Instagram,0
+C0458,Diego,Patel,customer458@example.com,Carrollton,75007,2026-03-30,Pop-up Event,1
+C0459,Carlos,Miller,customer459@example.com,Dallas,75214,2026-03-14,Pop-up Event,1
+C0460,Carlos,Shah,customer460@example.com,Richardson,75080,2025-12-25,Friend Referral,1
+C0461,James,Shah,customer461@example.com,McKinney,75070,2026-04-02,Friend Referral,0
+C0462,Andrew,Thomas,customer462@example.com,Irving,75038,2026-03-12,Google Search,1
+C0463,Megan,Jones,customer463@example.com,Irving,75063,2025-08-10,Instagram,0
+C0464,Daniel,Wang,customer464@example.com,McKinney,75070,2026-01-16,Instagram,1
+C0465,Brittany,White,customer465@example.com,Frisco,75034,2026-04-01,Friend Referral,1
+C0466,Tyler,Miller,customer466@example.com,Plano,75093,2025-06-21,Friend Referral,1
+C0467,Amanda,Wilson,customer467@example.com,Plano,75093,2025-11-13,Vet Referral,1
+C0468,Ava,Martinez,customer468@example.com,Frisco,75033,2026-04-01,Instagram,1
+C0469,Ryan,Chen,customer469@example.com,Dallas,75214,2025-10-20,Friend Referral,1
+C0470,Sophia,Tran,customer470@example.com,Arlington,76012,2025-07-14,Google Search,1
+C0471,Noah,Perez,customer471@example.com,Coppell,75019,2026-03-24,Instagram,1
+C0472,Chris,Tran,customer472@example.com,Irving,75063,2026-04-24,Friend Referral,0
+C0473,Yuki,Tran,customer473@example.com,Dallas,75214,2026-04-27,Instagram,1
+C0474,Jason,Brown,customer474@example.com,Irving,75038,2025-01-01,Friend Referral,1
+C0475,Hannah,Jones,customer475@example.com,Addison,75001,2026-04-27,Instagram,0
+C0476,Diego,Tran,customer476@example.com,Irving,75038,2024-11-10,Instagram,0
+C0477,David,Patel,customer477@example.com,Dallas,75205,2025-11-02,Pop-up Event,1
+C0478,Jessica,Garcia,customer478@example.com,Irving,75038,2025-12-25,Friend Referral,1
+C0479,Ava,Wang,customer479@example.com,Carrollton,75007,2026-04-07,Instagram,1
+C0480,Diego,Williams,customer480@example.com,Fort Worth,76102,2025-09-27,Instagram,1
+C0481,Sophia,Wilson,customer481@example.com,Arlington,76012,2024-11-10,Instagram,1
+C0482,Ava,Park,customer482@example.com,Irving,75063,2026-01-19,Pop-up Event,1
+C0483,Chris,Brown,customer483@example.com,McKinney,75070,2025-10-04,Pop-up Event,0
+C0484,Olivia,Thompson,customer484@example.com,Arlington,76012,2025-10-10,Friend Referral,1
+C0485,Hannah,Lopez,customer485@example.com,Dallas,75214,2025-05-04,Google Search,1
+C0486,Tyler,Tran,customer486@example.com,Dallas,75205,2025-01-08,Google Search,1
+C0487,Connor,Hernandez,customer487@example.com,Arlington,76012,2026-03-22,Google Search,1
+C0488,Eric,Martin,customer488@example.com,Addison,75001,2025-10-27,Instagram,1
+C0489,Aisha,Thompson,customer489@example.com,Fort Worth,76102,2024-11-10,Instagram,0
+C0490,David,Thompson,customer490@example.com,Carrollton,75007,2026-01-30,Pop-up Event,1
+C0491,Andrew,Miller,customer491@example.com,Dallas,75214,2025-12-05,Vet Referral,1
+C0492,Priya,Martin,customer492@example.com,Allen,75013,2026-01-31,Friend Referral,1
+C0493,Ava,Martinez,customer493@example.com,Richardson,75082,2025-07-12,Vet Referral,1
+C0494,James,Martinez,customer494@example.com,Irving,75063,2026-01-22,Vet Referral,1
+C0495,Justin,Shah,customer495@example.com,Addison,75001,2025-12-14,Instagram,1
+C0496,Ava,Garcia,customer496@example.com,Plano,75093,2026-02-11,Friend Referral,1
+C0497,Ethan,Kumar,customer497@example.com,Irving,75038,2026-02-05,Friend Referral,1
+C0498,Ashley,Garcia,customer498@example.com,Irving,75063,2026-02-09,Instagram,1
+C0499,Hannah,Patel,customer499@example.com,Fort Worth,76109,2025-11-19,Google Search,1
+C0500,Eric,Lee,customer500@example.com,Dallas,75201,2026-01-12,Friend Referral,1
+C0501,Brandon,Thompson,customer501@example.com,Frisco,75033,2025-12-24,Friend Referral,1
+C0502,Lauren,Thomas,customer502@example.com,Arlington,76016,2026-02-18,Friend Referral,1
+C0503,Chris,Jones,customer503@example.com,Plano,75093,2025-11-29,Friend Referral,1
+C0504,Olivia,Wang,customer504@example.com,Irving,75038,2025-08-17,Vet Referral,1
+C0505,Connor,Williams,customer505@example.com,Allen,75013,2024-11-10,Instagram,1
+C0506,Noah,Rodriguez,customer506@example.com,Irving,75063,2026-05-03,Google Search,1
+C0507,Priya,Martinez,customer507@example.com,Carrollton,75007,2026-03-15,TikTok,1
+C0508,Ryan,Hernandez,customer508@example.com,Frisco,75033,2024-12-30,Friend Referral,1
+C0509,Emma,Khan,customer509@example.com,Arlington,76012,2026-01-05,Instagram,1
+C0510,Tyler,Tran,customer510@example.com,Addison,75001,2026-02-27,Vet Referral,1
+C0511,Stephanie,Tran,customer511@example.com,Carrollton,75007,2026-02-26,Google Search,1
+C0512,Madison,Taylor,customer512@example.com,Richardson,75080,2026-03-08,Friend Referral,1
+C0513,Yuki,Wilson,customer513@example.com,Irving,75038,2026-03-30,Google Search,1
+C0514,Sophia,Tran,customer514@example.com,Addison,75001,2025-12-21,Vet Referral,1
+C0515,Stephanie,Kumar,customer515@example.com,Arlington,76012,2025-12-05,Instagram,0
+C0516,Connor,Khan,customer516@example.com,McKinney,75070,2026-01-06,Vet Referral,1
+C0517,Lauren,Rodriguez,customer517@example.com,Frisco,75033,2026-04-27,Google Search,0
+C0518,David,Park,customer518@example.com,Richardson,75082,2025-11-20,Vet Referral,1
+C0519,Ethan,Miller,customer519@example.com,Addison,75001,2026-03-19,Instagram,1
+C0520,Daniel,Martin,customer520@example.com,McKinney,75070,2026-01-29,Pop-up Event,1
+C0521,Megan,Jackson,customer521@example.com,Dallas,75214,2026-02-15,Instagram,1
+C0522,Hannah,Martinez,customer522@example.com,Arlington,76012,2026-03-08,Pop-up Event,1
+C0523,James,Thomas,customer523@example.com,Fort Worth,76109,2025-10-18,Instagram,1
+C0524,Brittany,Johnson,customer524@example.com,Arlington,76012,2026-01-16,Google Search,1
+C0525,David,Shah,customer525@example.com,Fort Worth,76109,2025-09-06,Pop-up Event,1
+C0526,Eric,Taylor,customer526@example.com,McKinney,75070,2026-04-16,Instagram,1
+C0527,James,Patel,customer527@example.com,Fort Worth,76102,2025-11-17,Friend Referral,1
+C0528,Michael,Perez,customer528@example.com,Richardson,75080,2026-02-04,Google Search,1
+C0529,Andrew,Martinez,customer529@example.com,Plano,75024,2024-11-10,Instagram,1
+C0530,Emma,Martin,customer530@example.com,Plano,75093,2026-01-31,Friend Referral,1
+C0531,Ashley,Park,customer531@example.com,Arlington,76016,2025-10-04,TikTok,1
+C0532,Noah,Smith,customer532@example.com,Arlington,76012,2026-04-15,Vet Referral,1
+C0533,Michael,Moore,customer533@example.com,Dallas,75214,2026-03-08,Instagram,1
+C0534,Chris,Nguyen,customer534@example.com,Frisco,75034,2025-03-26,Instagram,1
+C0535,Stephanie,Taylor,customer535@example.com,Plano,75024,2026-03-19,Friend Referral,1
+C0536,Daniel,Brown,customer536@example.com,Irving,75038,2025-12-24,Instagram,1
+C0537,Aisha,Kim,customer537@example.com,Richardson,75080,2026-03-18,Friend Referral,1
+C0538,Daniel,Chen,customer538@example.com,Dallas,75214,2025-10-27,Friend Referral,1
+C0539,Madison,Johnson,customer539@example.com,Carrollton,75007,2026-02-21,Google Search,0
+C0540,Sophia,Taylor,customer540@example.com,McKinney,75070,2025-10-21,Google Search,1
+C0541,Stephanie,Nguyen,customer541@example.com,Plano,75093,2026-01-12,Instagram,1
+C0542,Noah,White,customer542@example.com,Dallas,75201,2024-11-10,Instagram,1
+C0543,Sophia,Khan,customer543@example.com,Richardson,75080,2026-03-25,Friend Referral,1
+C0544,James,Patel,customer544@example.com,Frisco,75033,2026-01-17,Vet Referral,1
+C0545,Connor,Wang,customer545@example.com,Dallas,75214,2025-10-20,Vet Referral,0
+C0546,Ethan,Johnson,customer546@example.com,McKinney,75070,2026-03-17,Friend Referral,1
+C0547,Yuki,Williams,customer547@example.com,Fort Worth,76102,2024-11-10,TikTok,1
+C0548,Eric,Moore,customer548@example.com,Fort Worth,76102,2025-06-06,Friend Referral,1
+C0549,Brittany,Jones,customer549@example.com,Dallas,75201,2026-04-18,Vet Referral,1
+C0550,Tyler,Miller,customer550@example.com,Addison,75001,2025-06-24,Vet Referral,1
+C0551,Andrew,Rodriguez,customer551@example.com,Coppell,75019,2026-04-28,Friend Referral,1
+C0552,Brittany,Thompson,customer552@example.com,Dallas,75205,2026-02-13,Instagram,0
+C0553,Diego,Park,customer553@example.com,Frisco,75033,2025-12-10,Friend Referral,1
+C0554,Ashley,Jones,customer554@example.com,Frisco,75033,2026-01-18,Google Search,1
+C0555,Emma,Martin,customer555@example.com,Arlington,76012,2025-02-05,Friend Referral,0
+C0556,Emma,Wilson,customer556@example.com,Frisco,75034,2025-05-26,Instagram,0
+C0557,Nicole,Lee,customer557@example.com,Dallas,75205,2026-04-12,Vet Referral,1
+C0558,Rohit,Park,customer558@example.com,McKinney,75070,2025-04-21,Pop-up Event,1
+C0559,Emma,Wilson,customer559@example.com,Richardson,75082,2025-07-28,Friend Referral,1
+C0560,Brittany,Brown,customer560@example.com,Irving,75038,2026-02-01,Instagram,1
+C0561,Jason,Davis,customer561@example.com,Irving,75063,2026-02-17,TikTok,1
+C0562,Carlos,Shah,customer562@example.com,Addison,75001,2025-06-27,Instagram,1
+C0563,Priya,Thompson,customer563@example.com,Arlington,76012,2025-01-29,Friend Referral,1
+C0564,Wei,Chen,customer564@example.com,Frisco,75033,2025-08-17,Instagram,1
+C0565,Connor,Jackson,customer565@example.com,Addison,75001,2026-02-02,Instagram,1
+C0566,Carlos,Garcia,customer566@example.com,Dallas,75214,2026-04-22,Instagram,1
+C0567,Ava,Lopez,customer567@example.com,Fort Worth,76109,2024-11-10,Friend Referral,0
+C0568,Stephanie,Perez,customer568@example.com,Allen,75013,2026-01-23,Friend Referral,1
+C0569,James,Perez,customer569@example.com,Plano,75024,2026-01-20,Instagram,1
+C0570,Justin,Tran,customer570@example.com,Irving,75038,2026-03-22,Google Search,1
+C0571,Carlos,Hernandez,customer571@example.com,Carrollton,75007,2026-04-05,Instagram,1
+C0572,Brittany,Tran,customer572@example.com,Arlington,76012,2026-01-14,Instagram,0
+C0573,Brittany,Nguyen,customer573@example.com,Dallas,75205,2026-04-24,Google Search,0
+C0574,David,Jones,customer574@example.com,Richardson,75082,2026-03-16,Instagram,1
+C0575,Eric,Wang,customer575@example.com,Fort Worth,76102,2026-02-28,Instagram,1
+C0576,Michael,Martinez,customer576@example.com,Frisco,75033,2026-04-23,Friend Referral,0
+C0577,Maria,Williams,customer577@example.com,Carrollton,75007,2025-07-06,Google Search,1
+C0578,Jessica,Taylor,customer578@example.com,Plano,75093,2025-11-09,Friend Referral,1
+C0579,Eric,Kumar,customer579@example.com,Addison,75001,2026-04-09,Pop-up Event,1
+C0580,Emma,Martinez,customer580@example.com,Coppell,75019,2026-03-27,Friend Referral,1
+C0581,Eric,Patel,customer581@example.com,Arlington,76012,2025-06-22,Vet Referral,1
+C0582,Jessica,Rodriguez,customer582@example.com,Arlington,76012,2026-05-03,Friend Referral,1
+C0583,Eric,Shah,customer583@example.com,McKinney,75070,2026-05-01,Instagram,1
+C0584,Jason,Taylor,customer584@example.com,Irving,75063,2026-04-08,Friend Referral,1
+C0585,Michael,Lopez,customer585@example.com,Plano,75024,2026-05-02,Instagram,0
+C0586,Connor,Kumar,customer586@example.com,Arlington,76016,2025-07-17,TikTok,1
+C0587,Daniel,Moore,customer587@example.com,Allen,75013,2026-04-14,Friend Referral,1
+C0588,Maria,Anderson,customer588@example.com,Richardson,75082,2025-06-04,Instagram,1
+C0589,Stephanie,Chen,customer589@example.com,Carrollton,75007,2026-04-05,Friend Referral,1
+C0590,Daniel,Rodriguez,customer590@example.com,Frisco,75034,2026-01-08,Friend Referral,1
+C0591,Maria,Lopez,customer591@example.com,Dallas,75214,2026-01-14,Vet Referral,1
+C0592,James,Perez,customer592@example.com,Arlington,76012,2024-11-10,Vet Referral,1
+C0593,Jessica,Martin,customer593@example.com,Addison,75001,2025-10-07,Friend Referral,1
+C0594,Megan,Lopez,customer594@example.com,Irving,75038,2025-06-08,Instagram,1
+C0595,Hannah,Thomas,customer595@example.com,Addison,75001,2026-01-13,Google Search,1
+C0596,Lauren,Rodriguez,customer596@example.com,Plano,75024,2025-03-25,Google Search,1
+C0597,Wei,Johnson,customer597@example.com,Richardson,75080,2026-04-22,Friend Referral,1
+C0598,Ethan,Patel,customer598@example.com,Addison,75001,2025-09-06,Friend Referral,1
+C0599,Ethan,Rodriguez,customer599@example.com,Arlington,76012,2026-04-27,Instagram,1
+C0600,James,Jones,customer600@example.com,Carrollton,75007,2026-04-21,Instagram,1
+C0601,Rohit,Park,customer601@example.com,Irving,75038,2024-11-10,Vet Referral,1
+C0602,Aisha,Khan,customer602@example.com,McKinney,75070,2026-03-02,Friend Referral,1
+C0603,Jessica,Rodriguez,customer603@example.com,Coppell,75019,2025-10-22,Instagram,1
+C0604,Jessica,Tran,customer604@example.com,Irving,75063,2026-04-16,Google Search,1
+C0605,Connor,White,customer605@example.com,Arlington,76012,2026-03-10,Instagram,1
+C0606,Ethan,Lopez,customer606@example.com,Plano,75093,2024-11-10,Instagram,1
+C0607,Carlos,Wang,customer607@example.com,Plano,75093,2025-11-09,Friend Referral,1
+C0608,Daniel,Martinez,customer608@example.com,Dallas,75205,2026-04-11,Google Search,1
+C0609,Megan,Hernandez,customer609@example.com,Irving,75038,2025-10-31,Friend Referral,1
+C0610,Rachel,White,customer610@example.com,Irving,75063,2024-11-10,Vet Referral,1
+C0611,Stephanie,Garcia,customer611@example.com,McKinney,75070,2024-11-10,Google Search,1
+C0612,Lauren,Jackson,customer612@example.com,Richardson,75082,2025-08-29,Vet Referral,1
+C0613,Justin,Garcia,customer613@example.com,Plano,75093,2026-04-10,Friend Referral,0
+C0614,Megan,Martinez,customer614@example.com,McKinney,75070,2026-03-20,Friend Referral,1
+C0615,Noah,Thompson,customer615@example.com,Frisco,75033,2026-01-20,Google Search,0
+C0616,Emma,Johnson,customer616@example.com,Coppell,75019,2026-03-16,Instagram,1
+C0617,Emma,Moore,customer617@example.com,Dallas,75214,2025-04-07,Google Search,1
+C0618,Sophia,Khan,customer618@example.com,Frisco,75034,2025-07-04,Pop-up Event,1
+C0619,Michael,Chen,customer619@example.com,Carrollton,75007,2025-02-06,Instagram,1
+C0620,Stephanie,Lee,customer620@example.com,Allen,75013,2026-01-13,Pop-up Event,1
+C0621,Tyler,Shah,customer621@example.com,Arlington,76016,2025-08-08,Google Search,1
+C0622,Diego,Jones,customer622@example.com,Irving,75038,2025-12-14,TikTok,0
+C0623,Megan,Tran,customer623@example.com,Dallas,75205,2026-04-27,Instagram,1
+C0624,Yuki,Kim,customer624@example.com,Fort Worth,76109,2025-09-13,Vet Referral,1
+C0625,Andrew,Martinez,customer625@example.com,Frisco,75034,2025-12-29,Pop-up Event,1
+C0626,Nicole,White,customer626@example.com,Irving,75063,2025-12-15,Google Search,1
+C0627,Ashley,Patel,customer627@example.com,Fort Worth,76102,2026-03-02,Google Search,1
+C0628,Ethan,Miller,customer628@example.com,McKinney,75070,2025-04-28,Google Search,1
+C0629,Tyler,Kim,customer629@example.com,Irving,75063,2026-04-03,Friend Referral,1
+C0630,Jason,Tran,customer630@example.com,Plano,75024,2026-03-15,Vet Referral,0
+C0631,Chris,Miller,customer631@example.com,Richardson,75080,2026-04-16,Friend Referral,1
+C0632,Stephanie,Kumar,customer632@example.com,Dallas,75205,2026-03-24,Google Search,1
+C0633,Aisha,Taylor,customer633@example.com,Carrollton,75007,2025-11-13,Instagram,1
+C0634,Nicole,Perez,customer634@example.com,Frisco,75033,2025-08-02,Google Search,1
+C0635,Megan,Chen,customer635@example.com,Frisco,75034,2025-08-20,Instagram,1
+C0636,Diego,Chen,customer636@example.com,McKinney,75070,2026-03-25,TikTok,1
+C0637,Wei,Johnson,customer637@example.com,Irving,75038,2026-02-22,Instagram,1
+C0638,Rohit,Wang,customer638@example.com,Dallas,75214,2025-04-23,TikTok,1
+C0639,Tyler,Anderson,customer639@example.com,Arlington,76012,2026-01-17,Vet Referral,1
+C0640,Brittany,Brown,customer640@example.com,Coppell,75019,2025-11-24,Friend Referral,1
+C0641,Stephanie,Chen,customer641@example.com,Dallas,75205,2025-10-02,Instagram,1
+C0642,Yuki,Martin,customer642@example.com,Carrollton,75007,2026-02-14,Vet Referral,1
+C0643,Sarah,Miller,customer643@example.com,Allen,75013,2025-11-26,Friend Referral,1
+C0644,Ashley,Moore,customer644@example.com,Fort Worth,76109,2026-04-22,Google Search,1
+C0645,Rohit,Patel,customer645@example.com,Addison,75001,2025-12-07,Google Search,1
+C0646,Rohit,Brown,customer646@example.com,Dallas,75205,2025-07-14,Instagram,1
+C0647,Ethan,Wilson,customer647@example.com,Coppell,75019,2025-12-31,Instagram,1
+C0648,Ethan,Martin,customer648@example.com,Addison,75001,2026-02-20,Vet Referral,1
+C0649,Priya,Wang,customer649@example.com,Dallas,75214,2025-07-29,Friend Referral,1
+C0650,Ethan,Jackson,customer650@example.com,Arlington,76012,2026-04-06,Friend Referral,1
+C0651,Noah,Davis,customer651@example.com,Carrollton,75007,2026-04-18,Instagram,1
+C0652,Olivia,Shah,customer652@example.com,Plano,75093,2025-09-07,TikTok,0
+C0653,Andrew,Patel,customer653@example.com,Addison,75001,2025-10-31,Friend Referral,1
+C0654,Lauren,Wang,customer654@example.com,Plano,75093,2025-07-31,Instagram,1
+C0655,Hannah,Williams,customer655@example.com,Fort Worth,76102,2025-06-09,Friend Referral,1
+C0656,Emma,Rodriguez,customer656@example.com,Dallas,75205,2025-11-26,Instagram,1
+C0657,Yuki,Kim,customer657@example.com,Irving,75063,2026-02-20,Instagram,1
+C0658,Ava,Wang,customer658@example.com,Plano,75093,2025-06-18,Instagram,1
+C0659,Nicole,Perez,customer659@example.com,Plano,75093,2026-03-02,TikTok,1
+C0660,Rohit,Lee,customer660@example.com,Frisco,75033,2026-01-23,Pop-up Event,1
+C0661,Andrew,Wang,customer661@example.com,Coppell,75019,2026-03-28,Vet Referral,1
+C0662,Madison,Chen,customer662@example.com,McKinney,75070,2026-01-06,Instagram,1
+C0663,Justin,Park,customer663@example.com,Coppell,75019,2025-09-12,Friend Referral,1
+C0664,Eric,Thompson,customer664@example.com,Dallas,75201,2025-09-11,Vet Referral,1
+C0665,Aisha,Lee,customer665@example.com,Plano,75024,2025-11-16,Instagram,1
+C0666,Ava,Park,customer666@example.com,Dallas,75201,2025-10-24,TikTok,1
+C0667,Logan,Thomas,customer667@example.com,Richardson,75082,2026-04-24,Instagram,1
+C0668,Logan,Park,customer668@example.com,Dallas,75205,2026-03-14,Pop-up Event,1
+C0669,Connor,Kumar,customer669@example.com,Frisco,75033,2026-03-08,Vet Referral,1
+C0670,Tyler,Williams,customer670@example.com,Plano,75093,2025-08-08,Instagram,1
+C0671,Daniel,Wilson,customer671@example.com,Coppell,75019,2026-04-28,Instagram,1
+C0672,Maria,Perez,customer672@example.com,Dallas,75201,2026-04-08,Friend Referral,1
+C0673,Chris,Khan,customer673@example.com,Fort Worth,76109,2026-02-17,Pop-up Event,1
+C0674,Aisha,Wang,customer674@example.com,Frisco,75034,2025-10-20,TikTok,1
+C0675,Yuki,Brown,customer675@example.com,Carrollton,75007,2024-12-23,Instagram,1
+C0676,Connor,Anderson,customer676@example.com,Plano,75093,2026-03-11,Vet Referral,0
+C0677,Nicole,Park,customer677@example.com,Allen,75013,2026-03-12,Google Search,1
+C0678,Priya,Perez,customer678@example.com,McKinney,75070,2025-12-06,Friend Referral,0
+C0679,Diego,Thompson,customer679@example.com,Frisco,75033,2025-11-17,Friend Referral,1
+C0680,Brittany,Moore,customer680@example.com,Allen,75013,2026-04-05,Instagram,1
+C0681,Yuki,Wilson,customer681@example.com,Carrollton,75007,2025-05-27,Google Search,1
+C0682,Jason,Lee,customer682@example.com,Richardson,75080,2026-04-13,Pop-up Event,1
+C0683,Justin,Martin,customer683@example.com,Richardson,75080,2026-04-22,Vet Referral,1
+C0684,Wei,Perez,customer684@example.com,Frisco,75034,2026-04-19,Friend Referral,1
+C0685,Brittany,Jackson,customer685@example.com,Arlington,76016,2026-04-02,TikTok,1
+C0686,Daniel,Kumar,customer686@example.com,Irving,75038,2025-10-17,Friend Referral,1
+C0687,Brittany,Martinez,customer687@example.com,Fort Worth,76102,2025-10-27,Friend Referral,1
+C0688,Emma,Martin,customer688@example.com,Irving,75038,2025-12-26,Vet Referral,1
+C0689,Brittany,Tran,customer689@example.com,Dallas,75214,2026-04-25,Vet Referral,1
+C0690,Yuki,Anderson,customer690@example.com,Richardson,75082,2026-03-12,Instagram,1
+C0691,Madison,Jackson,customer691@example.com,Frisco,75034,2025-08-23,Friend Referral,1
+C0692,Jason,Rodriguez,customer692@example.com,Allen,75013,2025-04-21,Pop-up Event,1
+C0693,Noah,Taylor,customer693@example.com,Plano,75024,2026-03-16,Friend Referral,0
+C0694,David,Thomas,customer694@example.com,Richardson,75080,2025-08-11,Instagram,1
+C0695,David,Miller,customer695@example.com,Richardson,75080,2026-01-12,Pop-up Event,1
+C0696,Andrew,Park,customer696@example.com,Fort Worth,76109,2026-01-01,Instagram,1
+C0697,Ashley,Smith,customer697@example.com,Plano,75024,2025-06-28,Friend Referral,1
+C0698,Megan,Khan,customer698@example.com,Allen,75013,2024-11-10,Instagram,1
+C0699,Yuki,Wilson,customer699@example.com,Arlington,76016,2026-03-05,Vet Referral,1
+C0700,Nicole,Martin,customer700@example.com,Irving,75038,2025-11-04,Vet Referral,1
+C0701,James,Thomas,customer701@example.com,Dallas,75205,2025-02-15,Friend Referral,1
+C0702,Emma,Lopez,customer702@example.com,Allen,75013,2025-10-02,Vet Referral,1
+C0703,Ryan,Williams,customer703@example.com,Fort Worth,76109,2025-05-19,Pop-up Event,1
+C0704,Wei,Lopez,customer704@example.com,Fort Worth,76102,2024-11-10,Instagram,1
+C0705,Emma,Smith,customer705@example.com,Irving,75038,2026-03-29,Pop-up Event,1
+C0706,Sophia,Miller,customer706@example.com,Irving,75038,2026-04-05,Friend Referral,1
+C0707,Stephanie,Kim,customer707@example.com,Irving,75063,2026-04-19,Pop-up Event,1
+C0708,Connor,Chen,customer708@example.com,Allen,75013,2025-12-29,TikTok,1
+C0709,Hannah,Kim,customer709@example.com,Plano,75093,2024-11-10,Google Search,1
+C0710,Lauren,Davis,customer710@example.com,Richardson,75082,2026-04-02,Pop-up Event,1
+C0711,Megan,Kim,customer711@example.com,Irving,75063,2026-04-03,Instagram,1
+C0712,Ryan,Smith,customer712@example.com,Richardson,75082,2025-12-21,Vet Referral,1
+C0713,Stephanie,Wilson,customer713@example.com,Irving,75063,2026-04-20,Vet Referral,1
+C0714,Noah,Shah,customer714@example.com,Frisco,75033,2025-05-18,Vet Referral,1
+C0715,Hannah,Perez,customer715@example.com,Fort Worth,76109,2025-09-24,Friend Referral,1
+C0716,Rohit,Miller,customer716@example.com,Dallas,75214,2025-06-28,Friend Referral,1
+C0717,Ashley,Park,customer717@example.com,Frisco,75033,2026-01-02,Pop-up Event,1
+C0718,Tyler,Smith,customer718@example.com,Irving,75063,2026-03-31,Vet Referral,1
+C0719,Priya,Taylor,customer719@example.com,Richardson,75082,2026-04-15,Instagram,1
+C0720,Jason,Thompson,customer720@example.com,Arlington,76012,2026-02-17,Friend Referral,1
+C0721,Logan,Smith,customer721@example.com,Irving,75038,2025-10-27,Google Search,1
+C0722,Eric,Taylor,customer722@example.com,Richardson,75082,2025-06-07,Friend Referral,0
+C0723,Daniel,Kim,customer723@example.com,Dallas,75205,2025-11-05,Instagram,1
+C0724,Megan,Shah,customer724@example.com,Irving,75038,2026-02-23,Google Search,1
+C0725,Justin,Davis,customer725@example.com,McKinney,75070,2026-03-31,Pop-up Event,1
+C0726,Eric,Thomas,customer726@example.com,Irving,75038,2025-06-12,Instagram,1
+C0727,Ashley,Park,customer727@example.com,Richardson,75080,2025-10-03,Friend Referral,1
+C0728,Diego,Patel,customer728@example.com,Plano,75093,2026-03-22,Instagram,1
+C0729,Ethan,Park,customer729@example.com,Fort Worth,76109,2025-10-26,TikTok,1
+C0730,Brandon,Taylor,customer730@example.com,Allen,75013,2025-08-16,Vet Referral,1
+C0731,James,Tran,customer731@example.com,Carrollton,75007,2026-03-11,Pop-up Event,1
+C0732,Eric,Jones,customer732@example.com,McKinney,75070,2025-12-08,Instagram,1
+C0733,Daniel,Brown,customer733@example.com,Coppell,75019,2026-01-13,Pop-up Event,1
+C0734,Hannah,Wilson,customer734@example.com,Allen,75013,2026-02-07,TikTok,1
+C0735,Madison,Martinez,customer735@example.com,Coppell,75019,2026-01-26,Instagram,1
+C0736,Nicole,Tran,customer736@example.com,Frisco,75033,2025-02-08,Instagram,1
+C0737,Brandon,Chen,customer737@example.com,Plano,75024,2026-03-03,Pop-up Event,1
+C0738,Hannah,Tran,customer738@example.com,Dallas,75214,2025-07-14,Instagram,0
+C0739,Diego,Rodriguez,customer739@example.com,Dallas,75205,2025-09-13,Friend Referral,1
+C0740,Aisha,Kim,customer740@example.com,McKinney,75070,2026-03-06,Pop-up Event,1
+C0741,David,Kim,customer741@example.com,Coppell,75019,2025-09-28,Friend Referral,1
+C0742,Michael,Shah,customer742@example.com,Irving,75038,2026-03-16,Instagram,1
+C0743,Sarah,Anderson,customer743@example.com,Richardson,75082,2026-03-01,Google Search,1
+C0744,Jessica,Williams,customer744@example.com,Coppell,75019,2026-03-01,Vet Referral,1
+C0745,Brittany,Jones,customer745@example.com,Fort Worth,76109,2025-03-11,Pop-up Event,1
+C0746,David,Jones,customer746@example.com,Allen,75013,2025-11-24,Pop-up Event,1
+C0747,Emma,Martin,customer747@example.com,Arlington,76016,2026-04-20,Instagram,1
+C0748,Ryan,Rodriguez,customer748@example.com,Fort Worth,76109,2026-04-28,Google Search,0
+C0749,Eric,Kumar,customer749@example.com,Fort Worth,76109,2025-05-21,Friend Referral,1
+C0750,Priya,Kumar,customer750@example.com,Arlington,76012,2025-06-18,Google Search,1
+C0751,Madison,Rodriguez,customer751@example.com,Dallas,75214,2026-04-17,Pop-up Event,1
+C0752,Daniel,Lopez,customer752@example.com,Addison,75001,2025-06-20,Pop-up Event,1
+C0753,Rohit,Rodriguez,customer753@example.com,Allen,75013,2025-12-24,Friend Referral,1
+C0754,Sarah,Johnson,customer754@example.com,Richardson,75080,2026-01-22,Vet Referral,1
+C0755,Diego,Nguyen,customer755@example.com,Irving,75038,2025-03-29,Friend Referral,1
+C0756,Priya,Thomas,customer756@example.com,Allen,75013,2025-11-06,Google Search,1
+C0757,Diego,White,customer757@example.com,Richardson,75080,2026-03-17,Friend Referral,1
+C0758,Jason,Wilson,customer758@example.com,Plano,75093,2026-02-06,Friend Referral,1
+C0759,Emma,Khan,customer759@example.com,Plano,75024,2024-11-10,Google Search,1
+C0760,Michael,Taylor,customer760@example.com,Carrollton,75007,2025-12-28,Google Search,1
+C0761,Jessica,Miller,customer761@example.com,Frisco,75034,2026-03-13,Friend Referral,1
+C0762,Emma,Tran,customer762@example.com,Carrollton,75007,2026-04-26,Instagram,1
+C0763,David,Taylor,customer763@example.com,Carrollton,75007,2024-11-10,Friend Referral,1
+C0764,Rohit,Tran,customer764@example.com,Dallas,75205,2026-03-26,Google Search,1
+C0765,Madison,Anderson,customer765@example.com,Richardson,75080,2026-03-24,Friend Referral,1
+C0766,Ashley,Wang,customer766@example.com,Dallas,75205,2026-05-03,Instagram,1
+C0767,Rachel,Perez,customer767@example.com,Irving,75038,2026-04-14,Friend Referral,1
+C0768,Ava,Perez,customer768@example.com,Coppell,75019,2025-12-03,Friend Referral,1
+C0769,Justin,Martinez,customer769@example.com,Richardson,75080,2025-01-06,Friend Referral,1
+C0770,Rachel,Khan,customer770@example.com,McKinney,75070,2025-11-13,Instagram,1
+C0771,Jason,Brown,customer771@example.com,Irving,75038,2025-12-28,Pop-up Event,1
+C0772,Logan,Lopez,customer772@example.com,Allen,75013,2025-09-28,TikTok,1
+C0773,Ethan,Chen,customer773@example.com,Fort Worth,76109,2026-03-08,Friend Referral,1
+C0774,Brittany,Kumar,customer774@example.com,Dallas,75205,2026-01-29,Pop-up Event,1
+C0775,Nicole,Khan,customer775@example.com,McKinney,75070,2025-11-17,Friend Referral,1
+C0776,Chris,Lee,customer776@example.com,Fort Worth,76109,2024-11-10,Pop-up Event,1
+C0777,Ryan,Park,customer777@example.com,Fort Worth,76102,2025-11-03,Instagram,1
+C0778,Rachel,Lee,customer778@example.com,Richardson,75080,2026-04-23,Google Search,1
+C0779,Diego,Brown,customer779@example.com,Plano,75093,2026-04-13,Friend Referral,1
+C0780,Aisha,Khan,customer780@example.com,Allen,75013,2026-02-11,Instagram,1
+C0781,Connor,Rodriguez,customer781@example.com,Allen,75013,2025-08-27,Instagram,1
+C0782,Tyler,Moore,customer782@example.com,Fort Worth,76102,2026-02-15,TikTok,1
+C0783,Andrew,Garcia,customer783@example.com,Frisco,75034,2025-10-12,Friend Referral,1
+C0784,Eric,Garcia,customer784@example.com,Arlington,76012,2026-05-03,Google Search,1
+C0785,Lauren,Brown,customer785@example.com,Allen,75013,2025-11-15,Pop-up Event,1
+C0786,Priya,Williams,customer786@example.com,Richardson,75082,2026-04-11,Pop-up Event,1
+C0787,Lauren,Anderson,customer787@example.com,Dallas,75214,2025-12-18,Instagram,1
+C0788,Brandon,Thompson,customer788@example.com,Arlington,76016,2026-01-26,Instagram,1
+C0789,Sarah,Anderson,customer789@example.com,Irving,75038,2025-12-01,Instagram,1
+C0790,Daniel,Park,customer790@example.com,Frisco,75034,2025-12-08,Friend Referral,1
+C0791,Ava,Anderson,customer791@example.com,Richardson,75080,2025-10-26,Pop-up Event,1
+C0792,Tyler,Perez,customer792@example.com,Fort Worth,76102,2026-01-23,Google Search,1
+C0793,Priya,Kim,customer793@example.com,Irving,75038,2026-02-28,Vet Referral,1
+C0794,Brittany,Lee,customer794@example.com,Allen,75013,2025-07-20,Pop-up Event,1
+C0795,Eric,Wang,customer795@example.com,Richardson,75082,2025-02-11,Friend Referral,1
+C0796,Diego,Miller,customer796@example.com,Arlington,76016,2025-11-28,Friend Referral,1
+C0797,Nicole,Anderson,customer797@example.com,Arlington,76016,2025-09-26,Google Search,1
+C0798,Nicole,Khan,customer798@example.com,Addison,75001,2026-04-02,Friend Referral,1
+C0799,Sophia,Thomas,customer799@example.com,Dallas,75205,2025-04-02,Friend Referral,1
+C0800,Michael,Moore,customer800@example.com,Plano,75093,2026-04-30,Google Search,1
