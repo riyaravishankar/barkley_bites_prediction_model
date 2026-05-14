@@ -1,16 +1,14 @@
 """
 Barkley Bites Pet Lifecycle Detection
-Streamlit App v3 (Light Beige theme + verbose Sheets diagnostics)
+Streamlit App v4 (Quick Predict resilient + polish)
 FIX-IT-FIVE | DCP Phase 2 | Riya Ravishankar
 
-What this version changes over v2:
-- Light luxury beige palette throughout. No more dark banner or black buttons.
-- Sheets connection logic exposes every step's failure with actionable detail.
-- "Reset connection cache" button to bypass Streamlit's resource cache.
-- Same model, same features, same Google Sheets schema as v2.
-
-Run locally: streamlit run app.py
-Deploy:      Push to GitHub, Streamlit Cloud auto-redeploys.
+What this version changes over v3:
+- Quick Predict tab now renders regardless of whether Google Sheets is
+  connected. Previously a `return` inside `with tab_live:` exited the whole
+  render_main() function, which killed Quick Predict.
+- Cleaner block container padding so there's less blank space below tabs.
+- Same beige theme, same model, same Sheets diagnostics as v3.
 """
 
 import os
@@ -41,9 +39,6 @@ except Exception:
     AUTOREFRESH_AVAILABLE = False
 
 
-# ============================================================
-# Page config (must be first Streamlit call)
-# ============================================================
 st.set_page_config(
     page_title="Barkley Bites | Pet Lifecycle Model",
     page_icon="🐾",
@@ -54,30 +49,27 @@ st.set_page_config(
 
 # ============================================================
 # LIGHT LUXURY BEIGE PALETTE
-# All previous BLACK/WHITE references map into this palette so the
-# whole app shifts to a consistent warm light theme.
 # ============================================================
-BG_PAGE       = "#FAF7F2"   # main page warm off-white
-BG_CARD       = "#F5EFE5"   # cards, banners, sections - cream
-BG_HIGHLIGHT  = "#EDE4D3"   # deeper beige for emphasis
-BORDER        = "#E0D5C0"   # soft tan border
-TEXT_DARK     = "#3D2E20"   # warm dark brown (replaces BLACK)
-TEXT_MID      = "#6B5B45"   # warm taupe
-TEXT_LIGHT    = "#9B8B73"   # light taupe
-ACCENT        = "#F26B1F"   # brand orange (kept punchy as accent)
-ACCENT_DARK   = "#C97A4A"   # softer terracotta for hover
-ACCENT_LIGHT  = "#FCE5D4"   # orange light (cards / soft fills)
-SUCCESS_BG    = "#EFF3E8"   # muted sage cream
-WARN_BG       = "#FAEDD9"   # warm amber cream
-DANGER_BG     = "#F5DDD8"   # muted brick cream
+BG_PAGE       = "#FAF7F2"
+BG_CARD       = "#F5EFE5"
+BG_HIGHLIGHT  = "#EDE4D3"
+BORDER        = "#E0D5C0"
+TEXT_DARK     = "#3D2E20"
+TEXT_MID      = "#6B5B45"
+TEXT_LIGHT    = "#9B8B73"
+ACCENT        = "#F26B1F"
+ACCENT_DARK   = "#C97A4A"
+ACCENT_LIGHT  = "#FCE5D4"
+SUCCESS_BG    = "#EFF3E8"
+WARN_BG       = "#FAEDD9"
+DANGER_BG     = "#F5DDD8"
 SUCCESS_LINE  = "#7A9B6E"
 WARN_LINE     = "#D49A4E"
 DANGER_LINE   = "#B85040"
 
-# Legacy aliases so the rest of the code reads naturally
 ORANGE        = ACCENT
 ORANGE_LIGHT  = ACCENT_LIGHT
-BLACK         = TEXT_DARK     # all "BLACK" text becomes warm dark brown
+BLACK         = TEXT_DARK
 WHITE         = BG_PAGE
 CREAM         = BG_CARD
 GRAY_DARK     = TEXT_MID
@@ -88,10 +80,6 @@ BLUE          = "#5B7A9B"
 RED           = DANGER_LINE
 
 
-# ============================================================
-# CSS - rebuilt around the beige palette
-# Every previous dark-bg surface now sits on cream/beige.
-# ============================================================
 st.markdown(f"""
 <style>
 #MainMenu, footer, header {{visibility: hidden;}}
@@ -101,9 +89,13 @@ html, body, [class*="css"] {{
     color: {TEXT_DARK};
     background-color: {BG_PAGE};
 }}
+.stApp {{ background-color: {BG_PAGE}; }}
 
-.stApp {{
-    background-color: {BG_PAGE};
+/* Tighter block container - removes the big empty band below tabs */
+.block-container {{
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1300px !important;
 }}
 
 h1 {{ color: {TEXT_DARK} !important; font-weight: 800 !important; letter-spacing: -0.5px; }}
@@ -119,7 +111,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     font-size: 0.95rem !important; font-weight: 600 !important; color: {TEXT_MID} !important;
 }}
 
-/* Primary buttons */
 .stButton > button {{
     background-color: {ACCENT}; color: #FFFFFF;
     border: none; border-radius: 8px;
@@ -132,7 +123,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     box-shadow: 0 2px 6px rgba(61, 46, 32, 0.12);
 }}
 
-/* Download buttons (no longer black) */
 .stDownloadButton > button {{
     background-color: {TEXT_DARK}; color: {BG_PAGE};
     border: none; border-radius: 8px;
@@ -143,7 +133,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     background-color: {ACCENT}; color: #FFFFFF;
 }}
 
-/* Tabs */
 .stTabs [data-baseweb="tab-list"] {{
     gap: 8px; border-bottom: 2px solid {BORDER};
     background: transparent;
@@ -157,15 +146,16 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     background: {ACCENT_LIGHT}; color: {TEXT_DARK};
     border-bottom: 3px solid {ACCENT};
 }}
+.stTabs [data-baseweb="tab-panel"] {{
+    padding-top: 1rem;
+}}
 
-/* Form labels */
 .stSelectbox label, .stNumberInput label, .stTextInput label,
 .stSlider label, .stDateInput label, .stFileUploader label,
 .stRadio label {{
     font-weight: 600 !important; color: {TEXT_DARK} !important; font-size: 15px !important;
 }}
 
-/* Inputs */
 .stTextInput input, .stNumberInput input, .stDateInput input,
 .stSelectbox > div > div, .stTextArea textarea {{
     background-color: #FFFFFF !important;
@@ -173,7 +163,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     color: {TEXT_DARK} !important;
 }}
 
-/* Brand banner - cream instead of black */
 .brand-banner {{
     background-color: {BG_CARD};
     color: {TEXT_DARK};
@@ -187,7 +176,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
 .brand-banner h1 {{ color: {TEXT_DARK} !important; margin: 0; font-size: 1.9rem; }}
 .brand-banner p {{ color: {TEXT_MID} !important; margin: 0.4rem 0 0 0; font-size: 16px !important; }}
 
-/* Prediction card */
 .pred-card {{
     background-color: {BG_CARD};
     border: 1px solid {BORDER};
@@ -208,7 +196,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     color: {TEXT_DARK}; font-size: 16px; font-weight: 500; line-height: 1.55;
 }}
 
-/* Why-explanation box */
 .why-box {{
     background-color: {BG_HIGHLIGHT};
     border: 1px solid {BORDER};
@@ -225,49 +212,19 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     color: {TEXT_DARK}; font-size: 15px; line-height: 1.55; margin: 0;
 }}
 
-/* Notification boxes */
-.info-box {{
-    background-color: {BG_CARD};
+.info-box, .warn-box, .danger-box, .success-box {{
     border: 1px solid {BORDER};
-    border-left: 4px solid {ACCENT};
     padding: 1rem 1.25rem;
     border-radius: 8px;
     margin: 1rem 0;
     font-size: 15px;
     color: {TEXT_DARK};
 }}
-.warn-box {{
-    background-color: {WARN_BG};
-    border: 1px solid {BORDER};
-    border-left: 4px solid {WARN_LINE};
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    font-size: 15px;
-    color: {TEXT_DARK};
-}}
-.danger-box {{
-    background-color: {DANGER_BG};
-    border: 1px solid {BORDER};
-    border-left: 4px solid {DANGER_LINE};
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    font-size: 15px;
-    color: {TEXT_DARK};
-}}
-.success-box {{
-    background-color: {SUCCESS_BG};
-    border: 1px solid {BORDER};
-    border-left: 4px solid {SUCCESS_LINE};
-    padding: 1rem 1.25rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    font-size: 15px;
-    color: {TEXT_DARK};
-}}
+.info-box    {{ background-color: {BG_CARD};    border-left: 4px solid {ACCENT}; }}
+.warn-box    {{ background-color: {WARN_BG};    border-left: 4px solid {WARN_LINE}; }}
+.danger-box  {{ background-color: {DANGER_BG};  border-left: 4px solid {DANGER_LINE}; }}
+.success-box {{ background-color: {SUCCESS_BG}; border-left: 4px solid {SUCCESS_LINE}; }}
 
-/* Empty-state cards */
 .empty-state {{
     background-color: {BG_CARD};
     border: 2px dashed {BORDER};
@@ -275,6 +232,7 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     padding: 2rem;
     text-align: center;
     color: {TEXT_MID};
+    margin: 1rem 0;
 }}
 .empty-state-icon {{ font-size: 3rem; }}
 .empty-state-text {{
@@ -284,14 +242,12 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     font-size: 14px; color: {TEXT_LIGHT}; margin-top: 0.5rem;
 }}
 
-/* Footer */
 .footer {{
     text-align: center; padding: 2rem 0 1rem 0;
     color: {TEXT_LIGHT}; font-size: 13px;
     border-top: 1px solid {BORDER}; margin-top: 3rem;
 }}
 
-/* Diagnostic rows */
 .diag-row {{
     display: flex; align-items: flex-start; padding: 6px 0;
     border-bottom: 1px solid {BORDER};
@@ -305,7 +261,6 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
     word-break: break-word;
 }}
 
-/* Popover button (Tools menu) */
 div[data-testid="stPopover"] button {{
     background-color: {BG_CARD} !important;
     color: {TEXT_DARK} !important;
@@ -316,14 +271,12 @@ div[data-testid="stPopover"] button:hover {{
     color: {ACCENT} !important;
 }}
 
-/* Expander */
 div[data-testid="stExpander"] {{
     background-color: {BG_CARD} !important;
     border: 1px solid {BORDER} !important;
     border-radius: 8px !important;
 }}
 
-/* Dataframe */
 [data-testid="stDataFrame"] {{
     border: 1px solid {BORDER};
     border-radius: 8px;
@@ -369,9 +322,6 @@ class_names = bundle["config"]["class_names"]
 feature_columns = bundle["config"]["feature_columns"]
 
 
-# ============================================================
-# Action playbook
-# ============================================================
 ACTION_PLAYBOOK = {
     "STABLE":            {"icon": "🟢", "headline": "No action needed",
                           "detail": "This pet is on a healthy ordering cadence. Continue normal communications.",
@@ -488,15 +438,9 @@ def auto_compute_features(simple_inputs: dict) -> dict:
     days_to_birthday = (bday_this_year - today).days
 
     if n_orders == 0:
-        avg_interval = 0.0
-        interval_stddev = 0.0
-        max_interval = 0
-        had_resumption = 0
-        orders_last_7d = 0
-        orders_last_30d = 0
-        orders_last_90d = 0
-        total_spend = 0.0
-        avg_order_value = 0.0
+        avg_interval = 0.0; interval_stddev = 0.0; max_interval = 0
+        had_resumption = 0; orders_last_7d = 0; orders_last_30d = 0
+        orders_last_90d = 0; total_spend = 0.0; avg_order_value = 0.0
         avg_rating = 0.0
     else:
         avg_interval = max(7.0, days_since_signup / max(n_orders, 1))
@@ -533,10 +477,7 @@ def predict_row(feature_dict: dict):
         if col in bundle["encoders"]:
             le = bundle["encoders"][col]
             try:
-                if str(val) in le.classes_:
-                    X_row[col] = le.transform([str(val)])[0]
-                else:
-                    X_row[col] = 0
+                X_row[col] = le.transform([str(val)])[0] if str(val) in le.classes_ else 0
             except Exception:
                 X_row[col] = 0
         else:
@@ -593,7 +534,7 @@ def predict_batch(df: pd.DataFrame):
 
 
 # ============================================================
-# Google Sheets - verbose connection with per-step diagnostics
+# Google Sheets
 # ============================================================
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -607,16 +548,7 @@ def _gen_prediction_id() -> str:
 
 
 def diagnose_sheets_connection():
-    """
-    Walk every step of the Sheets connection and return:
-        (sheet_object_or_None, list_of_(status, message, detail))
-
-    status is one of: "ok", "warn", "error".
-    No caching, no swallowed exceptions. Always re-runs.
-    """
     msgs = []
-
-    # Step 1: gspread imported?
     if not GSPREAD_AVAILABLE:
         msgs.append(("error", "gspread library not installed",
                      f"Import error: {GSPREAD_IMPORT_ERROR}. "
@@ -624,28 +556,21 @@ def diagnose_sheets_connection():
         return None, msgs
     msgs.append(("ok", f"gspread imported (version {gspread.__version__})", None))
 
-    # Step 2: secrets.toml present and readable
     try:
-        _ = st.secrets  # forces secrets to load
+        _ = st.secrets
         msgs.append(("ok", "st.secrets is accessible", None))
     except FileNotFoundError as e:
         msgs.append(("error", "secrets.toml not found",
-                     f"Looking for .streamlit/secrets.toml. Error: {e}"))
+                     f"Local: place .streamlit/secrets.toml in project. "
+                     f"Cloud: add secrets via Streamlit Cloud Settings -> Secrets. ({e})"))
         return None, msgs
     except Exception as e:
         msgs.append(("error", "st.secrets failed to load", str(e)))
         return None, msgs
 
-    # Step 3: required top-level keys
-    try:
-        has_sheet_id = "sheet_id" in st.secrets
-    except Exception as e:
-        msgs.append(("error", "Could not check st.secrets keys", str(e)))
-        return None, msgs
-
-    if not has_sheet_id:
-        msgs.append(("error", "sheet_id missing from secrets.toml",
-                     'Add: sheet_id = "YOUR_SHEET_ID_HERE" at the top of secrets.toml'))
+    if "sheet_id" not in st.secrets:
+        msgs.append(("error", "sheet_id missing from secrets",
+                     'Add: sheet_id = "YOUR_SHEET_ID_HERE"'))
         return None, msgs
 
     sheet_id = st.secrets["sheet_id"]
@@ -655,115 +580,86 @@ def diagnose_sheets_connection():
     msgs.append(("ok", f"sheet_id present ({sheet_id[:10]}...{sheet_id[-4:]})", None))
 
     if "gcp_service_account" not in st.secrets:
-        msgs.append(("error", "[gcp_service_account] section missing in secrets.toml",
-                     "Make sure your secrets.toml has a [gcp_service_account] section "
-                     "with all the fields from your downloaded JSON."))
+        msgs.append(("error", "[gcp_service_account] section missing", None))
         return None, msgs
     msgs.append(("ok", "[gcp_service_account] section found", None))
 
-    # Step 4: service account fields
     sa = dict(st.secrets["gcp_service_account"])
-    required_fields = [
-        "type", "project_id", "private_key_id", "private_key",
-        "client_email", "client_id", "auth_uri", "token_uri",
-    ]
+    required_fields = ["type", "project_id", "private_key_id", "private_key",
+                       "client_email", "client_id", "auth_uri", "token_uri"]
     sa_missing = [f for f in required_fields if f not in sa or not str(sa.get(f, "")).strip()]
     if sa_missing:
-        msgs.append(("error",
-                     f"Service account is missing or has empty fields: {', '.join(sa_missing)}",
-                     None))
+        msgs.append(("error", f"Service account missing fields: {', '.join(sa_missing)}", None))
         return None, msgs
     msgs.append(("ok", f"All {len(required_fields)} required service account fields present", None))
     msgs.append(("ok", f"Service account email: {sa['client_email']}", None))
 
-    # Step 5: private_key formatting
     pk = sa["private_key"]
     if "BEGIN PRIVATE KEY" not in pk:
-        msgs.append(("error", "private_key missing the BEGIN marker",
-                     "It must include -----BEGIN PRIVATE KEY----- on its own line."))
+        msgs.append(("error", "private_key missing BEGIN marker", None))
         return None, msgs
     if "END PRIVATE KEY" not in pk:
-        msgs.append(("error", "private_key missing the END marker", None))
+        msgs.append(("error", "private_key missing END marker", None))
         return None, msgs
-
     newline_count = pk.count("\n")
-    literal_slash_n = "\\n" in pk
-    if literal_slash_n and newline_count < 5:
+    if "\\n" in pk and newline_count < 5:
         msgs.append(("error",
                      "private_key has literal backslash-n instead of real newlines",
-                     "Fix: in secrets.toml, wrap the key in triple double-quotes and "
-                     "use real line breaks (press Enter), not the two characters \\n."))
+                     "Fix: use triple double-quotes with real line breaks in TOML."))
         return None, msgs
     if newline_count < 20:
-        msgs.append(("warn",
-                     f"private_key has only {newline_count} newlines (expected 25+)",
-                     "Make sure you pasted the entire key from the JSON file."))
+        msgs.append(("warn", f"private_key has only {newline_count} newlines (expected 25+)", None))
     else:
         msgs.append(("ok", f"private_key has {newline_count} newlines", None))
 
-    # Step 6: build credentials
     try:
         creds = Credentials.from_service_account_info(sa, scopes=SCOPES)
         msgs.append(("ok", "Google credentials object created", None))
     except Exception as e:
         msgs.append(("error", "Could not create Google credentials",
-                     f"{type(e).__name__}: {e}. The private_key is most likely corrupted. "
-                     "Re-download the JSON from Google Cloud Console and re-paste."))
+                     f"{type(e).__name__}: {e}"))
         return None, msgs
 
-    # Step 7: authorize gspread
     try:
         client = gspread.authorize(creds)
         msgs.append(("ok", "gspread.authorize succeeded", None))
     except Exception as e:
-        msgs.append(("error", "gspread.authorize failed",
-                     f"{type(e).__name__}: {e}"))
+        msgs.append(("error", "gspread.authorize failed", f"{type(e).__name__}: {e}"))
         return None, msgs
 
-    # Step 8: open the sheet
     try:
         sh = client.open_by_key(sheet_id)
         msgs.append(("ok", f'Opened sheet: "{sh.title}"', None))
     except Exception as e:
         err = str(e)
         if "PERMISSION_DENIED" in err or "403" in err:
-            msgs.append(("error", "Permission denied when opening the sheet",
-                         f"The sheet has not been shared with this service account. "
-                         f"Open the sheet, click Share, and add this email as Editor: "
-                         f"{sa['client_email']}"))
-        elif "404" in err or "Requested entity was not found" in err.lower():
-            msgs.append(("error", "Sheet not found",
-                         f"sheet_id may be wrong: {sheet_id}. Verify the ID in your URL: "
-                         "https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit"))
+            msgs.append(("error", "Permission denied",
+                         f"Share the sheet with: {sa['client_email']} as Editor."))
+        elif "404" in err or "not found" in err.lower():
+            msgs.append(("error", "Sheet not found", f"sheet_id may be wrong: {sheet_id}"))
         elif "API has not been used" in err or "API has not been enabled" in err:
-            msgs.append(("error", "Google Sheets/Drive API not enabled",
-                         f"Enable both Google Sheets API and Google Drive API for project "
-                         f"{sa['project_id']} in Google Cloud Console."))
+            msgs.append(("error", "Sheets/Drive API not enabled",
+                         f"Enable in Cloud Console for project {sa['project_id']}"))
         else:
             msgs.append(("error", "Could not open sheet", err))
         return None, msgs
 
-    # Step 9: verify tabs
     try:
         tabs = [ws.title for ws in sh.worksheets()]
+        msgs.append(("ok", f"Tabs in sheet: {tabs}", None))
     except Exception as e:
         msgs.append(("error", "Could not list tabs", str(e)))
         return None, msgs
 
-    msgs.append(("ok", f"Tabs in sheet: {tabs}", None))
     for required_tab in ["Registrations", "Predictions"]:
         if required_tab not in tabs:
-            msgs.append(("error",
-                         f'Tab "{required_tab}" missing',
-                         "Tab names are case-sensitive. Rename exactly."))
+            msgs.append(("error", f'Tab "{required_tab}" missing', "Case-sensitive."))
             return None, msgs
-
     msgs.append(("ok", "Both required tabs present", None))
     return sh, msgs
 
 
 def get_sheet():
-    """Returns the sheet object or None. Stashes diagnostics in session_state."""
     sh, msgs = diagnose_sheets_connection()
     st.session_state["_sheet_diagnostics"] = msgs
     return sh
@@ -774,9 +670,7 @@ def fetch_registrations() -> pd.DataFrame:
     if sh is None:
         return pd.DataFrame()
     try:
-        ws = sh.worksheet("Registrations")
-        rows = ws.get_all_records()
-        return pd.DataFrame(rows) if rows else pd.DataFrame()
+        return pd.DataFrame(sh.worksheet("Registrations").get_all_records()) or pd.DataFrame()
     except Exception as e:
         st.session_state["_gspread_error"] = str(e)
         return pd.DataFrame()
@@ -787,9 +681,7 @@ def fetch_predictions() -> pd.DataFrame:
     if sh is None:
         return pd.DataFrame()
     try:
-        ws = sh.worksheet("Predictions")
-        rows = ws.get_all_records()
-        return pd.DataFrame(rows) if rows else pd.DataFrame()
+        return pd.DataFrame(sh.worksheet("Predictions").get_all_records()) or pd.DataFrame()
     except Exception as e:
         st.session_state["_gspread_error"] = str(e)
         return pd.DataFrame()
@@ -812,8 +704,7 @@ def append_prediction_rows(prediction_rows: list):
 
 def _safe_int(x, default=0):
     try:
-        if x is None or x == "":
-            return default
+        if x is None or x == "": return default
         return int(float(x))
     except Exception:
         return default
@@ -821,16 +712,14 @@ def _safe_int(x, default=0):
 
 def _safe_float(x, default=0.0):
     try:
-        if x is None or x == "":
-            return default
+        if x is None or x == "": return default
         return float(x)
     except Exception:
         return default
 
 
 def _safe_date(x):
-    if not x or x == "":
-        return None
+    if not x or x == "": return None
     try:
         return pd.to_datetime(x).date()
     except Exception:
@@ -843,26 +732,19 @@ def registration_to_features(reg: dict) -> dict:
     if bday is not None:
         today = datetime.now().date()
         pet_age = round((today - bday).days / 365.25, 2)
-        if pet_age < 0:
-            pet_age = 0.1
+        if pet_age < 0: pet_age = 0.1
     else:
         pet_age = _safe_float(reg.get("pet_age_years"), 4.0)
         bday = datetime.now().date() + timedelta(days=100)
-
     weight = _safe_float(reg.get("pet_weight_lbs"), 35.0)
     reg_ts = _safe_date(reg.get("timestamp"))
-    if reg_ts is None:
-        days_since_signup = 0
-    else:
-        days_since_signup = max(0, (datetime.now().date() - reg_ts).days)
-
+    days_since_signup = 0 if reg_ts is None else max(0, (datetime.now().date() - reg_ts).days)
     n_orders = _safe_int(reg.get("n_orders"), 0)
     last_order = _safe_date(reg.get("last_order_date"))
     if last_order is not None:
         days_since_last = max(0, (datetime.now().date() - last_order).days)
     else:
         days_since_last = days_since_signup if n_orders > 0 else 0
-
     return {
         "pet_name": reg.get("pet_name", ""), "breed": breed,
         "pet_age": pet_age, "weight": weight, "birthday": bday,
@@ -969,9 +851,6 @@ if "view" not in st.session_state:
 view = st.session_state["view"]
 
 
-# ============================================================
-# Diagnostic panel - rendered when Sheets is not connected
-# ============================================================
 def render_sheets_diagnostics(msgs):
     icon = {"ok": "✅", "warn": "⚠️", "error": "❌"}
     rows_html = ""
@@ -989,7 +868,8 @@ def render_sheets_diagnostics(msgs):
     st.markdown(f"""
     <div class="warn-box">
         <strong>Google Sheets is not connected.</strong>
-        Step-by-step diagnostic below. The first ❌ row is the failure point.
+        Step-by-step diagnostic below. The first ❌ is the failure point.
+        Quick Predict (next tab) still works without Sheets.
     </div>
     <div style="background:{BG_CARD}; border:1px solid {BORDER};
                 border-radius:10px; padding:1rem 1.25rem; margin:1rem 0;">
@@ -999,7 +879,255 @@ def render_sheets_diagnostics(msgs):
 
 
 # ============================================================
-# VIEW: MAIN (Live Predictions + Quick Predict)
+# Sub-renderers
+# ============================================================
+def render_live_predictions_connected(sh, msgs):
+    """The full Live Predictions panel, only when Sheets is connected."""
+    if msgs and any(s == "warn" for s, _, _ in msgs):
+        with st.expander("⚠️ Connection warnings (click for detail)"):
+            render_sheets_diagnostics(msgs)
+
+    if AUTOREFRESH_AVAILABLE:
+        st_autorefresh(interval=30 * 1000, key="live_predictions_refresh")
+
+    ctrl1, ctrl2, _ = st.columns([2, 2, 6])
+    with ctrl1:
+        if st.button("🔄 Score new registrations", use_container_width=True):
+            with st.spinner("Reading registrations and scoring new ones..."):
+                n_new, n_skip, _ = score_all_new_registrations()
+            st.session_state["_last_score_msg"] = (
+                f"Scored {n_new} new predictions. Skipped {n_skip} unchanged."
+            )
+            st.rerun()
+    with ctrl2:
+        view_mode = st.radio(
+            "Display", ["Latest per pet", "Full history"],
+            horizontal=True, label_visibility="collapsed",
+        )
+
+    if "_last_score_msg" in st.session_state:
+        st.markdown(
+            f'<div class="success-box">{st.session_state["_last_score_msg"]}</div>',
+            unsafe_allow_html=True,
+        )
+
+    if not st.session_state.get("_auto_scored_once"):
+        with st.spinner("Looking for new registrations..."):
+            score_all_new_registrations()
+        st.session_state["_auto_scored_once"] = True
+
+    predictions_df = fetch_predictions()
+    registrations_df = fetch_registrations()
+
+    c1, c2, c3, c4 = st.columns(4)
+    with c1: st.metric("Registrations", f"{len(registrations_df):,}")
+    with c2: st.metric("Predictions made", f"{len(predictions_df):,}")
+    with c3:
+        high = 0
+        if not predictions_df.empty and "alert_priority" in predictions_df.columns:
+            high = int((predictions_df["alert_priority"].astype(str) == "high").sum())
+        st.metric("High priority", f"{high:,}")
+    with c4:
+        st.metric("Auto-refresh", "Every 30 s" if AUTOREFRESH_AVAILABLE else "Manual")
+
+    st.markdown("---")
+
+    if predictions_df.empty:
+        st.markdown(f"""
+        <div class="empty-state">
+            <div class="empty-state-icon">🕒</div>
+            <div class="empty-state-text">No predictions yet</div>
+            <div class="empty-state-sub">Add a registration to the Google Sheet
+                and click "Score new registrations".</div>
+        </div>
+        """, unsafe_allow_html=True)
+        return
+
+    try:
+        predictions_df["_ts"] = pd.to_datetime(
+            predictions_df["timestamp"], errors="coerce")
+        predictions_df = predictions_df.sort_values("_ts", ascending=False)
+    except Exception:
+        pass
+
+    display_df = (predictions_df.drop_duplicates("registration_id", keep="first")
+                  if view_mode == "Latest per pet" else predictions_df)
+
+    display_cols = [
+        "timestamp", "pet_name", "owner_name", "lifecycle_state",
+        "confidence", "recommended_action", "why_explanation",
+        "alert_priority", "alert_sent", "registration_id",
+    ]
+    present_cols = [c for c in display_cols if c in display_df.columns]
+
+    st.markdown(f"#### {view_mode} ({len(display_df):,} rows)")
+    st.dataframe(display_df[present_cols], use_container_width=True,
+                 hide_index=True, height=420)
+
+    st.markdown("---")
+    st.markdown("#### Drill in on one pet")
+    if not display_df.empty:
+        options = [
+            f"{r['pet_name']} | {r.get('owner_name','')} | {r['lifecycle_state']}"
+            for _, r in display_df.iterrows()
+        ]
+        choice = st.selectbox("Select a recent prediction", options, key="drill_sel")
+        idx = options.index(choice)
+        row = display_df.iloc[idx]
+        action = ACTION_PLAYBOOK.get(row["lifecycle_state"], {})
+        st.markdown(f"""
+        <div class="pred-card">
+            <div class="pred-card-title">Predicted Lifecycle State for {row['pet_name']}</div>
+            <div class="pred-card-value">{action.get('icon','')} {row['lifecycle_state']}</div>
+            <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid {BORDER};">
+                <div class="pred-card-title" style="margin-top:0;">Recommended action</div>
+                <div style="font-weight:700; font-size:1.15rem; color:{TEXT_DARK}; margin:0.4rem 0;">
+                    {row.get('recommended_action','')}
+                </div>
+                <div class="pred-card-action">{action.get('detail','')}</div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown(f"""
+        <div class="why-box">
+            <div class="why-box-title">🤔 Why this recommendation</div>
+            <div class="why-box-text">{row.get('why_explanation','')}</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+
+def render_live_predictions_disconnected(msgs):
+    """Diagnostic panel only, when Sheets fails. No early returns."""
+    render_sheets_diagnostics(msgs)
+    colA, colB = st.columns([1, 5])
+    with colA:
+        if st.button("🔄 Re-test connection", use_container_width=True):
+            st.cache_resource.clear()
+            st.cache_data.clear()
+            st.rerun()
+    with colB:
+        st.markdown(
+            f'<div style="color:{TEXT_MID}; font-size:14px; padding-top:0.55rem;">'
+            'Click after you edit secrets or share the sheet. '
+            'Quick Predict still works in the next tab.'
+            '</div>',
+            unsafe_allow_html=True,
+        )
+
+
+def render_quick_predict():
+    """The manual Quick Predict form. Has no Sheets dependency."""
+    st.markdown("### Predict a single pet manually")
+    st.markdown(
+        '<div class="info-box">Quick check without going through the Google Sheet. '
+        'Use this for demos, ad-hoc testing, or when Sheets is unavailable.</div>',
+        unsafe_allow_html=True,
+    )
+
+    col_input, col_result = st.columns([3, 2], gap="large")
+    with col_input:
+        c1, c2 = st.columns(2)
+        with c1:
+            pet_name = st.text_input("Pet name", value="Bella")
+            breed = st.selectbox("Breed", options=sorted(list(SIZE_BY_BREED.keys())))
+            pet_age = st.slider("Pet age (years)", 0.1, 16.0, 4.0, 0.1)
+            weight = st.slider("Pet weight (lbs)", 4.0, 130.0, 50.0, 1.0)
+        with c2:
+            birthday = st.date_input(
+                "Pet birthday",
+                value=datetime.now().date() + timedelta(days=100),
+                min_value=datetime.now().date() - timedelta(days=365 * 16),
+            )
+            days_since_signup = st.number_input("Days since signup", 0, 1000, 90)
+            n_orders = st.number_input("Total orders placed", 0, 200, 8)
+            days_since_last = st.number_input(
+                "Days since last order", 0, 500, 7,
+                help="If they've never ordered, enter 0 and set Total orders to 0.",
+            )
+        predict_btn = st.button("🔮 Predict lifecycle state", use_container_width=True)
+
+    with col_result:
+        if predict_btn:
+            simple = {
+                "pet_name": pet_name, "breed": breed,
+                "pet_age": pet_age, "weight": weight, "birthday": birthday,
+                "days_since_signup": days_since_signup,
+                "n_orders": n_orders, "days_since_last": days_since_last,
+            }
+            features = auto_compute_features(simple)
+            pred_class, proba = predict_row(features)
+            action = ACTION_PLAYBOOK[pred_class]
+            why = build_why(pred_class, features)
+
+            st.markdown(f"""
+            <div class="pred-card">
+                <div class="pred-card-title">Predicted Lifecycle State for {pet_name}</div>
+                <div class="pred-card-value">{action['icon']} {pred_class}</div>
+                <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid {BORDER};">
+                    <div class="pred-card-title" style="margin-top:0;">Recommended action</div>
+                    <div style="font-weight:700; font-size:1.15rem; color:{TEXT_DARK}; margin:0.4rem 0;">
+                        {action['headline']}
+                    </div>
+                    <div class="pred-card-action">{action['detail']}</div>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown(f"""
+            <div class="why-box">
+                <div class="why-box-title">🤔 Why this recommendation</div>
+                <div class="why-box-text">{why}</div>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("#### Class probabilities")
+            proba_df = pd.DataFrame({
+                "Class": bundle["target_encoder"].inverse_transform(np.arange(len(proba))),
+                "Probability": proba,
+            }).sort_values("Probability", ascending=False)
+            chart = alt.Chart(proba_df).mark_bar().encode(
+                x=alt.X("Probability:Q", scale=alt.Scale(domain=[0, 1]),
+                        axis=alt.Axis(format=".0%")),
+                y=alt.Y("Class:N", sort="-x", axis=alt.Axis(labelFontSize=13)),
+                color=alt.condition(
+                    alt.datum.Class == pred_class,
+                    alt.value(ACCENT), alt.value(BORDER),
+                ),
+                tooltip=["Class", alt.Tooltip("Probability:Q", format=".1%")],
+            ).properties(height=320)
+            st.altair_chart(chart, use_container_width=True)
+
+            single_csv = pd.DataFrame([{
+                "pet_name": pet_name, "breed": breed, "pet_age": pet_age,
+                "weight": weight, "birthday": birthday,
+                "days_since_signup": days_since_signup,
+                "n_orders": n_orders, "days_since_last": days_since_last,
+                "predicted_lifecycle": pred_class,
+                "confidence": round(float(proba.max()), 3),
+                "recommended_action": action["headline"],
+                "why_explanation": why,
+            }]).to_csv(index=False)
+            st.download_button(
+                "⬇️ Save this prediction (CSV)", data=single_csv,
+                file_name=f"{pet_name}_prediction.csv", mime="text/csv",
+            )
+        else:
+            st.markdown(f"""
+            <div class="empty-state">
+                <div class="empty-state-icon">🐾</div>
+                <div class="empty-state-text">
+                    Fill in the 8 fields and click
+                    <span style="color:{ACCENT};">"Predict lifecycle state"</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
+
+
+# ============================================================
+# VIEW: MAIN - tabs that always render
+# Critical fix: NO early return inside `with tab_live:`.
+# Both tabs always run, Quick Predict never depends on Sheets.
 # ============================================================
 def render_main():
     tab_live, tab_quick = st.tabs([
@@ -1010,249 +1138,17 @@ def render_main():
     with tab_live:
         sh = get_sheet()
         msgs = st.session_state.get("_sheet_diagnostics", [])
-
         if sh is None:
-            render_sheets_diagnostics(msgs)
-            colA, colB = st.columns([1, 5])
-            with colA:
-                if st.button("🔄 Re-test connection", use_container_width=True):
-                    st.cache_resource.clear()
-                    st.cache_data.clear()
-                    st.rerun()
-            with colB:
-                st.markdown(
-                    f'<div style="color:{TEXT_MID}; font-size:14px; padding-top:0.55rem;">'
-                    'Click after you edit secrets.toml or share the sheet.'
-                    '</div>',
-                    unsafe_allow_html=True,
-                )
-            return
-
-        # Show OK diagnostics on first load only (collapsed)
-        if msgs and any(s == "warn" for s, _, _ in msgs):
-            with st.expander("⚠️ Connection warnings (click for detail)"):
-                render_sheets_diagnostics(msgs)
-
-        if AUTOREFRESH_AVAILABLE:
-            st_autorefresh(interval=30 * 1000, key="live_predictions_refresh")
-
-        ctrl1, ctrl2, _ = st.columns([2, 2, 6])
-        with ctrl1:
-            if st.button("🔄 Score new registrations", use_container_width=True):
-                with st.spinner("Reading registrations and scoring new ones..."):
-                    n_new, n_skip, _ = score_all_new_registrations()
-                st.session_state["_last_score_msg"] = (
-                    f"Scored {n_new} new predictions. Skipped {n_skip} unchanged."
-                )
-                st.rerun()
-        with ctrl2:
-            view_mode = st.radio(
-                "Display", ["Latest per pet", "Full history"],
-                horizontal=True, label_visibility="collapsed",
-            )
-
-        if "_last_score_msg" in st.session_state:
-            st.markdown(
-                f'<div class="success-box">{st.session_state["_last_score_msg"]}</div>',
-                unsafe_allow_html=True,
-            )
-
-        if not st.session_state.get("_auto_scored_once"):
-            with st.spinner("Looking for new registrations..."):
-                score_all_new_registrations()
-            st.session_state["_auto_scored_once"] = True
-
-        predictions_df = fetch_predictions()
-        registrations_df = fetch_registrations()
-
-        c1, c2, c3, c4 = st.columns(4)
-        with c1: st.metric("Registrations", f"{len(registrations_df):,}")
-        with c2: st.metric("Predictions made", f"{len(predictions_df):,}")
-        with c3:
-            high = 0
-            if not predictions_df.empty and "alert_priority" in predictions_df.columns:
-                high = int((predictions_df["alert_priority"].astype(str) == "high").sum())
-            st.metric("High priority", f"{high:,}")
-        with c4:
-            st.metric("Auto-refresh", "Every 30 s" if AUTOREFRESH_AVAILABLE else "Manual")
-
-        st.markdown("---")
-
-        if predictions_df.empty:
-            st.markdown(f"""
-            <div class="empty-state">
-                <div class="empty-state-icon">🕒</div>
-                <div class="empty-state-text">No predictions yet</div>
-                <div class="empty-state-sub">Add a registration to the Google Sheet
-                    and click "Score new registrations".</div>
-            </div>
-            """, unsafe_allow_html=True)
-            return
-
-        try:
-            predictions_df["_ts"] = pd.to_datetime(
-                predictions_df["timestamp"], errors="coerce")
-            predictions_df = predictions_df.sort_values("_ts", ascending=False)
-        except Exception:
-            pass
-
-        if view_mode == "Latest per pet":
-            display_df = predictions_df.drop_duplicates("registration_id", keep="first")
+            render_live_predictions_disconnected(msgs)
         else:
-            display_df = predictions_df
-
-        display_cols = [
-            "timestamp", "pet_name", "owner_name", "lifecycle_state",
-            "confidence", "recommended_action", "why_explanation",
-            "alert_priority", "alert_sent", "registration_id",
-        ]
-        present_cols = [c for c in display_cols if c in display_df.columns]
-
-        st.markdown(f"#### {view_mode} ({len(display_df):,} rows)")
-        st.dataframe(display_df[present_cols], use_container_width=True,
-                     hide_index=True, height=420)
-
-        st.markdown("---")
-        st.markdown("#### Drill in on one pet")
-        if not display_df.empty:
-            options = [
-                f"{r['pet_name']} | {r.get('owner_name','')} | {r['lifecycle_state']}"
-                for _, r in display_df.iterrows()
-            ]
-            choice = st.selectbox("Select a recent prediction", options, key="drill_sel")
-            idx = options.index(choice)
-            row = display_df.iloc[idx]
-            action = ACTION_PLAYBOOK.get(row["lifecycle_state"], {})
-            st.markdown(f"""
-            <div class="pred-card">
-                <div class="pred-card-title">Predicted Lifecycle State for {row['pet_name']}</div>
-                <div class="pred-card-value">{action.get('icon','')} {row['lifecycle_state']}</div>
-                <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid {BORDER};">
-                    <div class="pred-card-title" style="margin-top:0;">Recommended action</div>
-                    <div style="font-weight:700; font-size:1.15rem; color:{TEXT_DARK}; margin:0.4rem 0;">
-                        {row.get('recommended_action','')}
-                    </div>
-                    <div class="pred-card-action">{action.get('detail','')}</div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
-
-            st.markdown(f"""
-            <div class="why-box">
-                <div class="why-box-title">🤔 Why this recommendation</div>
-                <div class="why-box-text">{row.get('why_explanation','')}</div>
-            </div>
-            """, unsafe_allow_html=True)
+            render_live_predictions_connected(sh, msgs)
 
     with tab_quick:
-        st.markdown("### Predict a single pet manually")
-        st.markdown(
-            '<div class="info-box">Quick check without going through the Google Sheet. '
-            'Use this for demos and ad-hoc testing.</div>',
-            unsafe_allow_html=True,
-        )
-
-        col_input, col_result = st.columns([3, 2], gap="large")
-        with col_input:
-            c1, c2 = st.columns(2)
-            with c1:
-                pet_name = st.text_input("Pet name", value="Bella")
-                breed = st.selectbox("Breed", options=sorted(list(SIZE_BY_BREED.keys())))
-                pet_age = st.slider("Pet age (years)", 0.1, 16.0, 4.0, 0.1)
-                weight = st.slider("Pet weight (lbs)", 4.0, 130.0, 50.0, 1.0)
-            with c2:
-                birthday = st.date_input(
-                    "Pet birthday",
-                    value=datetime.now().date() + timedelta(days=100),
-                    min_value=datetime.now().date() - timedelta(days=365 * 16),
-                )
-                days_since_signup = st.number_input("Days since signup", 0, 1000, 90)
-                n_orders = st.number_input("Total orders placed", 0, 200, 8)
-                days_since_last = st.number_input(
-                    "Days since last order", 0, 500, 7,
-                    help="If they've never ordered, enter 0 and set Total orders to 0.",
-                )
-            predict_btn = st.button("🔮 Predict lifecycle state", use_container_width=True)
-
-        with col_result:
-            if predict_btn:
-                simple = {
-                    "pet_name": pet_name, "breed": breed,
-                    "pet_age": pet_age, "weight": weight, "birthday": birthday,
-                    "days_since_signup": days_since_signup,
-                    "n_orders": n_orders, "days_since_last": days_since_last,
-                }
-                features = auto_compute_features(simple)
-                pred_class, proba = predict_row(features)
-                action = ACTION_PLAYBOOK[pred_class]
-                why = build_why(pred_class, features)
-
-                st.markdown(f"""
-                <div class="pred-card">
-                    <div class="pred-card-title">Predicted Lifecycle State for {pet_name}</div>
-                    <div class="pred-card-value">{action['icon']} {pred_class}</div>
-                    <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid {BORDER};">
-                        <div class="pred-card-title" style="margin-top:0;">Recommended action</div>
-                        <div style="font-weight:700; font-size:1.15rem; color:{TEXT_DARK}; margin:0.4rem 0;">
-                            {action['headline']}
-                        </div>
-                        <div class="pred-card-action">{action['detail']}</div>
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
-
-                st.markdown(f"""
-                <div class="why-box">
-                    <div class="why-box-title">🤔 Why this recommendation</div>
-                    <div class="why-box-text">{why}</div>
-                </div>
-                """, unsafe_allow_html=True)
-
-                st.markdown("#### Class probabilities")
-                proba_df = pd.DataFrame({
-                    "Class": bundle["target_encoder"].inverse_transform(np.arange(len(proba))),
-                    "Probability": proba,
-                }).sort_values("Probability", ascending=False)
-                chart = alt.Chart(proba_df).mark_bar().encode(
-                    x=alt.X("Probability:Q", scale=alt.Scale(domain=[0, 1]),
-                            axis=alt.Axis(format=".0%")),
-                    y=alt.Y("Class:N", sort="-x", axis=alt.Axis(labelFontSize=13)),
-                    color=alt.condition(
-                        alt.datum.Class == pred_class,
-                        alt.value(ACCENT), alt.value(BORDER),
-                    ),
-                    tooltip=["Class", alt.Tooltip("Probability:Q", format=".1%")],
-                ).properties(height=320)
-                st.altair_chart(chart, use_container_width=True)
-
-                single_csv = pd.DataFrame([{
-                    "pet_name": pet_name, "breed": breed, "pet_age": pet_age,
-                    "weight": weight, "birthday": birthday,
-                    "days_since_signup": days_since_signup,
-                    "n_orders": n_orders, "days_since_last": days_since_last,
-                    "predicted_lifecycle": pred_class,
-                    "confidence": round(float(proba.max()), 3),
-                    "recommended_action": action["headline"],
-                    "why_explanation": why,
-                }]).to_csv(index=False)
-                st.download_button(
-                    "⬇️ Save this prediction (CSV)", data=single_csv,
-                    file_name=f"{pet_name}_prediction.csv", mime="text/csv",
-                )
-            else:
-                st.markdown(f"""
-                <div class="empty-state">
-                    <div class="empty-state-icon">🐾</div>
-                    <div class="empty-state-text">
-                        Fill in the 8 fields and click
-                        <span style="color:{ACCENT};">"Predict lifecycle state"</span>
-                    </div>
-                </div>
-                """, unsafe_allow_html=True)
+        render_quick_predict()
 
 
 # ============================================================
-# VIEW: BATCH CSV UPLOAD
+# Other views (unchanged from v3)
 # ============================================================
 def render_batch():
     st.markdown("### 📤 Batch CSV Upload")
@@ -1261,13 +1157,12 @@ def render_batch():
         'lifecycle state for every row, then you download the results.</div>',
         unsafe_allow_html=True,
     )
-
     with st.expander("📋 What columns should my CSV have?"):
         st.markdown("""
 Your CSV must have these 8 columns (any order):
 
 - `pet_name` - text
-- `breed` - text (e.g. Labrador, Golden Retriever)
+- `breed` - text (e.g. Labrador)
 - `pet_age` - decimal (years)
 - `weight` - decimal (lbs)
 - `birthday` - date (YYYY-MM-DD)
@@ -1275,7 +1170,6 @@ Your CSV must have these 8 columns (any order):
 - `n_orders` - integer
 - `days_since_last` - integer
 """)
-
     today = datetime.now().date()
     sample = pd.DataFrame([
         {"pet_name": "Bella", "breed": "Labrador", "pet_age": 4.0, "weight": 60,
@@ -1300,19 +1194,16 @@ Your CSV must have these 8 columns (any order):
     uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
     if uploaded_file is None:
         return
-
     try:
         df = pd.read_csv(uploaded_file)
         st.success(f"✅ Loaded {len(df)} rows from {uploaded_file.name}")
         with st.expander("👀 Preview uploaded data"):
             st.dataframe(df.head(10), use_container_width=True, hide_index=True)
-
         if st.button("🚀 Run predictions on all rows", use_container_width=True):
             with st.spinner(f"Predicting lifecycle for {len(df)} pets..."):
                 result, error = predict_batch(df)
             if error:
-                st.error(f"❌ {error}")
-                return
+                st.error(f"❌ {error}"); return
             st.success(f"✅ Predicted {len(result)} pets successfully")
             pred_counts = result["predicted_lifecycle"].value_counts().reset_index()
             pred_counts.columns = ["Lifecycle State", "Count"]
@@ -1332,9 +1223,6 @@ Your CSV must have these 8 columns (any order):
         st.error(f"❌ Could not read CSV: {e}")
 
 
-# ============================================================
-# VIEW: MODEL PERFORMANCE
-# ============================================================
 def render_performance():
     st.markdown("### 📊 Model Performance")
     m1, m2, m3, m4 = st.columns(4)
@@ -1342,7 +1230,6 @@ def render_performance():
     with m2: st.metric("Weighted F1", f"{metrics['test_weighted_f1']:.3f}")
     with m3: st.metric("Training Samples", "400,000")
     with m4: st.metric("Test Samples", "100,000")
-
     st.markdown("---")
     st.markdown("### Baselines (so the accuracy has context)")
     st.markdown(
@@ -1367,7 +1254,6 @@ def render_performance():
         tooltip=["Approach", alt.Tooltip("Accuracy:Q", format=".1%")],
     ).properties(height=200)
     st.altair_chart(base_chart, use_container_width=True)
-
     st.markdown("---")
     st.markdown("### Per-class F1")
     per_class_df = pd.DataFrame([
@@ -1379,16 +1265,12 @@ def render_performance():
         tooltip=["Class", alt.Tooltip("F1:Q", format=".3f")],
     ).properties(height=320)
     st.altair_chart(cls_chart, use_container_width=True)
-
     st.markdown("### Confusion matrix")
     cm_path = os.path.join(os.path.dirname(__file__), "artifacts", "confusion_matrix.png")
     if os.path.exists(cm_path):
         st.image(cm_path, use_container_width=True)
 
 
-# ============================================================
-# VIEW: SUMMARY STATS
-# ============================================================
 def render_stats():
     st.markdown("### 📈 Training Data Summary")
     st.markdown(
@@ -1396,12 +1278,10 @@ def render_stats():
         'is delivered separately, not exposed in the app.</div>',
         unsafe_allow_html=True,
     )
-
     s1, s2, s3 = st.columns(3)
     with s1: st.metric("Total Samples", f"{summary['total_rows']:,}")
     with s2: st.metric("Features", "23")
     with s3: st.metric("Products", f"{len(summary['products'])}")
-
     st.markdown("---")
     st.markdown("### Lifecycle class distribution")
     class_dist = summary["class_distribution"].reset_index()
@@ -1412,61 +1292,44 @@ def render_stats():
         tooltip=["Class", "Count"],
     ).properties(height=320)
     st.altair_chart(cd_chart, use_container_width=True)
-
     st.markdown("---")
     st.markdown("### Barkley Bites product catalog")
     st.dataframe(summary["products"], use_container_width=True, hide_index=True)
 
 
-# ============================================================
-# VIEW: INSTRUCTIONS
-# ============================================================
 def render_instructions():
     st.markdown("### 📖 Instructions")
     st.markdown(f"""
 This app reads new customer registrations from a Google Sheet, predicts the
 right lifecycle state for each pet using a trained XGBoost model, and writes the
-result back to the same sheet. Schuyler reads predictions in the sheet. The app
-is also where you can run quick manual predictions or upload a CSV.
+result back to the same sheet.
 
 #### 🟢 For Schuyler
 
-1. Open the live URL of this app on any device.
-2. The **Live Predictions** tab is your home view. It shows the latest
-   prediction for every customer.
-3. Each row tells you:
-   - **Lifecycle state** (one of 8 states like NEW_PUPPY or PET_LOSS)
-   - **Recommended action** (a one-line marketing instruction)
-   - **Why this recommendation** (plain-English logic)
-4. **High priority** rows (NEW_PUPPY, PET_LOSS) also trigger an automatic email
-   alert.
-5. The model never sends marketing on its own. It only recommends. You decide
-   whether to act, especially on PET_LOSS rows.
+1. Open the Live Predictions tab. It shows the latest prediction for every pet.
+2. Each row tells you: lifecycle state, recommended action, why-explanation,
+   priority, and the source registration.
+3. High-priority rows (NEW_PUPPY, PET_LOSS) also trigger an email alert.
+4. The model never sends anything automatically. It only recommends.
+5. For PET_LOSS, always review manually before any action.
 
-#### 🔧 For the technical owner
+#### 🔧 Technical owner notes
 
-**Architecture**
+- Source of truth: the Google Sheet with `Registrations` and `Predictions` tabs
+- Website pushes new rows into `Registrations` via an Apps Script Web App
+- This Streamlit app polls Sheets every 30 seconds and scores changed rows
+- Email alerts: separate Apps Script with a time trigger
 
-- Source of truth: Google Sheet with `Registrations` and `Predictions` tabs.
-- Trigger: the website pushes a new row to `Registrations` on each signup.
-- Scoring: this Streamlit app reads `Registrations`, scores changed rows, and
-  appends to `Predictions`.
-- Email alerts: a Google Apps Script attached to the sheet sends an email for
-  every new high-priority row.
+#### Quick Predict tab
 
-**To change the model:** re-train with `scripts/train_model.py`. New artifacts
-overwrite the ones in `artifacts/`. Push. Streamlit Cloud redeploys.
+Always available, even when Sheets is unreachable. Use it for ad-hoc tests and
+live demos.
 
-**To change recommended actions or why-explanations:** edit `ACTION_PLAYBOOK`
-and `build_why()` in `app.py`. Push.
-
-See `SETUP_GUIDE.md` in the repo for full setup details.
+See SETUP_GUIDE.md and WEBSITE_INTEGRATION.md in the repo for full details.
 """)
 
 
-# ============================================================
 # Router
-# ============================================================
 if view == "main":
     render_main()
 elif view == "batch":

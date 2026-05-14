@@ -1,0 +1,375 @@
+<!--
+  Barkley Bites Registration Form - Drop-in HTML
+  FIX-IT-FIVE | DCP Phase 2
+
+  How to use:
+    1. Paste this entire file into the website's signup page, OR copy just the
+       <form>...</form> block plus the <script>...</script> block into your
+       existing page.
+    2. Replace WEB_APP_URL near the bottom of the script with the URL from
+       your Apps Script deployment.
+    3. Styling: feel free to restyle anything in <style>. The structure and
+       field names (the "name" attribute on each input) must stay exact -
+       that is the contract with the Google Sheet.
+
+  Required field names (the model reads these from the sheet):
+    owner_first_name, owner_last_name, owner_email, owner_phone, owner_city,
+    pet_name, pet_breed, pet_birthday, pet_age_years, pet_weight_lbs,
+    pet_sex, health_conditions, signup_source
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join Barkley Bites</title>
+
+<style>
+  :root {
+    --bg-page: #FAF7F2;
+    --bg-card: #F5EFE5;
+    --bg-highlight: #EDE4D3;
+    --border: #E0D5C0;
+    --text-dark: #3D2E20;
+    --text-mid: #6B5B45;
+    --accent: #F26B1F;
+    --accent-dark: #C97A4A;
+    --success: #7A9B6E;
+    --danger: #B85040;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-dark);
+    font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 2rem 1rem;
+  }
+
+  .bb-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 2px 8px rgba(61, 46, 32, 0.06);
+  }
+  .bb-card h1 {
+    color: var(--text-dark);
+    margin: 0 0 0.4rem 0;
+    font-size: 1.85rem;
+    letter-spacing: -0.5px;
+  }
+  .bb-card p.subtitle {
+    color: var(--text-mid);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .bb-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.9rem;
+  }
+  .bb-row > div { flex: 1; }
+  .bb-row .full { flex: 1 1 100%; }
+
+  label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  label .req {
+    color: var(--accent);
+    margin-left: 2px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    background: #FFFFFF;
+    color: var(--text-dark);
+    font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(242, 107, 31, 0.15);
+  }
+  textarea { min-height: 80px; resize: vertical; }
+
+  .bb-submit {
+    width: 100%;
+    margin-top: 1rem;
+    background: var(--accent);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 1.4rem;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .bb-submit:hover:not(:disabled) {
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+  .bb-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .bb-message {
+    margin-top: 1rem;
+    padding: 0.85rem 1.1rem;
+    border-radius: 8px;
+    font-size: 14px;
+    display: none;
+  }
+  .bb-message.success {
+    display: block;
+    background: #EFF3E8;
+    border-left: 4px solid var(--success);
+    color: var(--text-dark);
+  }
+  .bb-message.error {
+    display: block;
+    background: #F5DDD8;
+    border-left: 4px solid var(--danger);
+    color: var(--text-dark);
+  }
+</style>
+</head>
+
+<body>
+
+<div class="bb-card">
+  <h1>🐾 Join Barkley Bites</h1>
+  <p class="subtitle">Tell us about you and your pup. We'll take it from there.</p>
+
+  <form id="bb-registration-form" novalidate>
+
+    <!-- Owner ------------------------------------------------------- -->
+    <div class="bb-row">
+      <div>
+        <label>First name<span class="req">*</span></label>
+        <input type="text" name="owner_first_name" required />
+      </div>
+      <div>
+        <label>Last name<span class="req">*</span></label>
+        <input type="text" name="owner_last_name" required />
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div>
+        <label>Email<span class="req">*</span></label>
+        <input type="email" name="owner_email" required />
+      </div>
+      <div>
+        <label>Phone</label>
+        <input type="tel" name="owner_phone" placeholder="(555) 000-0000" />
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div class="full">
+        <label>City</label>
+        <input type="text" name="owner_city" placeholder="Dallas" />
+      </div>
+    </div>
+
+    <!-- Pet --------------------------------------------------------- -->
+    <div class="bb-row">
+      <div>
+        <label>Pet name<span class="req">*</span></label>
+        <input type="text" name="pet_name" required />
+      </div>
+      <div>
+        <label>Breed<span class="req">*</span></label>
+        <select name="pet_breed" required>
+          <option value="">Choose...</option>
+          <option>Australian Shepherd</option>
+          <option>Beagle</option>
+          <option>Boxer</option>
+          <option>Bulldog</option>
+          <option>Cavalier King Charles</option>
+          <option>Dachshund</option>
+          <option>French Bulldog</option>
+          <option>German Shepherd</option>
+          <option>German Shorthaired Pointer</option>
+          <option>Golden Retriever</option>
+          <option>Labrador</option>
+          <option>Mixed Breed</option>
+          <option>Pembroke Welsh Corgi</option>
+          <option>Poodle</option>
+          <option>Rottweiler</option>
+          <option>Shih Tzu</option>
+          <option>Yorkshire Terrier</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div>
+        <label>Pet birthday</label>
+        <input type="date" name="pet_birthday" />
+      </div>
+      <div>
+        <label>Or age in years (if birthday unknown)</label>
+        <input type="number" name="pet_age_years" min="0" max="25" step="0.1" />
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div>
+        <label>Pet weight (lbs)<span class="req">*</span></label>
+        <input type="number" name="pet_weight_lbs" min="1" max="200" step="0.1" required />
+      </div>
+      <div>
+        <label>Pet sex</label>
+        <select name="pet_sex">
+          <option value="">Choose...</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Unknown</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div class="full">
+        <label>Health conditions (allergies, etc.)</label>
+        <textarea name="health_conditions" placeholder="Optional"></textarea>
+      </div>
+    </div>
+
+    <div class="bb-row">
+      <div class="full">
+        <label>How did you hear about us?</label>
+        <select name="signup_source">
+          <option value="Website">Website</option>
+          <option>Instagram</option>
+          <option>Referral</option>
+          <option>In-person</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="bb-submit" id="bb-submit-btn">
+      Join Barkley Bites
+    </button>
+
+    <div id="bb-message" class="bb-message"></div>
+  </form>
+</div>
+
+
+<script>
+  // ============================================================
+  // Configuration - update this after deploying the Apps Script
+  // ============================================================
+  const WEB_APP_URL =
+    "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+  //  ^^^^ Looks like:
+  //  https://script.google.com/macros/s/AKfycb.../exec
+  //
+  // If you set a SHARED_SECRET inside website_webapp.gs, also set it here:
+  const SHARED_SECRET = "";
+
+  // ============================================================
+  // Form submission handler
+  // ============================================================
+  const form = document.getElementById('bb-registration-form');
+  const submitBtn = document.getElementById('bb-submit-btn');
+  const messageBox = document.getElementById('bb-message');
+
+  function showMessage(text, type) {
+    messageBox.textContent = text;
+    messageBox.className = "bb-message " + type;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    messageBox.className = "bb-message";
+
+    if (WEB_APP_URL.startsWith("PASTE_")) {
+      showMessage(
+        "The form is not configured yet. Set WEB_APP_URL in this page's script.",
+        "error"
+      );
+      return;
+    }
+
+    // Pull form fields into a plain object
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+    if (SHARED_SECRET) payload.secret = SHARED_SECRET;
+
+    // Minimal client-side checks
+    if (!payload.owner_email || !payload.pet_name || !payload.pet_breed) {
+      showMessage("Please fill in the required fields.", "error");
+      return;
+    }
+    if (!payload.pet_birthday && !payload.pet_age_years) {
+      showMessage(
+        "Tell us either your pet's birthday OR their age in years.",
+        "error"
+      );
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    try {
+      // Note: Content-Type is "text/plain" intentionally. This makes the
+      // request a "simple" CORS request so the browser does NOT do a
+      // preflight OPTIONS call (which Apps Script Web Apps cannot handle).
+      // The body is still JSON; the Apps Script parses it manually.
+      const response = await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        redirect: "follow"
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        showMessage(
+          "You're in! Your registration ID is " + result.registration_id +
+          ". We'll be in touch soon.",
+          "success"
+        );
+        form.reset();
+      } else {
+        showMessage(
+          "We couldn't save your registration: " + (result.error || "unknown error"),
+          "error"
+        );
+      }
+    } catch (err) {
+      showMessage(
+        "Network error - please try again. (" + err.message + ")",
+        "error"
+      );
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Join Barkley Bites";
+    }
+  });
+</script>
+
+</body>
+</html>
