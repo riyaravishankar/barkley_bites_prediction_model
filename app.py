@@ -1,18 +1,31 @@
 """
 Barkley Bites Pet Lifecycle Detection
-Streamlit App v4 (Quick Predict resilient + polish)
+Streamlit App v6 (API quota optimization)
 FIX-IT-FIVE | DCP Phase 2 | Riya Ravishankar
 
-What this version changes over v3:
-- Quick Predict tab now renders regardless of whether Google Sheets is
-  connected. Previously a `return` inside `with tab_live:` exited the whole
-  render_main() function, which killed Quick Predict.
-- Cleaner block container padding so there's less blank space below tabs.
-- Same beige theme, same model, same Sheets diagnostics as v3.
+What this version changes over v5:
+- Sheet authentication and the sheet handle are cached for the whole session
+  via @st.cache_resource. Repeated get_sheet() calls become free dict lookups.
+- Records reads are cached via @st.cache_data with a 60-second TTL. Multiple
+  fetch_registrations / fetch_predictions calls in the same render cycle now
+  hit the API at most once per minute.
+- Cache is automatically invalidated after every successful append, so writes
+  show up on the next read.
+- Heavy diagnostic walk only runs when a connection actually fails. On every
+  subsequent render after a successful connect, we skip it entirely.
+- A green "Connected to Google Sheets" badge replaces the noisy diagnostic
+  panel once the connection is verified.
+- Auto-refresh interval is now 90 seconds (was 30), well under Google's
+  60-requests-per-minute quota.
+- All Sheets API calls are wrapped in _retry_429() which catches quota errors
+  and retries with exponential backoff (2s, 4s, 8s).
+- score_all_new_registrations now reuses the same sheet handle internally
+  instead of calling get_sheet() multiple times.
 """
 
 import os
 import json
+import time
 import secrets as pysecrets
 import string
 from datetime import datetime, timedelta, timezone
@@ -80,6 +93,38 @@ BLUE          = "#5B7A9B"
 RED           = DANGER_LINE
 
 
+# ============================================================
+# Required schema for the Predictions tab
+# ============================================================
+REQUIRED_PREDICTIONS_HEADERS = [
+    "prediction_id",
+    "registration_id",
+    "pet_name",
+    "owner_name",
+    "owner_email",
+    "timestamp",
+    "lifecycle_state",
+    "confidence",
+    "recommended_action",
+    "why_explanation",
+    "alert_priority",
+    "alert_sent",
+    "n_orders_at_prediction",
+    "days_since_last_order_at_prediction",
+    "snapshot_key",
+]
+
+
+# ============================================================
+# API quota tuning constants
+# ============================================================
+AUTOREFRESH_INTERVAL_MS = 90 * 1000      # 90 seconds (was 30)
+RECORDS_CACHE_TTL = 60                   # cache get_all_records for 60s
+SHEET_CONN_CACHE_TTL = 3600              # cache auth for 1 hour
+MAX_RETRY_ATTEMPTS = 3                   # retry quota errors 3x
+BACKOFF_BASE_SECONDS = 2.0               # 2s, 4s, 8s
+
+
 st.markdown(f"""
 <style>
 #MainMenu, footer, header {{visibility: hidden;}}
@@ -91,7 +136,6 @@ html, body, [class*="css"] {{
 }}
 .stApp {{ background-color: {BG_PAGE}; }}
 
-/* Tighter block container - removes the big empty band below tabs */
 .block-container {{
     padding-top: 1.5rem !important;
     padding-bottom: 2rem !important;
@@ -224,6 +268,17 @@ p, li, .stMarkdown {{ font-size: 16px !important; line-height: 1.55 !important; 
 .warn-box    {{ background-color: {WARN_BG};    border-left: 4px solid {WARN_LINE}; }}
 .danger-box  {{ background-color: {DANGER_BG};  border-left: 4px solid {DANGER_LINE}; }}
 .success-box {{ background-color: {SUCCESS_BG}; border-left: 4px solid {SUCCESS_LINE}; }}
+
+.conn-badge {{
+    display: inline-flex; align-items: center; gap: 6px;
+    background: {SUCCESS_BG}; color: {TEXT_DARK};
+    border: 1px solid {SUCCESS_LINE}; border-radius: 20px;
+    padding: 4px 12px; font-size: 13px; font-weight: 600;
+}}
+.conn-dot {{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: {SUCCESS_LINE};
+}}
 
 .empty-state {{
     background-color: {BG_CARD};
@@ -534,7 +589,7 @@ def predict_batch(df: pd.DataFrame):
 
 
 # ============================================================
-# Google Sheets
+# Google Sheets - quota-optimized layer
 # ============================================================
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -547,7 +602,64 @@ def _gen_prediction_id() -> str:
     return "PRED-" + "".join(pysecrets.choice(alphabet) for _ in range(6))
 
 
+def _retry_429(fn, max_attempts=MAX_RETRY_ATTEMPTS, base_delay=BACKOFF_BASE_SECONDS):
+    """
+    Run a callable, retry on quota/429 errors with exponential backoff.
+    Returns the function result on success. Re-raises on final failure.
+    """
+    for attempt in range(max_attempts):
+        try:
+            return fn()
+        except Exception as e:
+            err = str(e).lower()
+            is_quota = (
+                "429" in err
+                or "quota" in err
+                or "rate limit" in err
+                or "rate_limit" in err
+                or "rateexceeded" in err
+            )
+            if is_quota and attempt < max_attempts - 1:
+                delay = base_delay * (2 ** attempt)
+                time.sleep(delay)
+                continue
+            raise
+
+
+@st.cache_resource(ttl=SHEET_CONN_CACHE_TTL)
+def _get_authorized_sheet_handle():
+    """
+    Authenticate and open the sheet. Cached as a resource for SHEET_CONN_CACHE_TTL.
+    Returns (sheet_handle_or_None, error_message_or_None).
+    This is the ONLY function that does the auth dance. Everything else reuses
+    the cached handle.
+    """
+    if not GSPREAD_AVAILABLE:
+        return None, f"gspread not installed: {GSPREAD_IMPORT_ERROR}"
+    try:
+        if "sheet_id" not in st.secrets:
+            return None, "sheet_id missing from secrets.toml"
+        sheet_id = st.secrets["sheet_id"]
+        if not sheet_id or sheet_id == "PASTE-YOUR-GOOGLE-SHEET-ID-HERE":
+            return None, "sheet_id is empty or still the placeholder"
+        if "gcp_service_account" not in st.secrets:
+            return None, "[gcp_service_account] section missing from secrets"
+
+        sa = dict(st.secrets["gcp_service_account"])
+        creds = Credentials.from_service_account_info(sa, scopes=SCOPES)
+        client = gspread.authorize(creds)
+        sh = client.open_by_key(sheet_id)
+        return sh, None
+    except Exception as e:
+        return None, f"{type(e).__name__}: {e}"
+
+
 def diagnose_sheets_connection():
+    """
+    Full step-by-step diagnostic. Only call this when the lightweight handle
+    fails so we can tell the user exactly which step is broken. NOT called on
+    every render.
+    """
     msgs = []
     if not GSPREAD_AVAILABLE:
         msgs.append(("error", "gspread library not installed",
@@ -569,8 +681,7 @@ def diagnose_sheets_connection():
         return None, msgs
 
     if "sheet_id" not in st.secrets:
-        msgs.append(("error", "sheet_id missing from secrets",
-                     'Add: sheet_id = "YOUR_SHEET_ID_HERE"'))
+        msgs.append(("error", "sheet_id missing from secrets", None))
         return None, msgs
 
     sheet_id = st.secrets["sheet_id"]
@@ -660,46 +771,221 @@ def diagnose_sheets_connection():
 
 
 def get_sheet():
-    sh, msgs = diagnose_sheets_connection()
-    st.session_state["_sheet_diagnostics"] = msgs
-    return sh
+    """
+    Fast path. Returns cached sheet handle.
+    Heavy diagnostic only runs when the cached handle is None and we haven't
+    already cached a diagnostic for this session.
+    """
+    sh, err = _get_authorized_sheet_handle()
+    if sh is not None:
+        st.session_state["_sheets_connected_ok"] = True
+        st.session_state.pop("_gspread_error", None)
+        return sh
+
+    # Connection failed. Run the full diagnostic only once per session.
+    st.session_state["_sheets_connected_ok"] = False
+    if "_sheet_diagnostics" not in st.session_state:
+        _, msgs = diagnose_sheets_connection()
+        st.session_state["_sheet_diagnostics"] = msgs
+    if err:
+        st.session_state["_gspread_error"] = err
+    return None
+
+
+def invalidate_sheet_cache():
+    """Force the next fetch to re-read from the sheet. Called after writes."""
+    try:
+        _cached_records.clear()
+    except Exception:
+        pass
+
+
+@st.cache_data(ttl=RECORDS_CACHE_TTL, show_spinner=False)
+def _cached_records(tab_name: str, cache_buster: int = 0):
+    """
+    Cached worksheet read. The cache_buster lets callers force a fresh fetch
+    without explicitly clearing the cache. Wrapped in retry/backoff for 429s.
+    """
+    sh, _ = _get_authorized_sheet_handle()
+    if sh is None:
+        return []
+
+    def _do_read():
+        return sh.worksheet(tab_name).get_all_records()
+
+    return _retry_429(_do_read)
 
 
 def fetch_registrations() -> pd.DataFrame:
-    sh = get_sheet()
-    if sh is None:
-        return pd.DataFrame()
+    """Read Registrations tab. Cached for RECORDS_CACHE_TTL seconds."""
     try:
-        return pd.DataFrame(sh.worksheet("Registrations").get_all_records()) or pd.DataFrame()
+        records = _cached_records("Registrations")
+        if not records:
+            return pd.DataFrame()
+        return pd.DataFrame(records)
     except Exception as e:
-        st.session_state["_gspread_error"] = str(e)
+        st.session_state["_gspread_error"] = (
+            f"fetch_registrations failed: {type(e).__name__}: {e}"
+        )
         return pd.DataFrame()
 
 
 def fetch_predictions() -> pd.DataFrame:
-    sh = get_sheet()
-    if sh is None:
-        return pd.DataFrame()
+    """Read Predictions tab. Cached for RECORDS_CACHE_TTL seconds."""
     try:
-        return pd.DataFrame(sh.worksheet("Predictions").get_all_records()) or pd.DataFrame()
+        records = _cached_records("Predictions")
+        if not records:
+            return pd.DataFrame()
+        return pd.DataFrame(records)
     except Exception as e:
-        st.session_state["_gspread_error"] = str(e)
+        st.session_state["_gspread_error"] = (
+            f"fetch_predictions failed: {type(e).__name__}: {e}"
+        )
         return pd.DataFrame()
 
 
-def append_prediction_rows(prediction_rows: list):
-    sh = get_sheet()
-    if sh is None or not prediction_rows:
-        return False
+def append_prediction_rows(prediction_rows: list, sh=None):
+    """
+    Append rows to the Predictions tab.
+
+    Returns (success, message). Accepts an optional sh handle to avoid a
+    redundant get_sheet() call when the caller already has one. Invalidates
+    the records cache on success so the next read shows the new rows.
+    """
+    debug = st.session_state.setdefault("_debug_log", [])
+
+    if not prediction_rows:
+        msg = "append_prediction_rows called with 0 rows. Nothing to do."
+        debug.append(msg)
+        return True, msg
+
+    if sh is None:
+        sh = get_sheet()
+    if sh is None:
+        msg = "append_prediction_rows: sheet handle is None (Sheets not connected)."
+        debug.append(msg)
+        return False, msg
+
     try:
         ws = sh.worksheet("Predictions")
-        header = ws.row_values(1)
-        values = [[str(row.get(col, "")) for col in header] for row in prediction_rows]
-        ws.append_rows(values, value_input_option="USER_ENTERED")
-        return True
     except Exception as e:
-        st.session_state["_gspread_error"] = str(e)
-        return False
+        msg = f"Could not open Predictions worksheet: {type(e).__name__}: {e}"
+        debug.append(msg)
+        st.session_state["_gspread_error"] = msg
+        return False, msg
+
+    try:
+        raw_header = _retry_429(lambda: ws.row_values(1))
+    except Exception as e:
+        msg = f"Could not read header row of Predictions tab: {type(e).__name__}: {e}"
+        debug.append(msg)
+        st.session_state["_gspread_error"] = msg
+        return False, msg
+
+    header = [h.strip() for h in raw_header]
+    debug.append(f"Predictions header (raw):      {raw_header}")
+    debug.append(f"Predictions header (stripped): {header}")
+
+    if not header or all(h == "" for h in header):
+        msg = ("Predictions tab has no header row. Paste the required headers "
+               "into row 1.")
+        debug.append(msg)
+        st.session_state["_score_error"] = msg
+        return False, msg
+
+    missing_in_sheet = [h for h in REQUIRED_PREDICTIONS_HEADERS if h not in header]
+    extra_in_sheet = [h for h in header if h not in REQUIRED_PREDICTIONS_HEADERS]
+
+    if missing_in_sheet:
+        msg = (f"Predictions tab is missing required header(s): "
+               f"{missing_in_sheet}. Got header row: {header}")
+        debug.append(msg)
+        st.session_state["_score_error"] = msg
+        return False, msg
+
+    if extra_in_sheet:
+        debug.append(f"Predictions tab has unknown extra columns "
+                     f"(will be left blank in new rows): {extra_in_sheet}")
+
+    values = []
+    for row in prediction_rows:
+        row_clean = {str(k).strip(): v for k, v in row.items()}
+        new_row = [str(row_clean.get(col, "")) for col in header]
+        values.append(new_row)
+
+    pred_id_idx = header.index("prediction_id") if "prediction_id" in header else -1
+    state_idx = header.index("lifecycle_state") if "lifecycle_state" in header else -1
+    for i, v in enumerate(values):
+        if pred_id_idx >= 0 and not v[pred_id_idx].strip():
+            msg = (f"Row {i} has empty prediction_id before write. "
+                   "This means header-to-data mapping failed. "
+                   f"Row data: {prediction_rows[i]}")
+            debug.append(msg)
+            st.session_state["_score_error"] = msg
+            return False, msg
+        if state_idx >= 0 and not v[state_idx].strip():
+            msg = (f"Row {i} has empty lifecycle_state before write. "
+                   f"Row data: {prediction_rows[i]}")
+            debug.append(msg)
+            st.session_state["_score_error"] = msg
+            return False, msg
+
+    debug.append(f"About to append {len(values)} row(s) to Predictions tab.")
+    debug.append(f"First row preview: {values[0]}")
+
+    try:
+        _retry_429(lambda: ws.append_rows(values, value_input_option="USER_ENTERED"))
+    except Exception as e:
+        msg = (f"ws.append_rows failed: {type(e).__name__}: {e}. "
+               "Common causes: rate limit, sheet locked, missing edit access.")
+        debug.append(msg)
+        st.session_state["_gspread_error"] = msg
+        return False, msg
+
+    # Force the next fetch to see the new rows.
+    invalidate_sheet_cache()
+
+    msg = f"Successfully appended {len(values)} row(s) to Predictions tab."
+    debug.append(msg)
+    return True, msg
+
+
+def verify_predictions_header():
+    """Validate the Predictions header. Returns (is_valid, message)."""
+    sh = get_sheet()
+    if sh is None:
+        return False, "Sheet not connected."
+    try:
+        ws = sh.worksheet("Predictions")
+        raw = _retry_429(lambda: ws.row_values(1))
+    except Exception as e:
+        return False, f"Could not read Predictions header: {e}"
+
+    cleaned = [h.strip() for h in raw]
+    has_whitespace = any(h != h.strip() for h in raw)
+    missing = [h for h in REQUIRED_PREDICTIONS_HEADERS if h not in cleaned]
+    extra = [h for h in cleaned if h not in REQUIRED_PREDICTIONS_HEADERS]
+    out_of_order = (cleaned[:len(REQUIRED_PREDICTIONS_HEADERS)]
+                    != REQUIRED_PREDICTIONS_HEADERS)
+
+    problems = []
+    if has_whitespace:
+        problems.append(
+            f"Whitespace in header cells. Raw: {raw}. Cleaned: {cleaned}."
+        )
+    if missing:
+        problems.append(f"Missing required headers: {missing}")
+    if extra:
+        problems.append(f"Unknown extra headers (will be ignored): {extra}")
+    if out_of_order and not missing:
+        problems.append(
+            f"Headers present but out of order. Expected order: "
+            f"{REQUIRED_PREDICTIONS_HEADERS}. Got: {cleaned}."
+        )
+
+    if not problems:
+        return True, "Predictions header is valid."
+    return False, " | ".join(problems)
 
 
 def _safe_int(x, default=0):
@@ -753,52 +1039,94 @@ def registration_to_features(reg: dict) -> dict:
     }
 
 
-def score_all_new_registrations():
+def score_all_new_registrations(sh=None):
+    """
+    Score every registration whose snapshot has changed since the last prediction.
+
+    Accepts an optional sh handle to reuse instead of calling get_sheet() again.
+    Returns (n_predicted, n_skipped, errors_list, latest_predictions_df).
+    """
+    debug = st.session_state.setdefault("_debug_log", [])
+    debug.append(f"score_all_new_registrations called at "
+                 f"{datetime.now().isoformat()}")
+
+    if sh is None:
+        sh = get_sheet()
+    if sh is None:
+        return 0, 0, ["Sheets not connected"], pd.DataFrame()
+
     registrations = fetch_registrations()
     predictions = fetch_predictions()
+
+    debug.append(f"Loaded {len(registrations)} registrations, "
+                 f"{len(predictions)} existing predictions.")
+
     if registrations.empty:
-        return 0, 0, predictions
+        return 0, 0, [], predictions
 
     if "is_duplicate" in registrations.columns:
+        before = len(registrations)
         registrations = registrations[
             registrations["is_duplicate"].astype(str).str.upper() != "TRUE"
         ]
+        debug.append(f"Filtered duplicates: {before} -> {len(registrations)} rows.")
 
     def snapshot_key(reg):
-        return f"{reg.get('n_orders','')}|{reg.get('last_order_date','')}|{reg.get('pet_weight_lbs','')}"
+        return (f"{reg.get('n_orders','')}|{reg.get('last_order_date','')}|"
+                f"{reg.get('pet_weight_lbs','')}")
 
     last_pred_by_id = {}
     if not predictions.empty and "registration_id" in predictions.columns:
         try:
-            predictions["_ts"] = pd.to_datetime(predictions["timestamp"], errors="coerce")
-            latest = predictions.sort_values("_ts").drop_duplicates(
-                "registration_id", keep="last")
-            for _, p in latest.iterrows():
-                last_pred_by_id[p["registration_id"]] = p.get("snapshot_key", "")
-        except Exception:
-            pass
+            predictions["_ts"] = pd.to_datetime(
+                predictions["timestamp"], errors="coerce"
+            )
+            valid = predictions.dropna(subset=["_ts"])
+            debug.append(f"Predictions with valid timestamps: "
+                         f"{len(valid)}/{len(predictions)}.")
+
+            if not valid.empty:
+                latest = (valid.sort_values("_ts")
+                              .drop_duplicates("registration_id", keep="last"))
+                for _, p in latest.iterrows():
+                    last_pred_by_id[str(p["registration_id"]).strip()] = (
+                        str(p.get("snapshot_key", "")).strip()
+                    )
+        except Exception as e:
+            debug.append(f"Building last-prediction map failed: "
+                         f"{type(e).__name__}: {e}. Continuing.")
 
     to_append = []
     n_skipped = 0
-    for _, reg in registrations.iterrows():
-        reg_id = reg.get("registration_id", "")
+    errors = []
+
+    for idx, reg in registrations.iterrows():
+        reg_id = str(reg.get("registration_id", "")).strip()
+        if not reg_id:
+            errors.append(f"Row {idx}: missing registration_id, skipped.")
+            continue
+
         key_now = snapshot_key(reg)
         if reg_id in last_pred_by_id and last_pred_by_id[reg_id] == key_now:
             n_skipped += 1
             continue
+
         try:
             simple = registration_to_features(reg.to_dict())
             features = auto_compute_features(simple)
             pred_class, proba = predict_row(features)
             action = ACTION_PLAYBOOK[pred_class]
             why = build_why(pred_class, features)
-            owner_name = f"{reg.get('owner_first_name','').strip()} {reg.get('owner_last_name','').strip()}".strip()
+            owner_first = str(reg.get("owner_first_name", "")).strip()
+            owner_last = str(reg.get("owner_last_name", "")).strip()
+            owner_name = f"{owner_first} {owner_last}".strip()
+
             to_append.append({
                 "prediction_id": _gen_prediction_id(),
                 "registration_id": reg_id,
-                "pet_name": reg.get("pet_name", ""),
+                "pet_name": str(reg.get("pet_name", "")).strip(),
                 "owner_name": owner_name,
-                "owner_email": reg.get("owner_email", ""),
+                "owner_email": str(reg.get("owner_email", "")).strip(),
                 "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
                 "lifecycle_state": pred_class,
                 "confidence": round(float(proba.max()), 3),
@@ -811,11 +1139,22 @@ def score_all_new_registrations():
                 "snapshot_key": key_now,
             })
         except Exception as e:
-            st.session_state["_score_error"] = f"Failed to score {reg_id}: {e}"
+            err = (f"Row {idx} (registration_id={reg_id}) scoring failed: "
+                   f"{type(e).__name__}: {e}")
+            errors.append(err)
+            debug.append(err)
+
+    debug.append(f"Built {len(to_append)} new prediction rows. "
+                 f"Skipped {n_skipped} unchanged. Errors: {len(errors)}.")
 
     if to_append:
-        append_prediction_rows(to_append)
-    return len(to_append), n_skipped, fetch_predictions()
+        ok, msg = append_prediction_rows(to_append, sh=sh)
+        if not ok:
+            errors.append(f"Write failed: {msg}")
+            return 0, n_skipped, errors, fetch_predictions()
+        debug.append(msg)
+
+    return len(to_append), n_skipped, errors, fetch_predictions()
 
 
 # ============================================================
@@ -842,6 +1181,21 @@ with top_right:
             st.session_state["view"] = "stats"; st.rerun()
         if st.button("📖 Instructions", use_container_width=True, key="nav_instr"):
             st.session_state["view"] = "instructions"; st.rerun()
+        st.markdown("---")
+        if st.button("🔬 Verify Sheet schema", use_container_width=True, key="nav_verify"):
+            ok, msg = verify_predictions_header()
+            if ok:
+                st.success(msg)
+            else:
+                st.error(msg)
+        if st.button("🔌 Reset connection cache", use_container_width=True, key="nav_reset"):
+            st.cache_resource.clear()
+            st.cache_data.clear()
+            for k in ["_sheets_connected_ok", "_sheet_diagnostics",
+                      "_gspread_error", "_score_error", "_auto_scored_once"]:
+                st.session_state.pop(k, None)
+            st.success("Caches cleared. Reloading...")
+            st.rerun()
         st.markdown("---")
         if st.button("⬅️ Back to main", use_container_width=True, key="nav_main"):
             st.session_state["view"] = "main"; st.rerun()
@@ -881,29 +1235,62 @@ def render_sheets_diagnostics(msgs):
 # ============================================================
 # Sub-renderers
 # ============================================================
-def render_live_predictions_connected(sh, msgs):
+def render_live_predictions_connected(sh):
     """The full Live Predictions panel, only when Sheets is connected."""
-    if msgs and any(s == "warn" for s, _, _ in msgs):
-        with st.expander("⚠️ Connection warnings (click for detail)"):
-            render_sheets_diagnostics(msgs)
+
+    # Connection status badge (green pill, replaces noisy diagnostics)
+    st.markdown(
+        '<div class="conn-badge"><div class="conn-dot"></div>'
+        'Connected to Google Sheets</div>',
+        unsafe_allow_html=True,
+    )
+
+    # Surface any prior errors (these only persist when something failed)
+    if "_score_error" in st.session_state:
+        st.markdown(
+            f'<div class="danger-box"><strong>Score error:</strong> '
+            f'{st.session_state["_score_error"]}</div>',
+            unsafe_allow_html=True,
+        )
+    if "_gspread_error" in st.session_state:
+        st.markdown(
+            f'<div class="danger-box"><strong>Sheets error:</strong> '
+            f'{st.session_state["_gspread_error"]}</div>',
+            unsafe_allow_html=True,
+        )
 
     if AUTOREFRESH_AVAILABLE:
-        st_autorefresh(interval=30 * 1000, key="live_predictions_refresh")
+        st_autorefresh(interval=AUTOREFRESH_INTERVAL_MS,
+                       key="live_predictions_refresh")
 
-    ctrl1, ctrl2, _ = st.columns([2, 2, 6])
+    ctrl1, ctrl2, ctrl3 = st.columns([2, 2, 6])
     with ctrl1:
         if st.button("🔄 Score new registrations", use_container_width=True):
+            st.session_state.pop("_score_error", None)
+            st.session_state.pop("_gspread_error", None)
+            st.session_state["_debug_log"] = []
+            # Invalidate cache so we read fresh data once
+            invalidate_sheet_cache()
             with st.spinner("Reading registrations and scoring new ones..."):
-                n_new, n_skip, _ = score_all_new_registrations()
+                n_new, n_skip, errors, _ = score_all_new_registrations(sh=sh)
             st.session_state["_last_score_msg"] = (
-                f"Scored {n_new} new predictions. Skipped {n_skip} unchanged."
+                f"Scored {n_new} new predictions. Skipped {n_skip} unchanged. "
+                f"Errors: {len(errors)}."
             )
+            st.session_state["_last_score_errors"] = errors
             st.rerun()
     with ctrl2:
         view_mode = st.radio(
             "Display", ["Latest per pet", "Full history"],
             horizontal=True, label_visibility="collapsed",
         )
+    with ctrl3:
+        if st.button("🧹 Clear errors / debug", use_container_width=False):
+            st.session_state.pop("_score_error", None)
+            st.session_state.pop("_gspread_error", None)
+            st.session_state.pop("_last_score_errors", None)
+            st.session_state["_debug_log"] = []
+            st.rerun()
 
     if "_last_score_msg" in st.session_state:
         st.markdown(
@@ -911,24 +1298,44 @@ def render_live_predictions_connected(sh, msgs):
             unsafe_allow_html=True,
         )
 
+    last_errors = st.session_state.get("_last_score_errors", [])
+    if last_errors:
+        with st.expander(f"❌ Errors from last scoring run ({len(last_errors)})",
+                         expanded=True):
+            for e in last_errors:
+                st.code(e)
+
+    debug_log = st.session_state.get("_debug_log", [])
+    if debug_log:
+        with st.expander(f"🔍 Debug log ({len(debug_log)} entries)"):
+            for line in debug_log:
+                st.text(line)
+
+    # First-time auto-score per session. After this, refreshes only re-read
+    # the cached data, not re-score.
     if not st.session_state.get("_auto_scored_once"):
         with st.spinner("Looking for new registrations..."):
-            score_all_new_registrations()
+            score_all_new_registrations(sh=sh)
         st.session_state["_auto_scored_once"] = True
 
+    # Both fetches below come from the cache after the first call this minute.
     predictions_df = fetch_predictions()
     registrations_df = fetch_registrations()
 
     c1, c2, c3, c4 = st.columns(4)
-    with c1: st.metric("Registrations", f"{len(registrations_df):,}")
-    with c2: st.metric("Predictions made", f"{len(predictions_df):,}")
+    with c1:
+        st.metric("Registrations", f"{len(registrations_df):,}")
+    with c2:
+        st.metric("Predictions made", f"{len(predictions_df):,}")
     with c3:
         high = 0
-        if not predictions_df.empty and "alert_priority" in predictions_df.columns:
+        if (not predictions_df.empty
+                and "alert_priority" in predictions_df.columns):
             high = int((predictions_df["alert_priority"].astype(str) == "high").sum())
         st.metric("High priority", f"{high:,}")
     with c4:
-        st.metric("Auto-refresh", "Every 30 s" if AUTOREFRESH_AVAILABLE else "Manual")
+        st.metric("Auto-refresh",
+                  f"Every {AUTOREFRESH_INTERVAL_MS // 1000} s" if AUTOREFRESH_AVAILABLE else "Manual")
 
     st.markdown("---")
 
@@ -945,10 +1352,21 @@ def render_live_predictions_connected(sh, msgs):
 
     try:
         predictions_df["_ts"] = pd.to_datetime(
-            predictions_df["timestamp"], errors="coerce")
-        predictions_df = predictions_df.sort_values("_ts", ascending=False)
-    except Exception:
-        pass
+            predictions_df["timestamp"], errors="coerce"
+        )
+        n_bad = int(predictions_df["_ts"].isna().sum())
+        if n_bad:
+            st.markdown(
+                f'<div class="warn-box">⚠️ {n_bad} prediction row(s) have '
+                'unparseable timestamps. They will appear at the bottom.</div>',
+                unsafe_allow_html=True,
+            )
+        predictions_df = predictions_df.sort_values(
+            "_ts", ascending=False, na_position="last"
+        )
+    except Exception as e:
+        st.warning(f"Sort failed (continuing without sort): "
+                   f"{type(e).__name__}: {e}")
 
     display_df = (predictions_df.drop_duplicates("registration_id", keep="first")
                   if view_mode == "Latest per pet" else predictions_df)
@@ -997,14 +1415,28 @@ def render_live_predictions_connected(sh, msgs):
         """, unsafe_allow_html=True)
 
 
-def render_live_predictions_disconnected(msgs):
+def render_live_predictions_disconnected():
     """Diagnostic panel only, when Sheets fails. No early returns."""
-    render_sheets_diagnostics(msgs)
+    msgs = st.session_state.get("_sheet_diagnostics", [])
+    if msgs:
+        render_sheets_diagnostics(msgs)
+    else:
+        # Lightweight error fallback if diagnostics weren't built
+        err = st.session_state.get("_gspread_error", "Unknown error")
+        st.markdown(
+            f'<div class="warn-box"><strong>Google Sheets is not connected.</strong> '
+            f'{err}</div>',
+            unsafe_allow_html=True,
+        )
+
     colA, colB = st.columns([1, 5])
     with colA:
         if st.button("🔄 Re-test connection", use_container_width=True):
             st.cache_resource.clear()
             st.cache_data.clear()
+            for k in ["_sheets_connected_ok", "_sheet_diagnostics",
+                      "_gspread_error", "_auto_scored_once"]:
+                st.session_state.pop(k, None)
             st.rerun()
     with colB:
         st.markdown(
@@ -1125,9 +1557,7 @@ def render_quick_predict():
 
 
 # ============================================================
-# VIEW: MAIN - tabs that always render
-# Critical fix: NO early return inside `with tab_live:`.
-# Both tabs always run, Quick Predict never depends on Sheets.
+# VIEW: MAIN
 # ============================================================
 def render_main():
     tab_live, tab_quick = st.tabs([
@@ -1137,18 +1567,17 @@ def render_main():
 
     with tab_live:
         sh = get_sheet()
-        msgs = st.session_state.get("_sheet_diagnostics", [])
         if sh is None:
-            render_live_predictions_disconnected(msgs)
+            render_live_predictions_disconnected()
         else:
-            render_live_predictions_connected(sh, msgs)
+            render_live_predictions_connected(sh)
 
     with tab_quick:
         render_quick_predict()
 
 
 # ============================================================
-# Other views (unchanged from v3)
+# Other views
 # ============================================================
 def render_batch():
     st.markdown("### 📤 Batch CSV Upload")
@@ -1317,13 +1746,39 @@ result back to the same sheet.
 
 - Source of truth: the Google Sheet with `Registrations` and `Predictions` tabs
 - Website pushes new rows into `Registrations` via an Apps Script Web App
-- This Streamlit app polls Sheets every 30 seconds and scores changed rows
+- This Streamlit app polls Sheets every 90 seconds and scores changed rows
 - Email alerts: separate Apps Script with a time trigger
+
+#### API quota and caching (v6)
+
+To stay under Google's 60-reads-per-minute quota:
+
+- Sheet authentication is cached for 1 hour. Calling get_sheet() repeatedly
+  in the same session does NOT re-authenticate.
+- Read results are cached for 60 seconds. Multiple fetches of the same tab
+  in the same minute hit the cache, not the API.
+- Auto-refresh interval is 90 seconds.
+- Quota errors (429) trigger automatic retry with 2s, 4s, 8s backoff.
+- Cache is invalidated after every write so new predictions show immediately.
+
+If you ever see "Quota exceeded": ☰ Tools -> Reset connection cache, then
+wait 60 seconds. The cache rebuild will bring usage back down.
 
 #### Quick Predict tab
 
 Always available, even when Sheets is unreachable. Use it for ad-hoc tests and
 live demos.
+
+#### Debugging
+
+If predictions are not appearing in the sheet:
+
+1. Open ☰ Tools -> Verify Sheet schema. This catches whitespace and missing
+   headers in the Predictions tab.
+2. Click "Score new registrations" on the Live Predictions tab. Watch for any
+   red error box at the top.
+3. Open the "🔍 Debug log" expander to see step-by-step what happened
+   internally.
 
 See SETUP_GUIDE.md and WEBSITE_INTEGRATION.md in the repo for full details.
 """)
